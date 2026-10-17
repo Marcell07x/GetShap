@@ -14,7 +14,8 @@ import 'package:timezone/timezone.dart' as tz;
 //        - one day after that:                   the "quick workout?" reminder
 //        - four days after the next workout day: "don't give up"
 //      every batch clears the still pending ones first, so a workout in
-//      between restarts the chain from the streak reminder
+//      between restarts the chain from the streak reminder; a finished
+//      workout also removes the ones already shown (out of date by then)
 //
 //the reminders are scheduled in the device's own time zone
 //Sometimes there won't be notification, when a workout is available,
@@ -168,6 +169,17 @@ class ScheduleNotifications {
             await flutterLocalNotificationsPlugin.cancelAllPendingNotifications();
         } catch (e) {
             debugPrint('cancelPending failed: $e');
+        }
+    }
+
+    //clears every notification of the app: the pending ones and the ones
+    //already shown that the user has not swiped away yet. Needs no
+    //permission either
+    static Future<void> cancelAll() async {
+        try {
+            await flutterLocalNotificationsPlugin.cancelAll();
+        } catch (e) {
+            debugPrint('cancelAll failed: $e');
         }
     }
 

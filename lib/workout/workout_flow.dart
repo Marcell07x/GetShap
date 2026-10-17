@@ -181,6 +181,17 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
         //next-workout day
         final levelAfter = prefs.getInt('level') ?? levelF;
         await WorkoutSignal.onWorkoutFinished(levelF, levelAfter);
+        //removes the notifications still in the tray that the user has not
+        //swiped away (an old streak / reminder / "don't give up" one is out
+        //of date after a workout), the pending ones with them. Before
+        //laterNoti, so the new chain is not cleared too. Best effort like
+        //laterNoti below
+        try {
+            await ScheduleNotifications.cancelAll()
+                .timeout(const Duration(seconds: 5));
+        } catch (e) {
+            debugPrint('cancelAll failed: $e');
+        }
         //clears the pending notifications and schedules the three
         //after-workout ones at once (streak reminder, the reminder a day
         //later, the "don't give up" message). Best effort: if scheduling
