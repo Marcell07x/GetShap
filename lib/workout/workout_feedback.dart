@@ -107,35 +107,45 @@ class _WorkoutFeedbackState extends State<WorkoutFeedback> {
                                 AppSpacing.xl,
                                 AppSpacing.xl,
                             ),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                    // ---- Header -------------------------------------
-                                    Text(
-                                        l10n.feedback.toUpperCase(),
-                                        textAlign: TextAlign.center,
-                                        style: AppText.eyebrow.copyWith(color: AppColors.n500),
-                                    ),
-                                    const SizedBox(height: AppSpacing.sm),
-                                    Text(
-                                        l10n.howWasTheWorkout,
-                                        textAlign: TextAlign.center,
-                                        style: AppText.headlineMedium.copyWith(color: AppColors.n900),
-                                    ),
+                            // The whole page scrolls once it no longer fits:
+                            // at the largest system font the header, the card
+                            // and the button alone are taller than the screen.
+                            // Until then spaceBetween keeps the header at the
+                            // top, the card and button at the bottom, and the
+                            // hero centred in the free space between them.
+                            child: LayoutBuilder(
+                                builder: (context, constraints) => SingleChildScrollView(
+                                    child: ConstrainedBox(
+                                        constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                                        child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                                            children: [
+                                                // ---- Header -----------------------------
+                                                Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                                                    children: [
+                                                        Text(
+                                                            l10n.feedback.toUpperCase(),
+                                                            textAlign: TextAlign.center,
+                                                            style: AppText.eyebrow.copyWith(color: AppColors.n500),
+                                                        ),
+                                                        const SizedBox(height: AppSpacing.sm),
+                                                        Text(
+                                                            l10n.howWasTheWorkout,
+                                                            textAlign: TextAlign.center,
+                                                            style: AppText.headlineMedium.copyWith(color: AppColors.n900),
+                                                        ),
+                                                    ],
+                                                ),
 
-                                    // ---- Hero: emoji + number + label ---------------
-                                    // Centred in the free space, but scrollable:
-                                    // the badge and the numeral are fixed-size,
-                                    // so at a large system font they otherwise
-                                    // overflow the space the card and button
-                                    // leave behind.
-                                    Expanded(
-                                        child: LayoutBuilder(
-                                            builder: (context, constraints) => SingleChildScrollView(
-                                                child: ConstrainedBox(
-                                                    constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                                                // ---- Hero: number + label ---------------
+                                                // The padding only shows once the page
+                                                // scrolls; with room to spare, the free
+                                                // space around it is equal either way.
+                                                Padding(
+                                                    padding: const EdgeInsets.symmetric(vertical: AppSpacing.xl),
                                                     child: Column(
-                                                        mainAxisAlignment: MainAxisAlignment.center,
                                                         children: [
                                                             // The number is the answer, so the number is
                                                             // the hero. The emoji badge that used to sit
@@ -172,56 +182,61 @@ class _WorkoutFeedbackState extends State<WorkoutFeedback> {
                                                         ],
                                                     ),
                                                 ),
-                                            ),
-                                        ),
-                                    ),
 
-                                    // ---- Slider card --------------------------------
-                                    AppCard(
-                                        radius: AppRadius.lg,
-                                        shadow: AppShadows.md,
-                                        padding: const EdgeInsets.fromLTRB(
-                                            AppSpacing.xl,
-                                            AppSpacing.lg,
-                                            AppSpacing.xl,
-                                            AppSpacing.md,
-                                        ),
-                                        child: Column(
-                                            children: [
-                                                // Ten bars rather than a slider: the value *is*
-                                                // discrete (divisions: 9 on a 1–10 slider), and a
-                                                // continuous gradient track hid that. Each step is
-                                                // its own tap target, and the rising heights say
-                                                // "harder to the right" without needing colour.
-                                                _RpeScale(
-                                                    value: _rpeValue,
-                                                    ink: effortInk,
-                                                    onChanged: (double value) {
-                                                        setState(() => _rpeValue = value);
-                                                    },
-                                                ),
-                                                const SizedBox(height: AppSpacing.md),
-                                                Row(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.stretch,
                                                     children: [
-                                                        _ScaleEnd(number: '1', label: l10n.rpe1),
-                                                        _ScaleEnd(number: '10', label: l10n.rpe910, alignEnd: true),
+                                                        // ---- Slider card ------------------------
+                                                        AppCard(
+                                                            radius: AppRadius.lg,
+                                                            shadow: AppShadows.md,
+                                                            padding: const EdgeInsets.fromLTRB(
+                                                                AppSpacing.xl,
+                                                                AppSpacing.lg,
+                                                                AppSpacing.xl,
+                                                                AppSpacing.md,
+                                                            ),
+                                                            child: Column(
+                                                                children: [
+                                                                    // Ten bars rather than a slider: the value *is*
+                                                                    // discrete (divisions: 9 on a 1–10 slider), and a
+                                                                    // continuous gradient track hid that. Each step is
+                                                                    // its own tap target, and the rising heights say
+                                                                    // "harder to the right" without needing colour.
+                                                                    _RpeScale(
+                                                                        value: _rpeValue,
+                                                                        ink: effortInk,
+                                                                        onChanged: (double value) {
+                                                                            setState(() => _rpeValue = value);
+                                                                        },
+                                                                    ),
+                                                                    const SizedBox(height: AppSpacing.md),
+                                                                    Row(
+                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                            _ScaleEnd(number: '1', label: l10n.rpe1),
+                                                                            _ScaleEnd(number: '10', label: l10n.rpe910, alignEnd: true),
+                                                                        ],
+                                                                    ),
+                                                                ],
+                                                            ),
+                                                        ),
+
+                                                        const SizedBox(height: AppSpacing.xl),
+
+                                                        // ---- Continue button --------------------
+                                                        AppButton(
+                                                            label: l10n.next,
+                                                            size: AppButtonSize.md,
+                                                            trailingIcon: Icons.arrow_forward_rounded,
+                                                            onPressed: _submit,
+                                                        ),
                                                     ],
                                                 ),
                                             ],
                                         ),
                                     ),
-
-                                    const SizedBox(height: AppSpacing.xl),
-
-                                    // ---- Continue button ----------------------------
-                                    AppButton(
-                                        label: l10n.next,
-                                        size: AppButtonSize.md,
-                                        trailingIcon: Icons.arrow_forward_rounded,
-                                        onPressed: _submit,
-                                    ),
-                                ],
+                                ),
                             ),
                         ),
                     ),

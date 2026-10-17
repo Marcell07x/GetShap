@@ -99,23 +99,39 @@ class AppScaffold extends StatelessWidget {
                         automaticallyImplyLeading: showBack,
                     )),
             body: SafeArea(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                        Expanded(
-                            child: Padding(padding: padding, child: content),
-                        ),
-                        if (bottomBar != null)
-                            Padding(
-                                padding: EdgeInsets.fromLTRB(
-                                    padding.left,
-                                    AppSpacing.md,
-                                    padding.right,
-                                    AppSpacing.xl,
+                child: LayoutBuilder(
+                    builder: (BuildContext context, BoxConstraints constraints) {
+                        return Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                                Expanded(
+                                    child: Padding(padding: padding, child: content),
                                 ),
-                                child: bottomBar,
-                            ),
-                    ],
+                                if (bottomBar != null)
+                                    // Never taller than the page. A bar that
+                                    // would be — the consent checkbox's legal
+                                    // sentence at the largest system font —
+                                    // scrolls inside itself instead of pushing
+                                    // its button off the bottom; one that fits
+                                    // is laid out exactly as before.
+                                    ConstrainedBox(
+                                        constraints: BoxConstraints(maxHeight: constraints.maxHeight),
+                                        child: SingleChildScrollView(
+                                            primary: false,
+                                            child: Padding(
+                                                padding: EdgeInsets.fromLTRB(
+                                                    padding.left,
+                                                    AppSpacing.md,
+                                                    padding.right,
+                                                    AppSpacing.xl,
+                                                ),
+                                                child: bottomBar,
+                                            ),
+                                        ),
+                                    ),
+                            ],
+                        );
+                    },
                 ),
             ),
         );

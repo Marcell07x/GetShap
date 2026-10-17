@@ -47,24 +47,28 @@ class StreakFreezeSlot extends StatelessWidget {
                         child: Icon(Icons.ac_unit, color: ink, size: 32),
                     ),
                     const SizedBox(width: AppSpacing.lg),
-                    Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                            Text(
-                                loc.streakFreeze,
-                                style: AppText.titleMedium.copyWith(
-                                    color: hasFreeze ? AppColors.n900 : AppColors.n500,
+                    // Flexible, so at a large system font the name wraps
+                    // instead of running off the right edge.
+                    Flexible(
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                                Text(
+                                    loc.streakFreeze,
+                                    style: AppText.titleMedium.copyWith(
+                                        color: hasFreeze ? AppColors.n900 : AppColors.n500,
+                                    ),
                                 ),
-                            ),
-                            const SizedBox(height: AppSpacing.xxs),
-                            Text(
-                                '$stored / $capacity',
-                                style: AppText.numeral(AppText.bodySmall).copyWith(
-                                    color: AppColors.n500,
+                                const SizedBox(height: AppSpacing.xxs),
+                                Text(
+                                    '$stored / $capacity',
+                                    style: AppText.numeral(AppText.bodySmall).copyWith(
+                                        color: AppColors.n500,
+                                    ),
                                 ),
-                            ),
-                        ],
+                            ],
+                        ),
                     ),
                 ],
             ),

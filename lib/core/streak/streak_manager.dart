@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:getshap/core/debug_clock.dart';
 import 'package:getshap/core/streak/streak_date_utils.dart';
@@ -34,6 +35,16 @@ class StreakManager {
     //completion and a concurrent home refresh) can never interleave their
     //key-by-key save() and leave the stored state inconsistent
     static Future<void> _opChain = Future.value();
+
+    //tests only: every widget test runs in its own fake-async zone, and a
+    //chain left behind by an earlier test schedules the next operation in
+    //that dead zone, where it never runs - the streak page then never
+    //leaves its spinner
+    @visibleForTesting
+    static void resetForTest() {
+        _opChain = Future.value();
+    }
+
     static Future<void> _run(Future<void> Function() action) {
         final done = _opChain.then((_) => action());
         //swallow errors on the chain so a failed op does not block later

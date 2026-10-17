@@ -65,26 +65,45 @@ class _StreakPageState extends State<StreakPage> {
             ),
             body: _loading
                 ? const Center(child: CircularProgressIndicator())
-                : Column(
-                    children: [
-                        const SizedBox(height: AppSpacing.xl),
-                        _buildHero(loc),
-                        const SizedBox(height: AppSpacing.xxl),
-                        AppCard(
-                            padding: const EdgeInsets.all(AppSpacing.md),
-                            shadow: AppShadows.md,
-                            child: StreakCalendar(
-                                streak: _streak,
-                                startDate: _startDate,
-                                freezeDays: _freezeDays,
-                                workoutDays: _workoutDays,
-                                todayPending: _todayPending,
+                // Scrolls once it no longer fits (a large system font). Until
+                // then spaceBetween puts the freeze slot at the bottom, where
+                // a Spacer used to.
+                : LayoutBuilder(
+                    builder: (context, constraints) => SingleChildScrollView(
+                        child: ConstrainedBox(
+                            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                    Column(
+                                        children: [
+                                            const SizedBox(height: AppSpacing.xl),
+                                            _buildHero(loc),
+                                            const SizedBox(height: AppSpacing.xxl),
+                                            AppCard(
+                                                padding: const EdgeInsets.all(AppSpacing.md),
+                                                shadow: AppShadows.md,
+                                                child: StreakCalendar(
+                                                    streak: _streak,
+                                                    startDate: _startDate,
+                                                    freezeDays: _freezeDays,
+                                                    workoutDays: _workoutDays,
+                                                    todayPending: _todayPending,
+                                                ),
+                                            ),
+                                        ],
+                                    ),
+                                    Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: AppSpacing.xxl,
+                                            bottom: AppSpacing.xxxl,
+                                        ),
+                                        child: StreakFreezeSlot(hasFreeze: _hasFreeze),
+                                    ),
+                                ],
                             ),
                         ),
-                        const Spacer(),
-                        StreakFreezeSlot(hasFreeze: _hasFreeze),
-                        const SizedBox(height: AppSpacing.xxxl),
-                    ],
+                    ),
                 ),
         );
     }

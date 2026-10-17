@@ -48,36 +48,47 @@ class CongratulationsScreen extends StatelessWidget {
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: <Widget>[
+                                    // Centred above the button, but scrollable:
+                                    // at the largest system font the title,
+                                    // the counter and the message are taller
+                                    // than the space the button leaves.
                                     Expanded(
-                                        child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: <Widget>[
-                                                Text(
-                                                    l10n.congrat,
-                                                    textAlign: TextAlign.center,
-                                                    style: AppText.headlineLarge.copyWith(
-                                                        color: AppColors.onBrand,
+                                        child: LayoutBuilder(
+                                            builder: (context, constraints) => SingleChildScrollView(
+                                                child: ConstrainedBox(
+                                                    constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                                                    child: Column(
+                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                        children: <Widget>[
+                                                            Text(
+                                                                l10n.congrat,
+                                                                textAlign: TextAlign.center,
+                                                                style: AppText.headlineLarge.copyWith(
+                                                                    color: AppColors.onBrand,
+                                                                ),
+                                                            ),
+                                                            const SizedBox(height: AppSpacing.xl),
+                                                            const StreakIncrease(),
+                                                            const SizedBox(height: AppSpacing.md),
+                                                            Text(
+                                                                l10n.workoutStreak.toUpperCase(),
+                                                                textAlign: TextAlign.center,
+                                                                style: AppText.eyebrow.copyWith(
+                                                                    color: AppColors.brand200,
+                                                                ),
+                                                            ),
+                                                            const SizedBox(height: AppSpacing.xxxl),
+                                                            Text(
+                                                                l10n.congratMessage,
+                                                                textAlign: TextAlign.center,
+                                                                style: AppText.titleMedium.copyWith(
+                                                                    color: AppColors.onBrand,
+                                                                ),
+                                                            ),
+                                                        ],
                                                     ),
                                                 ),
-                                                const SizedBox(height: AppSpacing.xl),
-                                                const StreakIncrease(),
-                                                const SizedBox(height: AppSpacing.md),
-                                                Text(
-                                                    l10n.workoutStreak.toUpperCase(),
-                                                    textAlign: TextAlign.center,
-                                                    style: AppText.eyebrow.copyWith(
-                                                        color: AppColors.brand200,
-                                                    ),
-                                                ),
-                                                const SizedBox(height: AppSpacing.xxxl),
-                                                Text(
-                                                    l10n.congratMessage,
-                                                    textAlign: TextAlign.center,
-                                                    style: AppText.titleMedium.copyWith(
-                                                        color: AppColors.onBrand,
-                                                    ),
-                                                ),
-                                            ],
+                                            ),
                                         ),
                                     ),
                                     AppButton(

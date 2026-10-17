@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:getshap/core/streak/streak_manager.dart';
 import 'package:getshap/core/streak/streak_page.dart';
 import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/onboarding/consent_page.dart';
@@ -61,6 +62,10 @@ void main() {
         String locale, {
         double textScale = 1.0,
     }) async {
+        // Without this, every streak page after the first one stays on its
+        // spinner: StreakManager's operation chain would still belong to the
+        // fake-async zone of an earlier test.
+        StreakManager.resetForTest();
         tester.view.physicalSize = const Size(1080, 2340);
         tester.view.devicePixelRatio = 3.0;
         addTearDown(tester.view.resetPhysicalSize);
@@ -75,6 +80,9 @@ void main() {
         // Long enough for the streak animation's staged delays to run out.
         await tester.pump(const Duration(milliseconds: 900));
         await tester.pump(const Duration(milliseconds: 900));
+        // A screen still on its spinner would pass every layout check without
+        // its real content ever being laid out.
+        expect(find.byType(CircularProgressIndicator), findsNothing);
     }
 
     final Map<String, Widget Function()> screens = <String, Widget Function()>{
