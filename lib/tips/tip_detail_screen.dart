@@ -7,8 +7,10 @@ import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_typography.dart';
 
 class TipDetailScreen extends StatelessWidget {
+    /// "Mindset", "Edzés" or "Diéta", shown in front of "TIPP" in the header.
+    final String type;
     final String tip;
-    const TipDetailScreen({super.key, required this.tip});
+    const TipDetailScreen({super.key, required this.type, required this.tip});
 
     @override
     Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class TipDetailScreen extends StatelessWidget {
             swipeToPop: true,
             centerScrollable: true,
             body: AppCard.section(
+                eyebrowPrefix: type,
                 eyebrow: l.tip,
                 child: Text(
                     tip,

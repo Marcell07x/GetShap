@@ -166,6 +166,9 @@
     "important": "Fontos",
     "finishWarning": "Az appban edzésnél csak akkor nyomd meg a 'Befejezés' gombot, ha tényleg befejezted az edzést. \n\nEz egy visszajelzés az appnak.",
     "tip": "Tipp",
+    "tipTypePrinciples": "Mindset",
+    "tipTypeWorkout": "Edzés",
+    "tipTypeDiet": "Diéta",
     
     "principles1": "Legfőbb cél: Soha ne hagyd teljesen abba - akkor biztosan eléred, amit szeretnél.",
     "principles2": "Inkább legyen az edzés nagyon könnyű, minthogy ne edz rendszeresen.",

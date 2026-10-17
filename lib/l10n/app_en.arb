@@ -172,6 +172,9 @@
     "important": "Important",
     "finishWarning": "Only press the ‘Finish’ button once you have actually completed the workout.\n\nThis serves as feedback for the app.",
     "tip": "Tip",
+    "tipTypePrinciples": "Mindset",
+    "tipTypeWorkout": "Workout",
+    "tipTypeDiet": "Diet",
     
     "principles1": "Main goal: Never quit completely — that's the one sure way to get where you want to be.",
     "principles2": "An easy workout beats skipping it entirely.",

@@ -33,6 +33,7 @@ import 'package:getshap/common/side_menu.dart';
 import 'package:getshap/dev/debug_buttons.dart';
 import 'package:getshap/tips/tip_manager.dart';
 import 'package:getshap/tips/tips_data.dart';
+import 'package:getshap/tips/tip_type.dart';
 
 void main() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -281,6 +282,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     Widget _buildTipCard(AppLocalizations loc) {
         return AppCard.section(
+            // "MINDSET TIPP". Not while loading: until the tip manager has
+            // run there is no tip id, and the type would read "Edzés".
+            eyebrowPrefix: _isTipLoading ? null : getTipType(context),
             eyebrow: loc.tip,
             // A tip the user has not seen this session gets a faint brand tint
             // instead of the old highlighter yellow.
@@ -289,8 +293,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ? null
                 : () => Navigator.of(context).push(
                     CupertinoPageRoute<void>(
-                        builder: (context) =>
-                            TipDetailScreen(tip: _getTipText(context)),
+                        builder: (context) => TipDetailScreen(
+                            type: getTipType(context),
+                            tip: _getTipText(context),
+                        ),
                     ),
                 ),
             child: _isTipLoading

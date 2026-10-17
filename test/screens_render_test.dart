@@ -96,7 +96,7 @@ void main() {
             onNext: (_, __) {},
         ),
         'health warning': () => const FinishWarning(),
-        'tip detail': () => const TipDetailScreen(tip: _huSample),
+        'tip detail': () => const TipDetailScreen(type: 'Mindset', tip: _huSample),
         'rest day': () => const NextWorkoutPage(),
         'feedback': () => const WorkoutFeedback(),
         'congratulations': () => const CongratulationsScreen(),

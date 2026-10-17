@@ -914,6 +914,24 @@ abstract class AppLocalizations {
   /// **'Tip'**
   String get tip;
 
+  /// No description provided for @tipTypePrinciples.
+  ///
+  /// In en, this message translates to:
+  /// **'Mindset'**
+  String get tipTypePrinciples;
+
+  /// No description provided for @tipTypeWorkout.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout'**
+  String get tipTypeWorkout;
+
+  /// No description provided for @tipTypeDiet.
+  ///
+  /// In en, this message translates to:
+  /// **'Diet'**
+  String get tipTypeDiet;
+
   /// No description provided for @principles1.
   ///
   /// In en, this message translates to:
