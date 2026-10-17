@@ -653,7 +653,7 @@ abstract class AppLocalizations {
   /// No description provided for @streakNotiBody.
   ///
   /// In en, this message translates to:
-  /// **'Don\'t forget to extend your workout streak 🔥'**
+  /// **'Don\'t forget to extend your workout streak'**
   String get streakNotiBody;
 
   /// No description provided for @dontGiveUpNotiTitle.

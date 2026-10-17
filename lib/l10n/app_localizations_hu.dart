@@ -295,7 +295,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get streakNotiBody =>
-      'Ne felejtsd el meghosszabbítani az edzés streak-edet 🔥';
+      'Ne felejtsd el meghosszabbítani az edzés streak-edet';
 
   @override
   String get dontGiveUpNotiTitle => 'Ne add fel!';
