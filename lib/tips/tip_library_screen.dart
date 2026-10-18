@@ -7,6 +7,7 @@ import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_spacing.dart';
 import 'package:getshap/theme/app_typography.dart';
+import 'package:getshap/tips/cut_tip_text.dart';
 import 'package:getshap/tips/tip_detail_screen.dart';
 import 'package:getshap/tips/tip_manager.dart';
 import 'package:getshap/tips/tips_data.dart';
@@ -60,10 +61,9 @@ class TipLibraryScreen extends StatelessWidget {
                                     builder: (context) => TipDetailScreen(type: type, tip: tip),
                                 ),
                             ),
-                            child: Text(
+                            child: CutTipText(
                                 tip,
                                 maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
                                 style: AppText.bodyMedium.copyWith(color: AppColors.n900),
                             ),
                         );

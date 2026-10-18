@@ -29,6 +29,7 @@ import 'package:getshap/core/checkdata.dart';
 import 'package:getshap/core/prefs_migration.dart';
 import 'package:getshap/workout/next_workout_page.dart';
 import 'package:getshap/tips/tip_detail_screen.dart';
+import 'package:getshap/tips/cut_tip_text.dart';
 import 'package:getshap/common/side_menu.dart';
 import 'package:getshap/dev/debug_buttons.dart';
 import 'package:getshap/tips/tip_manager.dart';
@@ -317,10 +318,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 // (fontWeight:) would silently do nothing here.
                 // Three lines, then an ellipsis: the full tip is one tap away on
                 // the detail screen, at the same size.
-                : Text(
+                : CutTipText(
                     _getTipText(context),
                     maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
                     style: AppText.weight(AppText.titleLarge, 400).copyWith(
                         color: AppColors.n900,
                         height: 1.45,
