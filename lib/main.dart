@@ -315,15 +315,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 // 15px bodyMedium it shared with metadata everywhere else.
                 // `weight` keeps the variable font's axis in step — copyWith
                 // (fontWeight:) would silently do nothing here.
-                // Six lines, not four. At the old 15px, four lines held all but
-                // two of the eighteen tips; at 20px they hold twelve, so a third
-                // of them would end in an ellipsis the user has to tap through.
-                // Six lines at the larger size restores the original fit — and
-                // the home screen has the room, since the tip is all that is on
-                // it.
+                // Three lines, then an ellipsis: the full tip is one tap away on
+                // the detail screen, at the same size.
                 : Text(
                     _getTipText(context),
-                    maxLines: 6,
+                    maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: AppText.weight(AppText.titleLarge, 400).copyWith(
                         color: AppColors.n900,

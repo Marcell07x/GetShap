@@ -23,9 +23,14 @@ class TipDetailScreen extends StatelessWidget {
             body: AppCard.section(
                 eyebrowPrefix: type,
                 eyebrow: l.tip,
+                // The home screen's tip size, so opening the card does not
+                // shrink the text it just showed.
                 child: Text(
                     tip,
-                    style: AppText.bodyLarge.copyWith(color: AppColors.n600),
+                    style: AppText.weight(AppText.titleLarge, 400).copyWith(
+                        color: AppColors.n600,
+                        height: 1.45,
+                    ),
                 ),
             ),
         );
