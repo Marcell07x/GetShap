@@ -10,7 +10,7 @@ import 'package:getshap/tips/tip_library_screen.dart';
 import 'package:getshap/tips/tips_data.dart';
 
 /// Which page the side menu is currently showing.
-enum SideMenuView { menu, contact, tips }
+enum SideMenuView { menu, contact, tipLibrary }
 
 class SideMenu extends StatelessWidget {
     final VoidCallback onSetLevelPressed;
@@ -21,7 +21,7 @@ class SideMenu extends StatelessWidget {
     // current view so the Android back button can step
     // sub-page -> menu -> home.
     final SideMenuView view;
-    final VoidCallback onTipsPressed;
+    final VoidCallback onTipLibraryPressed;
     final VoidCallback onContactPressed;
     final VoidCallback onBackToMenuPressed;
 
@@ -32,7 +32,7 @@ class SideMenu extends StatelessWidget {
         required this.onDumpStatePressed,
         required this.onFormPressed,
         required this.view,
-        required this.onTipsPressed,
+        required this.onTipLibraryPressed,
         required this.onContactPressed,
         required this.onBackToMenuPressed,
     });
@@ -86,8 +86,8 @@ class SideMenu extends StatelessWidget {
         switch (view) {
             case SideMenuView.contact:
                 return _buildContactView(context);
-            case SideMenuView.tips:
-                return _buildTipsView(context);
+            case SideMenuView.tipLibrary:
+                return _buildTipLibraryView(context);
             case SideMenuView.menu:
                 return _buildMenuView(context);
         }
@@ -157,8 +157,8 @@ class SideMenu extends StatelessWidget {
             children: [
                 ListTile(
                     leading: const Icon(Icons.lightbulb_outline),
-                    title: Text(loc.tips),
-                    onTap: onTipsPressed,
+                    title: Text(loc.tipLibrary),
+                    onTap: onTipLibraryPressed,
                 ),
                 ListTile(
                     leading: const Icon(Icons.person_outline),
@@ -207,7 +207,7 @@ class SideMenu extends StatelessWidget {
     /// The three tip types, split the same way as getTipType. Each opens its
     /// own page; the drawer stays open underneath, so stepping back from that
     /// page lands here again.
-    Widget _buildTipsView(BuildContext context) {
+    Widget _buildTipLibraryView(BuildContext context) {
         final loc = AppLocalizations.of(context)!;
         return _menuList(
             children: [

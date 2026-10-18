@@ -932,11 +932,11 @@ abstract class AppLocalizations {
   /// **'Diet'**
   String get tipTypeDiet;
 
-  /// No description provided for @tips.
+  /// No description provided for @tipLibrary.
   ///
   /// In en, this message translates to:
-  /// **'Tips'**
-  String get tips;
+  /// **'Tip library'**
+  String get tipLibrary;
 
   /// No description provided for @noTipsYet.
   ///
