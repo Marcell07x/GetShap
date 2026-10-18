@@ -38,8 +38,8 @@ abstract final class AppTheme {
     ///
     /// The navigation bar takes the colour of the page it sits under, so the
     /// back button and its neighbours read as part of the screen rather than a
-    /// strip laid across the bottom of it. The two screens that are full-bleed
-    /// brand blue therefore get a blue bar, not a pale one.
+    /// strip laid across the bottom of it. The congratulations page, the one
+    /// full-bleed brand blue screen, therefore gets a blue bar, not a pale one.
     ///
     /// The icon brightness is derived from the colour rather than passed in, so
     /// a caller cannot pair a dark background with dark icons and make the

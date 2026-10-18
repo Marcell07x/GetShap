@@ -96,8 +96,8 @@ class SideMenu extends StatelessWidget {
     /// Branded header band: the logo mark and wordmark, separated from the list
     /// below by a hairline.
     ///
-    /// The bundled mark is white, for the blue splash. On the white panel it
-    /// would be invisible, so it is tinted to the brand blue here rather than
+    /// The bundled mark is white. On the white panel it would be invisible, so
+    /// it is tinted to the brand blue here, as on the splash, rather than
     /// shipping a second artwork.
     Widget _buildHeader(BuildContext context) {
         final double topPad = MediaQuery.of(context).padding.top;

@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 /// icon (sampled from `assets/icon/icon.png`). Nothing outside this file should
 /// declare a colour literal.
 ///
-/// The layout story is: **blue chrome, light content**. The splash, the app bar
-/// and the side menu are brand blue with white on them; pages are a faintly
-/// blue-tinted off-white with white cards and near-black text. That keeps the
-/// white logo mark legible everywhere it appears without needing a second
-/// artwork, and leaves the primary button as the one saturated element on an
-/// otherwise calm page.
+/// The layout story is: **light screens, blue spent where a decision is**. The
+/// splash, the app bar and the pages are a faintly blue-tinted off-white, with
+/// white cards, a white side menu and near-black text. The white logo mark is
+/// tinted brand blue wherever it appears, so it needs no second artwork. That
+/// leaves the primary button as the one saturated element on an otherwise calm
+/// page.
 abstract final class AppColors {
     // ---------------------------------------------------------------- brand
 

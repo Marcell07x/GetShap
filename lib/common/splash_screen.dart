@@ -4,15 +4,17 @@ import 'package:flutter/services.dart';
 import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_theme.dart';
 
-/// Branded launch splash: a full brand-blue field with the app's white logo
-/// mark fading and scaling in at the centre. After [minDuration] it replaces
+/// Branded launch splash: the app's logo mark in brand blue, fading and scaling
+/// in at the centre of the page background. After [minDuration] it replaces
 /// itself with [nextBuilder]'s screen.
 ///
-/// The blue field is not decoration — `logo_mark.png` is pure white, so it
-/// needs a saturated ground to be visible at all. Keeping the splash blue also
-/// lets the native Android and iOS launch screens use the same colour, so the
-/// cold start is one continuous blue from the launcher icon to the first
-/// Flutter frame.
+/// `logo_mark.png` is pure white, so it is tinted here, as in the side menu,
+/// rather than shipping a second, blue artwork.
+///
+/// The background is the same [AppColors.pageBg] as the screen that follows,
+/// so the hand-over fades only the content. The native Android and iOS launch
+/// screens use the same colour too, so the cold start is one continuous
+/// background from the launcher icon to the first screen.
 class SplashScreen extends StatefulWidget {
     /// Builds the screen to show once the splash finishes (home or onboarding).
     final WidgetBuilder nextBuilder;
@@ -74,14 +76,13 @@ class _SplashScreenState extends State<SplashScreen>
     @override
     Widget build(BuildContext context) {
         // No app bar here, so AppBarTheme's overlay style never applies — set it
-        // directly or the status bar icons stay dark on the blue. Both bars take
-        // this screen's own blue; what used to be wrong was not the colour but
-        // that nothing set it back afterwards, so it followed the user through
-        // the entire app.
+        // directly. The page is the ordinary page background, so the bars are
+        // the ordinary ones too, and they do not change as the next screen
+        // fades in.
         return AnnotatedRegion<SystemUiOverlayStyle>(
-            value: AppTheme.systemBarsOn(AppColors.brand500),
+            value: AppTheme.systemBars,
             child: Scaffold(
-                backgroundColor: AppColors.brand500,
+                backgroundColor: AppColors.pageBg,
                 body: Center(
                     child: FadeTransition(
                         opacity: _fade,
@@ -91,6 +92,7 @@ class _SplashScreenState extends State<SplashScreen>
                                 'assets/icon/logo_mark.png',
                                 width: MediaQuery.of(context).size.width * 0.52,
                                 filterQuality: FilterQuality.high,
+                                color: AppColors.brand500,
                             ),
                         ),
                     ),
