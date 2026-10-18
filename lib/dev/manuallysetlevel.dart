@@ -47,7 +47,7 @@ class ManuallySetLevel {
     }
 
     static Future<int?> showDaysInputDialog(BuildContext context) async {
-        TextEditingController controller = TextEditingController(text: '2');
+        TextEditingController controller = TextEditingController();
 
         return await showDialog<int>(
             context: context,

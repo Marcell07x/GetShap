@@ -256,7 +256,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onAdvanceDayPressed: () => DebugButtonsLogic.handleAdvanceDayPressed(
                         context: context,
-                        refresh: _checkWorkout,
+                        refresh: () async {
+                            await _checkWorkout();
+                            // A new day can bring a new tip as well.
+                            await _initTipManager();
+                        },
                     ),
                     onDumpStatePressed: () => DebugButtonsLogic.handleDumpStatePressed(context),
                     onFormPressed: () => DebugButtonsLogic.handleFormPressed(context),

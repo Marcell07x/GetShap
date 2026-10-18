@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:getshap/core/debug_clock.dart';
 import 'package:getshap/tips/tip_library_backfill.dart';
 import 'package:getshap/tips/tips_data.dart';
 
@@ -41,7 +42,9 @@ class TipManager {
         currentTipId = prefs.getString(_keyLastTipId);
         // Store days since epoch instead of milliseconds
         final lastChangeDay = prefs.getInt(_keyLastTipChangeTime) ?? 0;
-        final today = DateTime.now().millisecondsSinceEpoch ~/ (24 * 60 * 60 * 1000);
+        // DebugClock, so the Advance day(s) debug button rotates the tip too.
+        // Outside debug builds it is DateTime.now().
+        final today = DebugClock.now().millisecondsSinceEpoch ~/ (24 * 60 * 60 * 1000);
         
         bool shouldChangeTip = false;
         if (currentTipId == null || (today - lastChangeDay >= 3)) {

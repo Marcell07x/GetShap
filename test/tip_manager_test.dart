@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:getshap/core/debug_clock.dart';
 import 'package:getshap/tips/tip_manager.dart';
 import 'package:getshap/tips/tips_data.dart';
 
@@ -81,6 +82,31 @@ void main() {
         expect(TipManager().currentTipId, 'principles2');
         expect(tipLibrary, ['principles1', 'principles2']);
         expect(prefs.getStringList('tipLibrary'), ['principles1', 'principles2']);
+    });
+
+    test('the Advance day(s) debug clock rotates the tip too', () async {
+        SharedPreferences.setMockInitialValues({
+            'tipLibrary': ['principles1'],
+            'seenTipsA': ['principles1'],
+            'lastTipId': 'principles1',
+            'lastTipChangeTime': today(),
+        });
+        addTearDown(() async {
+            //back to an offset of 0 for the other tests
+            SharedPreferences.setMockInitialValues({});
+            await DebugClock.load();
+        });
+
+        //two days are not enough yet...
+        await DebugClock.advance(2);
+        await TipManager().initialize();
+        expect(TipManager().currentTipId, 'principles1');
+
+        //...one more makes three since the last change
+        await DebugClock.advance(1);
+        await TipManager().initialize();
+        expect(TipManager().currentTipId, 'principles2');
+        expect(TipManager().tipLibrary, ['principles1', 'principles2']);
     });
 
     test('a tip given again in a new round is not added twice', () async {
