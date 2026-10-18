@@ -94,7 +94,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get pseudoPush => 'Pszeudo Fekvőtámasz';
 
   @override
-  String get dipPush => 'Tolóckodás';
+  String get dipPush => 'Tolódzkodás';
 
   @override
   String get bagPull => 'Táskás/Súlyzós Evezés';
@@ -106,7 +106,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get bwPull => 'Alacsony Rudas Evezés';
 
   @override
-  String get pullup => 'Húzóckodás';
+  String get pullup => 'Húzódzkodás';
 
   @override
   String get squat1 => 'Kapaszkodással Guggolás';
@@ -207,7 +207,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get weightLoss => 'Fogyás';
 
   @override
-  String get muscleBuild => 'Izomosodás';
+  String get muscleBuild => 'Izmosodás';
 
   @override
   String get genderQuestion => 'Mi a nemed?';
@@ -282,7 +282,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get workoutReminderTitle => 'Egy kis edzés? 💪';
 
   @override
-  String get workoutReminderBody => 'Épp egy új szokást építesz ki - Nyomjad!';
+  String get workoutReminderBody => 'Épp egy új szokást építesz ki - nyomjad!';
 
   @override
   String get welcomeNotiTitle => 'Vágj bele az edzésbe';
@@ -319,11 +319,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get tablePushDesc =>
-      'Helyezd a kezeidet egy stabil asztal szélére, vállszélességnél kicsivel szélesebbre.\nA könyökeidet tartsd a testedtől nagyjából 30-45 fokra, a testedet pedig tartsd egy egyenes vonalban. Engedd le magad olyan mélyre, amennyire csak tudod, majd nyomd ki magad.\nMinél alacsonyabban helyre teszed a kezed, annál nehezebb a gyakorlat.';
+      'Helyezd a kezeidet egy stabil asztal szélére, vállszélességnél kicsivel szélesebbre.\nA könyökeidet tartsd a testedtől nagyjából 30-45 fokra, a testedet pedig tartsd egy egyenes vonalban. Engedd le magad olyan mélyre, amennyire csak tudod, majd nyomd ki magad.\nMinél alacsonyabb helyre teszed a kezed, annál nehezebb a gyakorlat.';
 
   @override
   String get diamondTablePushDesc =>
-      'Helyezd a kezeidet egy stabil asztal szélére, egymáshoz közel, úgy, hogy mutató és a hüvelyk ujjaid egy nagyjából egy háromszöget rajzoljanak ki, és a kezeid ne csússzanak előre.\nA könyökeidet tartsd közel a testedhez, a testedet pedig tartsd egy egyenes vonalban. Engedd le magad olyan mélyre, amennyire csak tudod, majd nyomd ki magad.\nMinél alacsonyabban helyre teszed a kezed, annál nehezebb a gyakorlat.';
+      'Helyezd a kezeidet egy stabil asztal szélére, egymáshoz közel, úgy, hogy a mutató- és hüvelykujjaid nagyjából egy háromszöget rajzoljanak ki, és a kezeid ne csússzanak előre.\nA könyökeidet tartsd közel a testedhez, a testedet pedig tartsd egy egyenes vonalban. Engedd le magad olyan mélyre, amennyire csak tudod, majd nyomd ki magad.\nMinél alacsonyabb helyre teszed a kezed, annál nehezebb a gyakorlat.';
 
   @override
   String get kneePushDesc =>
@@ -343,19 +343,19 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get pseudoPushDesc =>
-      'Tedd a kezeidet vállszélesre, és kicsit fordítsd kifelé.\nDőlj előre úgy, hogy a kezeid valahol a vállaid és a csípőd között van. Feszítsd a vállaidat lefelé, amennyire csak tudod, kétféleképpen is, egyrészt a föld felé, másrészt meg lefele a törzsed felé. Ezt a vállpozíciót próbáld tartani végig, amennyire tudod. Közben szorítsd össze a hasad.\nMinél jobban előredőlsz, annál nehezebb a gyakorlat.';
+      'Tedd a kezeidet vállszélesre, és kicsit fordítsd kifelé.\nDőlj előre úgy, hogy a kezeid valahol a vállaid és a csípőd között legyenek. Feszítsd a vállaidat lefelé, amennyire csak tudod, kétféleképpen is, egyrészt a föld felé, másrészt meg lefele a törzsed felé. Ezt a vállpozíciót próbáld tartani végig, amennyire tudod. Közben szorítsd össze a hasad.\nMinél jobban előredőlsz, annál nehezebb a gyakorlat.';
 
   @override
   String get dipPushDesc =>
-      'Fogd meg a rudakat úgy, hogy a tenyered közepe legyen fölötte. Szorítsd le a vállad, tartsd is úgy egész végig. Ereszkedj le, legalább amíg 90 fokba be nem hajlott a könyököd, majd nyomd ki magad.';
+      'Fogd meg a rudakat úgy, hogy a tenyered közepe legyen fölöttük. Szorítsd le a vállad, tartsd is úgy egész végig. Ereszkedj le, legalább amíg 90 fokba be nem hajlott a könyököd, majd nyomd ki magad.';
 
   @override
   String get bagPullDesc =>
-      'Pakolj tele egy táskát könyvekkel, kis súlyzókkal, érzésre legalább 5-10 kg legyen a táska. \nEgyik kézzel támaszkodj, a törzsed legyen egyenes, és nagyjából vízszintes. Ha leengeded a kezed, a táska lehetőleg a levegőben legyen. Felhúzásnál a válladat szorítsd le, ne menjen föl a füledhez. A karod kb. 90°-ig hajlítsd be. \nHa túl könnyű:\n• növeld a súlyt\n• engedd le lassabban\n• vagy csinálj belőle többet\nCsináld meg mindkét oldalra.';
+      'Pakolj tele egy táskát könyvekkel, kis súlyzókkal, érzésre legalább 5-10 kg legyen a táska. \nEgyik kézzel támaszkodj, a törzsed legyen egyenes és nagyjából vízszintes. Ha leengeded a kezed, a táska lehetőleg a levegőben legyen. Felhúzásnál a válladat szorítsd le, ne menjen föl a füledhez. A karod kb. 90°-ig hajlítsd be. \nHa túl könnyű:\n• növeld a súlyt\n• engedd le lassabban\n• vagy csinálj belőle többet\nCsináld meg mindkét oldalra.';
 
   @override
   String get reverseSnowAngelDesc =>
-      'Feküdj hassal a földre. Emeld meg a fejed és a kezeid úgy, hogy a két kezed a fejed fölött összeér. Vidd el oldalt a kezeid a csípődig, majd érintsd újra össze a kezeid a fejed fölött.\nEgy oda-vissza számít egy ismétlésnek.\nVégig tartsd a levegőben a kezeid.\nEgy oda-vissza számít egy ismétlésnek.\nNehezítésképpen fogj meg egy-egy könyvet a két kezedben.';
+      'Feküdj hassal a földre. Emeld meg a fejed és a kezeid úgy, hogy a két kezed a fejed fölött összeér. Vidd el oldalt a kezeid a csípődig, majd érintsd újra össze a kezeid a fejed fölött.\nEgy oda-vissza számít egy ismétlésnek.\nVégig tartsd a levegőben a kezeid.\nNehezítésképpen fogj meg egy-egy könyvet a két kezedben.';
 
   @override
   String get bwPullDesc => '';
@@ -365,43 +365,43 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get squat1Desc =>
-      'Támaszkodj/kapaszkodj valami stabil dologba az egyik vagy mindkét oldaladon. Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen.';
+      'Támaszkodj/kapaszkodj valami stabil dologba az egyik vagy mindkét oldaladon. Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezdd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen.';
 
   @override
   String get lunge1Desc =>
-      'A két lábra összesen számold az ismétléseket, ne lábanként külön. Támaszkodj/kapaszkodj valami stabil dologba az egyik vagy mindkét oldaladon. Lépj hátra, miközben az elülső sípcsintod függőlegesen marad. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly.';
+      'A két lábra összesen számold az ismétléseket, ne lábanként külön. Támaszkodj/kapaszkodj valami stabil dologba az egyik vagy mindkét oldaladon. Lépj hátra, miközben az elülső sípcsontod függőlegesen marad. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly.';
 
   @override
   String get squat2Desc =>
-      'Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen.';
+      'Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezdd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen.';
 
   @override
   String get lunge2Desc =>
-      'A két lábra összesen számold az ismétléseket, ne lábanként külön. Lépj hátra, miközben az elülső sípcsintod függőlegesen marad. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly.';
+      'A két lábra összesen számold az ismétléseket, ne lábanként külön. Lépj hátra, miközben az elülső sípcsontod függőlegesen marad. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly.';
 
   @override
   String get squat3Desc =>
-      'Tölts meg egy táskát könyvekkel, vagy más súlyokkal. Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen.';
+      'Tölts meg egy táskát könyvekkel vagy más súlyokkal. Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezdd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen.';
 
   @override
   String get lunge3Desc =>
-      'A két lábra összesen számold az ismétléseket, ne lábanként külön. Tölts meg egy táskát könyvekkel, vagy más súlyokkal. Lépj hátra, miközben az elülső sípcsintod függőlegesen marad. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly.';
+      'A két lábra összesen számold az ismétléseket, ne lábanként külön. Tölts meg egy táskát könyvekkel vagy más súlyokkal. Lépj hátra, miközben az elülső sípcsontod függőlegesen marad. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly.';
 
   @override
   String get squat4Desc =>
-      'Guggolás közben ugorj egyet. Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen. Ha gondolod, vegyél fel egy súlyokkal megpakolt hátizsákot.';
+      'Guggolás közben ugorj egyet. Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezdd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen. Ha gondolod, vegyél fel egy súlyokkal megpakolt hátizsákot.';
 
   @override
   String get lunge4Desc =>
-      'A hátsó lábad tedd fel mondjuk egy székre. A hátsó lábfejed lábujjadon támaszkodjon, az első nézzen előre. A két lábujj ne egy vonalban legyen, hogy stabilabban állj. Tartsd az elülső sípcsintod függőlegesen. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly. Mindkét lábaddal elől csináld meg.';
+      'A hátsó lábad tedd fel mondjuk egy székre. A hátsó lábfejed lábujjadon támaszkodjon, az első nézzen előre. A két lábujj ne egy vonalban legyen, hogy stabilabban állj. Tartsd az elülső sípcsontod függőlegesen. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly. Mindkét lábaddal elől csináld meg.';
 
   @override
   String get squat5Desc =>
-      'Állj terpeszben, kicsit nézzenek kifelé a lábfejeid. Kezd a leereszkedést az egyik térded behajlításával. Tartsd a felsőtested merőlegesen, amennyire tudod.';
+      'Állj terpeszben, kicsit nézzenek kifelé a lábfejeid. Kezdd a leereszkedést az egyik térded behajlításával. Tartsd a felsőtested függőlegesen, amennyire tudod.';
 
   @override
   String get lunge5Desc =>
-      'Vegyél fel egy könyvekkel telepakolt táskát. A hátsó lábad tedd fel mondjuk egy székre. A hátsó lábfejed lábujjadon támaszkodjon, az első nézzen előre. A két lábujj ne egy vonalban legyen, hogy stabilabban állj. Tartsd az elülső sípcsintod függőlegesen. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly. Mindkét lábaddal elől csináld meg.';
+      'Vegyél fel egy könyvekkel telepakolt táskát. A hátsó lábad tedd fel mondjuk egy székre. A hátsó lábfejed lábujjadon támaszkodjon, az első nézzen előre. A két lábujj ne egy vonalban legyen, hogy stabilabban állj. Tartsd az elülső sípcsontod függőlegesen. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly. Mindkét lábaddal elől csináld meg.';
 
   @override
   String get glute1Desc =>
@@ -409,15 +409,15 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get glute2Desc =>
-      'Feküdj hátra hajlított térdel. Kicsit rakd ki oldalra a kezeid, hogy stabilabb legyél.\nVidd fel a csípődet olyan magasra, amilyenre csak tudod, miközben feszíted a farizmod, majd engedd vissza a csípőd.';
+      'Feküdj hátra hajlított térddel. Kicsit rakd ki oldalra a kezeid, hogy stabilabb legyél.\nVidd fel a csípődet olyan magasra, amilyenre csak tudod, miközben feszíted a farizmod, majd engedd vissza a csípőd.';
 
   @override
   String get glute3Desc =>
-      'Feküdj hátra hajlított térdel úgy, hogy a lábaid valami magaslaton, mondjuk egy kanapé szélén legyen. Kicsit rakd ki oldalra a kezeid, hogy stabilabb legyél.\nVidd fel a csípődet olyan magasra, amilyenre csak tudod, miközben feszíted a farizmod, majd engedd vissza a csípőd.';
+      'Feküdj hátra hajlított térddel úgy, hogy a lábaid valami magaslaton, mondjuk egy kanapé szélén legyenek. Kicsit rakd ki oldalra a kezeid, hogy stabilabb legyél.\nVidd fel a csípődet olyan magasra, amilyenre csak tudod, miközben feszíted a farizmod, majd engedd vissza a csípőd.';
 
   @override
   String get glute4Desc =>
-      'Feküdj hátra hajlított térdel, majd nyújtsd ki az egyik lábad, miközben a levegőben tartod. Kicsit rakd ki oldalra a kezeid, hogy stabilabb legyél.\nVidd fel a csípődet olyan magasra, amilyenre csak tudod, miközben feszíted a farizmod, majd engedd vissza a csípőd.\nNe felejtsd el mindkét lábra megcsinálni.';
+      'Feküdj hátra hajlított térddel, majd nyújtsd ki az egyik lábad, miközben a levegőben tartod. Kicsit rakd ki oldalra a kezeid, hogy stabilabb legyél.\nVidd fel a csípődet olyan magasra, amilyenre csak tudod, miközben feszíted a farizmod, majd engedd vissza a csípőd.\nNe felejtsd el mindkét lábra megcsinálni.';
 
   @override
   String get glute5Desc =>
@@ -429,7 +429,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get core2Desc =>
-      'Feküdj hassal egy székre, és kapaszkodj a lábaiba. Hajlított térdel emeld fel hátul a lábaid, amennyire tudod.';
+      'Feküdj hassal egy székre, és kapaszkodj a lábaiba. Hajlított térddel emeld fel hátul a lábaid, amennyire tudod.';
 
   @override
   String get lightBagPull => 'Táskás/Súlyzós Evezés kisebb súllyal';
@@ -452,7 +452,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get finishWarning =>
-      'Az appban edzésnél csak akkor nyomd meg a \'Befejezés\' gombot, ha tényleg befejezted az edzést. \n\nEz egy visszajelzés az appnak.';
+      'Az appban edzésnél csak akkor nyomd meg a „Befejezés” gombot, ha tényleg befejezted az edzést. \n\nEz egy visszajelzés az appnak.';
 
   @override
   String get tip => 'Tipp';
@@ -474,15 +474,15 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get principles1 =>
-      'Legfőbb cél: Soha ne hagyd teljesen abba - akkor biztosan eléred, amit szeretnél.';
+      'Legfőbb cél: soha ne hagyd teljesen abba - akkor biztosan eléred, amit szeretnél.';
 
   @override
   String get principles2 =>
-      'Inkább legyen az edzés nagyon könnyű, minthogy ne edz rendszeresen.';
+      'Inkább legyen az edzés nagyon könnyű, mint hogy ne eddz rendszeresen.';
 
   @override
   String get principles3 =>
-      'Ha az edzés kezd a szokásoddá válni, akkor finoman tovább lehet építeni.';
+      'Ha az edzés kezd a szokásoddá válni, akkor finoman tovább lehet nehezíteni.';
 
   @override
   String get principles4 =>
@@ -494,19 +494,19 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get beginnerWorkout2 =>
-      'Tarts 30mp és 2 perc közötti szünetet két gyakorlat között.';
+      'Tarts 30mp és 2 perc közötti szünetet két gyakorlat között - így visszanyered az erőd egy részét, de a pihenés mégsem húzza el túlságosan az edzést.';
 
   @override
   String get beginnerDiet1 =>
-      'Ha fogyni szeretnél, vásárolj édesítőszeres üdítőket - édességek helyett, amennyire tudod, ezt igyad.';
+      'Ha fogyni szeretnél, vásárolj édesítőszeres üdítőket, és amennyire csak tudod, ezeket idd a cukros italok és más édességek helyett - csillapítják az édesség utáni vágyadat, miközben szinte nulla kalóriát tartalmaznak.';
 
   @override
   String get beginnerDiet2 =>
-      'Ha fogyni szeretnél, vásárolj több gyümölcsöt, zöldséget, amiket szeretsz - kevés kalóriát tartalmaznak, de sok helyet foglalnak a gyomrodban.';
+      'Ha fogyni szeretnél, vásárolj több gyümölcsöt, zöldséget, amiket szeretsz - kevés kalóriát tartalmaznak, de sok helyet foglalnak a gyomrodban, így csillapítják az éhségedet, anélkül, hogy sok kalóriát vinnél be.';
 
   @override
   String get advancedWorkout1 =>
-      'Négy fő izomcsoport: toló-, húzó-, törzs- és lábizmok.';
+      'Négy fő izomcsoport: toló-, húzó-, törzs- és lábizmok.\n\nTológyakorlat minden olyan gyakorlat, ahol valamit eltolsz a testedtől, például a fekvőtámasz különböző változatai, a tolódzkodás vagy a fekvenyomás. Ezek főleg a mellizmodat, a tricepszedet és a vállad elülső részét edzik.\n\nHúzógyakorlat minden olyan gyakorlat, ahol valamit közelebb húzol a testedhez, például a táskás evezés vagy a húzódzkodás. Ezek főleg a hátadat, a bicepszedet és a vállad hátsó részét edzik. Két fő típusuk a függőleges (húzódzkodás) és a vízszintes (táskás evezés) húzás.\n\nA törzsizmok a hasizom, az alsó hát és az oldalsó törzsizmok. A legtöbb saját testsúlyos gyakorlat (például a fekvőtámasz és a húzódzkodás) edzi őket, de külön gyakorlatokat is csinálhatsz rájuk.\n\nA lábadnak 4 fő izma van: az elülső combizom, a hátsó combizom, a farizom és a vádli. A guggolás nagyon jól edzi az elülső combizmot, a csípőemelés pedig főleg a farizmot dolgoztatja. A hátsó combizomra azok a gyakorlatok a leghatékonyabbak, ahol behajlítod a lábad, de otthoni eszközökkel ezekre nincs igazán alternatíva. A kitörés (ahogyan benne van az appban) és a csípőemelés viszont együtt elég jól edzik. A vádlira nincs külön gyakorlat az appban, mert a futás jól edzi, és valamennyire a többi gyakorlat is.';
 
   @override
   String get advancedWorkout2 =>
@@ -514,19 +514,19 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get advancedWorkout3 =>
-      'Ha a fogyás fontosabb az izomépítésnél: kocogással is helyettesítheted a lábgyakorlatokat, vagy mindkettőt is csinálhatod.';
+      'Ha a fogyás fontosabb az izomépítésnél: kocogással is helyettesítheted a lábgyakorlatokat, vagy mindkettőt is csinálhatod. A kocogás több kalóriát éget el. De ne tölts túl sok időt kocogással, ha nem szereted.';
 
   @override
   String get advancedWorkout4 =>
-      'Bemelegítésnél figyelj a gyakorlatok technikájára - Ilyenkor próbáld a lehető legtökéletesebb formában végrehajtani őket.';
+      'Bemelegítésnél figyelj a gyakorlatok technikájára - ilyenkor próbáld a lehető legtökéletesebb formában végrehajtani őket, hogy fejlődjön a technikád.';
 
   @override
   String get advancedDiet1 =>
-      'Egyik étkezésed után nagyjából 2 órával érdemes edzeni - ha egy nagy ebéd után edzenél, ez lehet több idő is.';
+      'Egyik étkezésed után nagyjából 2 órával érdemes edzeni. Ha egy nagy ebéd után edzenél, ez lehet több idő is - így lesz energiád az edzéshez, és az emésztésed sem fog zavarni.';
 
   @override
   String get advancedDiet2 =>
-      'Kalóriák be, kalóriák ki - Ha többet égetsz, mint amennyit beviszel, fogyni fogsz.';
+      'Kalóriák be, kalóriák ki - ha több energiát égetsz el, mint amennyit beviszel, fogyni fogsz.';
 
   @override
   String get advancedDiet3 =>
@@ -534,15 +534,15 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get advancedDiet4 =>
-      'Ne vidd túlzásba a diétázást - ne kényszertíts magadra olyan diétát, amit szerinted nem tudnál hosszú távon tartani.';
+      'Ne vidd túlzásba a diétázást - ne kényszeríts magadra olyan diétát, amit szerinted nem tudnál hosszú távon tartani.';
 
   @override
   String get advancedDiet5 =>
-      'Ha fogyni szeretnél, mérd minden nap nagyjából ugyanabban az időben a súlyod - evés, hidratáltság, nagydolog intézése mind hozzájárul, hogy pár órán akár belül kilókat változzon a súlyod, annélkül, hogy égetnél zsírt.';
+      'Ha fogyni szeretnél, mérd minden nap nagyjából ugyanabban az időben a súlyod - evés, hidratáltság, nagydolog intézése mind hozzájárul, hogy akár pár órán belül kilókat változzon a súlyod, anélkül, hogy égetnél zsírt.';
 
   @override
   String get advancedDiet6 =>
-      'Ha fogyni szeretnél, a megmért tömegedet jegyezd le valahova, lehetőleg Excel-be, vagy Google Táblázatokba - ahol heti átlagot könnyen tudsz számolni - Ha a súlyod az utóbbi hetekben nem haladt lefelé, figyelj, hogy több gyümölcsöt, zöltséget és kevesebb cukros dolgot egyél, vagy kocogj többet.';
+      'Ha fogyni szeretnél, a megmért tömegedet jegyezd le valahova, lehetőleg Excelbe vagy Google Táblázatokba, ahol könnyen tudsz heti átlagot számolni. Ha a súlyod az utóbbi hetekben nem haladt lefelé, figyelj, hogy több gyümölcsöt, zöldséget és kevesebb cukros dolgot egyél, vagy kocogj többet.';
 
   @override
   String get workoutStreak => 'edzés streak';

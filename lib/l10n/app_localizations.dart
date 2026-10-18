@@ -977,25 +977,25 @@ abstract class AppLocalizations {
   /// No description provided for @beginnerWorkout2.
   ///
   /// In en, this message translates to:
-  /// **'Rest 30 seconds to 2 minutes between exercises.'**
+  /// **'Rest 30 seconds to 2 minutes between exercises — so you regain some of your strength, but your workouts still won\'t take too long.'**
   String get beginnerWorkout2;
 
   /// No description provided for @beginnerDiet1.
   ///
   /// In en, this message translates to:
-  /// **'If you\'re trying to lose weight, grab some diet sodas — drink those instead of sugary drinks as much as you can'**
+  /// **'If you\'re trying to lose weight, grab some zero-sugar sodas and, whenever you can, drink those instead of sugary drinks and other sweets — they satisfy your sugar cravings while having close to 0 calories.'**
   String get beginnerDiet1;
 
   /// No description provided for @beginnerDiet2.
   ///
   /// In en, this message translates to:
-  /// **'If you\'re trying to lose weight, stock up on fruits and veggies you actually like — they\'re low in calories but really fill you up.'**
+  /// **'If you\'re trying to lose weight, stock up on fruits and veggies you actually like — they\'re low in calories but really fill your stomach up, so you won\'t be as hungry afterwards.'**
   String get beginnerDiet2;
 
   /// No description provided for @advancedWorkout1.
   ///
   /// In en, this message translates to:
-  /// **'Four main muscle groups: push, pull, core, and legs.'**
+  /// **'Four main muscle groups: push, pull, core, and legs.\n\nPush exercises are push-up variations, dips, the bench press and other exercises where you push something away from your body. They mainly target your chest, triceps and the front of your shoulders.\n\nPull exercises, like bag rows or pull-ups, are the ones where you pull something closer to your body. They mainly target your back, biceps and the back of your shoulders. There are two main types: vertical pulls (pull-ups) and horizontal pulls (bag rows).\n\nYour core muscles are your abs, lower back and obliques. They are trained in most bodyweight exercises, like push-ups and pull-ups, but you can also do specific exercises for them.\n\nYour legs have 4 main muscles: quads, hamstrings, glutes and calves. Squats train the quads really well, and hip thrusts/glute bridges mainly target the glutes. The most effective exercises for the hamstrings are the ones where you bend your leg, but there\'s no alternative for those with home equipment. However, lunges (shown in the app) and hip thrusts/glute bridges together train them sufficiently well. Calves do not have a dedicated exercise in the app, because they are trained well when you are running, and somewhat in other exercises as well.'**
   String get advancedWorkout1;
 
   /// No description provided for @advancedWorkout2.
@@ -1007,25 +1007,25 @@ abstract class AppLocalizations {
   /// No description provided for @advancedWorkout3.
   ///
   /// In en, this message translates to:
-  /// **'If losing weight matters more to you than building muscle: you can swap leg exercises for jogging — or do both.'**
+  /// **'If losing weight matters more to you than building muscle: you can swap leg exercises for jogging — or do both. Jogging burns more calories. But don\'t jog too much if you don\'t like it.'**
   String get advancedWorkout3;
 
   /// No description provided for @advancedWorkout4.
   ///
   /// In en, this message translates to:
-  /// **'During warm-up, pay attention to your form — use this time to execute the movements as perfectly as you can.'**
+  /// **'During warm-up, pay attention to your form — use this time to execute the movements as perfectly as possible, so you can improve your technique.'**
   String get advancedWorkout4;
 
   /// No description provided for @advancedDiet1.
   ///
   /// In en, this message translates to:
-  /// **'Aim to work out about 2 hours after a meal — after a big lunch, you might want to wait even longer.'**
+  /// **'Aim to work out about 2 hours after a meal. After a big lunch, you might want to wait even longer — so you will have energy for the workout, and your digestion won\'t bother you.'**
   String get advancedDiet1;
 
   /// No description provided for @advancedDiet2.
   ///
   /// In en, this message translates to:
-  /// **'Calories in, calories out — if you burn more than you take in, you\'ll lose weight.'**
+  /// **'Calories in, calories out — if you burn more energy than you take in, you\'ll lose weight.'**
   String get advancedDiet2;
 
   /// No description provided for @advancedDiet3.
