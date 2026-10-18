@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:getshap/tips/tip_library_backfill.dart';
 import 'package:getshap/tips/tips_data.dart';
 
 class TipManager {
@@ -13,9 +14,15 @@ class TipManager {
     static const String _keyLastOpenedTipId = 'lastOpenedTipId';
     // New key to track if all tips have been seen at least once
     static const String _keyHasCompletedFullCycle = 'hasCompletedFullCycle';
+    static const String _keyTipLibrary = 'tipLibrary';
 
     String? currentTipId;
     bool isNewTipForSession = false;
+
+    /// The tip library in the side menu: the ids of every tip the home screen
+    /// has shown, the current one included, each once. Unlike seenTipsA it is
+    /// never cleared.
+    List<String> tipLibrary = [];
 
     // Singleton pattern
     static final TipManager _instance = TipManager._internal();
@@ -24,6 +31,11 @@ class TipManager {
 
     Future<void> initialize() async {
         final prefs = await SharedPreferences.getInstance();
+        // Once, for installs from before the tip library was kept. Before the
+        // tip changes below, so it reads what the earlier launches left behind.
+        if (!prefs.containsKey(_keyTipLibrary)) {
+            await prefs.setStringList(_keyTipLibrary, tipsShownBeforeTipLibrary(prefs));
+        }
         int currentLevel = prefs.getInt('level') ?? 1;
         
         currentTipId = prefs.getString(_keyLastTipId);
@@ -41,6 +53,15 @@ class TipManager {
             await prefs.setString(_keyLastTipId, currentTipId!);
             // Store days since epoch
             await prefs.setInt(_keyLastTipChangeTime, today);
+        }
+
+        // A tip goes into the tip library as soon as it is picked, before the
+        // home screen shows it. A tip the rotation gives again (a new round, a
+        // wrapped list) is already in there and is not added twice.
+        tipLibrary = prefs.getStringList(_keyTipLibrary) ?? [];
+        if (!tipLibrary.contains(currentTipId)) {
+            tipLibrary.add(currentTipId!);
+            await prefs.setStringList(_keyTipLibrary, tipLibrary);
         }
           
         final lastOpenedTipId = prefs.getString(_keyLastOpenedTipId);

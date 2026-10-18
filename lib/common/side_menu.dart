@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_spacing.dart';
 import 'package:getshap/theme/app_typography.dart';
+import 'package:getshap/tips/tip_library_screen.dart';
+import 'package:getshap/tips/tips_data.dart';
 
 /// Which page the side menu is currently showing.
-enum SideMenuView { menu, contact }
+enum SideMenuView { menu, contact, tips }
 
 class SideMenu extends StatelessWidget {
     final VoidCallback onSetLevelPressed;
@@ -18,6 +21,7 @@ class SideMenu extends StatelessWidget {
     // current view so the Android back button can step
     // sub-page -> menu -> home.
     final SideMenuView view;
+    final VoidCallback onTipsPressed;
     final VoidCallback onContactPressed;
     final VoidCallback onBackToMenuPressed;
 
@@ -28,6 +32,7 @@ class SideMenu extends StatelessWidget {
         required this.onDumpStatePressed,
         required this.onFormPressed,
         required this.view,
+        required this.onTipsPressed,
         required this.onContactPressed,
         required this.onBackToMenuPressed,
     });
@@ -81,6 +86,8 @@ class SideMenu extends StatelessWidget {
         switch (view) {
             case SideMenuView.contact:
                 return _buildContactView(context);
+            case SideMenuView.tips:
+                return _buildTipsView(context);
             case SideMenuView.menu:
                 return _buildMenuView(context);
         }
@@ -149,6 +156,11 @@ class SideMenu extends StatelessWidget {
         return _menuList(
             children: [
                 ListTile(
+                    leading: const Icon(Icons.lightbulb_outline),
+                    title: Text(loc.tips),
+                    onTap: onTipsPressed,
+                ),
+                ListTile(
                     leading: const Icon(Icons.person_outline),
                     title: Text(loc.contact),
                     onTap: onContactPressed,
@@ -189,6 +201,54 @@ class SideMenu extends StatelessWidget {
                     ),
                 ],
             ],
+        );
+    }
+
+    /// The three tip types, split the same way as getTipType. Each opens its
+    /// own page; the drawer stays open underneath, so stepping back from that
+    /// page lands here again.
+    Widget _buildTipsView(BuildContext context) {
+        final loc = AppLocalizations.of(context)!;
+        return _menuList(
+            children: [
+                _buildBackTile(loc),
+                const Divider(height: 1),
+                _buildTipTypeTile(
+                    context,
+                    icon: Icons.psychology_outlined,
+                    type: loc.tipTypePrinciples,
+                    tips: TipsData.principles,
+                ),
+                _buildTipTypeTile(
+                    context,
+                    icon: Icons.restaurant_outlined,
+                    type: loc.tipTypeDiet,
+                    tips: [...TipsData.beginnerDiet, ...TipsData.advancedDiet],
+                ),
+                _buildTipTypeTile(
+                    context,
+                    icon: Icons.fitness_center,
+                    type: loc.tipTypeWorkout,
+                    tips: [...TipsData.beginnerWorkout, ...TipsData.advancedWorkout],
+                ),
+            ],
+        );
+    }
+
+    Widget _buildTipTypeTile(
+        BuildContext context, {
+        required IconData icon,
+        required String type,
+        required List<TipItem> tips,
+    }) {
+        return ListTile(
+            leading: Icon(icon),
+            title: Text(type),
+            onTap: () => Navigator.of(context).push(
+                CupertinoPageRoute<void>(
+                    builder: (context) => TipLibraryScreen(type: type, tips: tips),
+                ),
+            ),
         );
     }
 

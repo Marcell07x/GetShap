@@ -244,6 +244,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 endDrawer: SideMenu(
                     view: _menuView,
+                    onTipsPressed: () =>
+                        setState(() => _menuView = SideMenuView.tips),
                     onContactPressed: () =>
                         setState(() => _menuView = SideMenuView.contact),
                     onBackToMenuPressed: () =>

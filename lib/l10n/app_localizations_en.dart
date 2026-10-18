@@ -466,6 +466,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tipTypeDiet => 'Diet';
 
   @override
+  String get tips => 'Tips';
+
+  @override
+  String get noTipsYet => 'You haven\'t received a tip like this yet.';
+
+  @override
   String get principles1 =>
       'Main goal: Never quit completely — that\'s the one sure way to get where you want to be.';
 

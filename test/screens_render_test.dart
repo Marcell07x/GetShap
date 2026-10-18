@@ -17,6 +17,9 @@ import 'package:getshap/onboarding/finish_warning.dart';
 import 'package:getshap/onboarding/question_template.dart';
 import 'package:getshap/theme/app_theme.dart';
 import 'package:getshap/tips/tip_detail_screen.dart';
+import 'package:getshap/tips/tip_library_screen.dart';
+import 'package:getshap/tips/tip_manager.dart';
+import 'package:getshap/tips/tips_data.dart';
 import 'package:getshap/workout/next_workout_page.dart';
 import 'package:getshap/workout/workout_done_screen.dart';
 import 'package:getshap/workout/workout_feedback.dart';
@@ -105,6 +108,17 @@ void main() {
         ),
         'health warning': () => const FinishWarning(),
         'tip detail': () => const TipDetailScreen(type: 'Mindset', tip: _huSample),
+        'tip library': () {
+            TipManager().tipLibrary = <String>['beginnerDiet1', 'beginnerDiet2', 'advancedDiet6'];
+            return TipLibraryScreen(
+                type: 'Diéta',
+                tips: <TipItem>[...TipsData.beginnerDiet, ...TipsData.advancedDiet],
+            );
+        },
+        'tip library (empty)': () {
+            TipManager().tipLibrary = <String>[];
+            return TipLibraryScreen(type: 'Mindset', tips: TipsData.principles);
+        },
         'rest day': () => const NextWorkoutPage(),
         'feedback': () => const WorkoutFeedback(),
         'congratulations': () => const CongratulationsScreen(),

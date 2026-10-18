@@ -467,6 +467,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get tipTypeDiet => 'Diéta';
 
   @override
+  String get tips => 'Tippek';
+
+  @override
+  String get noTipsYet => 'Még nem kaptál ilyen tippet.';
+
+  @override
   String get principles1 =>
       'Legfőbb cél: Soha ne hagyd teljesen abba - akkor biztosan eléred, amit szeretnél.';
 

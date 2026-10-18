@@ -932,6 +932,18 @@ abstract class AppLocalizations {
   /// **'Diet'**
   String get tipTypeDiet;
 
+  /// No description provided for @tips.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips'**
+  String get tips;
+
+  /// No description provided for @noTipsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t received a tip like this yet.'**
+  String get noTipsYet;
+
   /// No description provided for @principles1.
   ///
   /// In en, this message translates to:

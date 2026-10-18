@@ -7,7 +7,7 @@ import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_typography.dart';
 
 class TipDetailScreen extends StatelessWidget {
-    /// "Mindset", "Edzés" or "Diéta", shown in front of "TIPP" in the header.
+    /// "Mindset", "Workout" or "Diet", shown in front of "TIP" in the header.
     final String type;
     final String tip;
     const TipDetailScreen({super.key, required this.type, required this.tip});
