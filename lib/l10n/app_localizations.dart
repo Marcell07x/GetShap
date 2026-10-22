@@ -203,7 +203,7 @@ abstract class AppLocalizations {
   /// No description provided for @emailLink.
   ///
   /// In en, this message translates to:
-  /// **'bmarci891@gmail.com'**
+  /// **'marcell@getshap.com'**
   String get emailLink;
 
   /// No description provided for @wallPush.

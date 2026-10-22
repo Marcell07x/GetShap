@@ -47,7 +47,7 @@ class SideMenu extends StatelessWidget {
     Future<void> _openEmail() async {
         // mailto opens the default mail composer (Gmail on most Android devices,
         // Mail on iOS) with the address pre-filled.
-        await launchUrl(Uri(scheme: 'mailto', path: 'bmarci891@gmail.com'));
+        await launchUrl(Uri(scheme: 'mailto', path: 'marcell@getshap.com'));
     }
 
     @override
