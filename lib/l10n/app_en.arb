@@ -25,18 +25,18 @@
 
     "wallPush": "Wall Push-Ups",
     "tablePush": "Table Push-Ups",
-    "diamondTablePush": "Diamond Push Ups on Table",
+    "diamondTablePush": "Diamond Push-Ups on a Table",
     "kneePush": "Knee Push-Ups",
     "pushUp": "Push-Ups",
-    "declinePush": "Decline Push Ups",
-    "explosivePush": "Explosive Push Ups",
-    "pseudoPush": "Pseudo Push Ups",
+    "declinePush": "Decline Push-Ups",
+    "explosivePush": "Explosive Push-Ups",
+    "pseudoPush": "Pseudo Push-Ups",
     "dipPush": "Dips",
 
-    "bagPull": "One Hand Bag Rows",
+    "bagPull": "One-Hand Bag Rows",
     "reverseSnowAngel": "Reverse Snow Angel",
     "bwPull": "Bodyweight Rows",
-    "pullup": "Pullups",
+    "pullup": "Pull-Ups",
 
     "squat1": "Assisted Squats",
     "lunge1": "Assisted Lunges",
@@ -45,9 +45,9 @@
     "squat3": "Backpack Squats",
     "lunge3": "Backpack Lunges",
     "squat4": "Jumping Squats",
-    "lunge4": "Elevated Lunges",
-    "squat5": "Archer Squats",
-    "lunge5": "Weighted Elevated Lunges",
+    "lunge4": "Bulgarian Split Squats",
+    "squat5": "Side Squats",
+    "lunge5": "Weighted Bulgarian Split Squats",
     "glute1": "Glute Kickbacks",
     "glute2": "Glute Bridge",
     "glute3": "Elevated Glute Bridge",
@@ -55,7 +55,7 @@
     "glute5": "Single Leg Hip Thrust",
 
     "core1": "Lying Leg Raises",
-    "core2": "Back Extensions",
+    "core2": "Reverse Leg Raises",
 
     "workout": "Workout",
     "noWorkout": "No more workouts for today :)",
@@ -87,7 +87,7 @@
     "male": "Male",
     "female": "Female",
 
-    "maxKneePush": "How many knee pushups can you do?",
+    "maxKneePush": "How many knee push-ups can you do?",
 
     "maxSquats": "How many squats can you do?",
     
@@ -98,7 +98,7 @@
 
     "prevExp2": "Have you tried to work out before?",
 
-    "motivation": "How much are you motivated to work out?",
+    "motivation": "How motivated are you to work out?",
     "notAtAll": "Not at all",
     "somewhat": "I'm somewhat motivated",
     "motivated": "I'm motivated",
@@ -120,9 +120,9 @@
     "feedback": "Feedback",
     
     "workoutReminderTitle": "Quick workout? 💪",
-    "workoutReminderBody": "You're building a habit - keep going!",
+    "workoutReminderBody": "You're building a habit – keep going!",
     "welcomeNotiTitle": "Jump into your workout",
-    "welcomeNotiBody": "it won't be hard 😊",
+    "welcomeNotiBody": "It won't be hard 😊",
     "streakNotiTitle": "Workout streak 🔥",
     "streakNotiBody": "Don't forget to extend your workout streak",
     "dontGiveUpNotiTitle": "Don't give up!",
@@ -138,7 +138,7 @@
     "kneePushDesc": "Kneel on something soft. Place your hands a bit wider than your shoulders, keep your elbows roughly 30-45 degrees from your body, and keep your body in a straight line. Go as deep as you can, then push yourself up.",
     "pushUpDesc": "Place your hands a bit wider than your shoulders, keep your elbows roughly 30-45 degrees from your body, and keep your body in a straight line. Go as deep as you can, then push yourself up.",
     "declinePushDesc": "Place your legs onto an elevated surface (like a bed) and your hands a bit wider than your shoulders. Keep your elbows roughly 30-45 degrees from your body, and keep your body in a straight line. Go as deep as you can, then push yourself up.",
-    "explosivePushDesc": "During a pushup, push yourself off the ground ",
+    "explosivePushDesc": "During the push-up, push yourself off the floor as forcefully as you can.",
     "pseudoPushDesc": "Place your hands shoulder-width apart and turn them slightly outward.\nLean forward so that your hands are positioned somewhere between your shoulders and your hips. Depress your shoulders as much as possible in two ways: push them toward the ground and pull them down toward your torso. Try to maintain this shoulder position as best as you can throughout the movement. At the same time, squeeze your abs.\nThe further you lean forward, the more challenging the exercise.",
     "dipPushDesc": "Hold the bars with the center of your palms on top. Keep your shoulders pressed down and maintain that position throughout. Lower yourself until your elbows reach at least a 90-degree bend, then push back up.",
     "bagPullDesc": "Fill a bag with books or small weights, aiming for at least 5–10 kg (11–22 lbs). Support yourself with one hand, keeping your torso straight and roughly horizontal. When you lower your hand, try to keep the bag off the ground. During the lift, keep your shoulders pressed down—don’t let them rise toward your ears. Bend your arm to about 90°. \nIf it feels too easy:\n• increase the weight\n• lower it more slowly\n• do more repetitions\nRepeat on both sides.",
@@ -152,9 +152,9 @@
     "squat3Desc": "Fill a bag with books or other weights. Stand with your feet shoulder-width apart, toes slightly turned out. Start by pushing your knees slightly forward, then lower yourself in a controlled manner to about a 90° bend. Keep your torso straight throughout.",
     "lunge3Desc": "Alternate legs—count total reps, not per leg. Fill a bag with books or other weights. Step back, keeping your front shin vertical. Your thigh should point forward. Lean forward slightly so the focus is on the back of your front leg.",
     "squat4Desc": "Jump while doing a squat. Stand with your feet shoulder-width apart, toes slightly turned out. Start by pushing your knees slightly forward, then lower yourself in a controlled manner to about a 90° bend. Keep your torso straight throughout. If you want, wear a backpack filled with weights.",
-    "lunge4Desc": "Place your back leg on a chair. Have your rear foot on your toes, while your front foot points forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.",
+    "lunge4Desc": "Place your back leg on a chair. Rest your back foot on its toes, with your front foot pointing forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.",
     "squat5Desc": "Stand with your feet apart, toes slightly turned out. Start the descent by bending one knee. Keep your upper body as upright as possible.",
-    "lunge5Desc": "Fill a bag with books or other weights. Place your back leg on a chair. Have your rear foot on your toes, while your front foot points forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.",
+    "lunge5Desc": "Fill a bag with books or other weights. Place your back leg on a chair. Rest your back foot on its toes, with your front foot pointing forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.",
     "glute1Desc": "Hold onto a table, lean forward slightly, and extend your leg straight back.\nRemember to do this for both legs.",
     "glute2Desc": "Lie on your back with your knees bent. Place your arms slightly out to the sides for better stability.\nDrive your hips up as high as you can while squeezing your glutes, and then come back down.",
     "glute3Desc": "Lie on your back with your knees bent, placing your feet on an elevated surface like the edge of a couch. Place your arms slightly out to the sides for better stability.\nDrive your hips up as high as you can while squeezing your glutes, then lower your hips back down.",
@@ -163,7 +163,7 @@
     "core1Desc": "Place your hands under your hips and lift your head. Tighten your core and raise your legs, but not all the way to vertical. Lower your legs in a controlled manner, and don’t let them rest on the ground between reps. Bending your knees makes it easier.",
     "core2Desc": "Lie face down on a chair and hold onto its legs. With your knees bent, lift your legs behind you as high as you can.",
 
-    "lightBagPull": "One Hand Bag Rows with less weight",
+    "lightBagPull": "One-Hand Bag Rows with less weight",
     "runInPlace": "Running In Place",
     "warmupDesc": "Perform the exercise in a controlled manner. Make sure to use proper form.",
     "warmup": "Warmup",
@@ -172,6 +172,12 @@
     "important": "Important",
     "finishWarning": "Only press the ‘Finish’ button once you have actually completed the workout.\n\nThis serves as feedback for the app.",
     "tip": "Tip",
+    "tipWithType": "{type} tip",
+    "@tipWithType": {
+        "placeholders": {
+            "type": { "type": "String" }
+        }
+    },
     "tipTypePrinciples": "Mindset",
     "tipTypeWorkout": "Workout",
     "tipTypeDiet": "Diet",
@@ -186,7 +192,7 @@
     "beginnerWorkout2": "Rest 30 seconds to 2 minutes between exercises — so you regain some of your strength, but your workouts still won't take too long.",
     "beginnerDiet1": "If you're trying to lose weight, grab some zero-sugar sodas and, whenever you can, drink those instead of sugary drinks and other sweets — they satisfy your sugar cravings while having close to 0 calories.",
     "beginnerDiet2": "If you're trying to lose weight, stock up on fruits and veggies you actually like — they're low in calories but really fill your stomach up, so you won't be as hungry afterwards.",
-    "advancedWorkout1": "Four main muscle groups: push, pull, core, and legs.\n\nPush exercises are push-up variations, dips, the bench press and other exercises where you push something away from your body. They mainly target your chest, triceps and the front of your shoulders.\n\nPull exercises, like bag rows or pull-ups, are the ones where you pull something closer to your body. They mainly target your back, biceps and the back of your shoulders. There are two main types: vertical pulls (pull-ups) and horizontal pulls (bag rows).\n\nYour core muscles are your abs, lower back and obliques. They are trained in most bodyweight exercises, like push-ups and pull-ups, but you can also do specific exercises for them.\n\nYour legs have 4 main muscles: quads, hamstrings, glutes and calves. Squats train the quads really well, and hip thrusts/glute bridges mainly target the glutes. The most effective exercises for the hamstrings are the ones where you bend your leg, but there's no alternative for those with home equipment. However, lunges (shown in the app) and hip thrusts/glute bridges together train them sufficiently well. Calves do not have a dedicated exercise in the app, because they are trained well when you are running, and somewhat in other exercises as well.",
+    "advancedWorkout1": "Four main muscle groups: push, pull, core, and legs.\n\nPush exercises are push-up variations, dips, the bench press and other exercises where you push something away from your body. They mainly target your chest, triceps and the front of your shoulders.\n\nPull exercises, like bag rows or pull-ups, are the ones where you pull something closer to your body. They mainly target your back, biceps and the back of your shoulders. There are two main types: vertical pulls (pull-ups) and horizontal pulls (bag rows).\n\nYour core muscles are your abs, lower back and obliques. They are trained in most bodyweight exercises, like push-ups and pull-ups, but you can also do specific exercises for them.\n\nYour legs have 4 main muscles: quads, hamstrings, glutes and calves. Squats train the quads really well, and hip thrusts/glute bridges mainly target the glutes. The most effective exercises for the hamstrings are the ones where you bend your leg, but there's no home-equipment alternative for those. However, lunges (shown in the app) and hip thrusts/glute bridges together train them sufficiently well. Calves do not have a dedicated exercise in the app, because they are trained well when you are running, and somewhat in other exercises as well.",
     "advancedWorkout2": "Warming up boosts your performance and lowers the risk of injury.",
     "advancedWorkout3": "If losing weight matters more to you than building muscle: you can swap leg exercises for jogging — or do both. Jogging burns more calories. But don't jog too much if you don't like it.",
     "advancedWorkout4": "During warm-up, pay attention to your form — use this time to execute the movements as perfectly as possible, so you can improve your technique.",

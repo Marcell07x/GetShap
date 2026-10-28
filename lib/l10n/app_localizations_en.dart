@@ -76,7 +76,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tablePush => 'Table Push-Ups';
 
   @override
-  String get diamondTablePush => 'Diamond Push Ups on Table';
+  String get diamondTablePush => 'Diamond Push-Ups on a Table';
 
   @override
   String get kneePush => 'Knee Push-Ups';
@@ -85,19 +85,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pushUp => 'Push-Ups';
 
   @override
-  String get declinePush => 'Decline Push Ups';
+  String get declinePush => 'Decline Push-Ups';
 
   @override
-  String get explosivePush => 'Explosive Push Ups';
+  String get explosivePush => 'Explosive Push-Ups';
 
   @override
-  String get pseudoPush => 'Pseudo Push Ups';
+  String get pseudoPush => 'Pseudo Push-Ups';
 
   @override
   String get dipPush => 'Dips';
 
   @override
-  String get bagPull => 'One Hand Bag Rows';
+  String get bagPull => 'One-Hand Bag Rows';
 
   @override
   String get reverseSnowAngel => 'Reverse Snow Angel';
@@ -106,7 +106,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get bwPull => 'Bodyweight Rows';
 
   @override
-  String get pullup => 'Pullups';
+  String get pullup => 'Pull-Ups';
 
   @override
   String get squat1 => 'Assisted Squats';
@@ -130,13 +130,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get squat4 => 'Jumping Squats';
 
   @override
-  String get lunge4 => 'Elevated Lunges';
+  String get lunge4 => 'Bulgarian Split Squats';
 
   @override
-  String get squat5 => 'Archer Squats';
+  String get squat5 => 'Side Squats';
 
   @override
-  String get lunge5 => 'Weighted Elevated Lunges';
+  String get lunge5 => 'Weighted Bulgarian Split Squats';
 
   @override
   String get glute1 => 'Glute Kickbacks';
@@ -157,7 +157,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get core1 => 'Lying Leg Raises';
 
   @override
-  String get core2 => 'Back Extensions';
+  String get core2 => 'Reverse Leg Raises';
 
   @override
   String get workout => 'Workout';
@@ -219,7 +219,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get female => 'Female';
 
   @override
-  String get maxKneePush => 'How many knee pushups can you do?';
+  String get maxKneePush => 'How many knee push-ups can you do?';
 
   @override
   String get maxSquats => 'How many squats can you do?';
@@ -237,7 +237,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get prevExp2 => 'Have you tried to work out before?';
 
   @override
-  String get motivation => 'How much are you motivated to work out?';
+  String get motivation => 'How motivated are you to work out?';
 
   @override
   String get notAtAll => 'Not at all';
@@ -282,13 +282,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get workoutReminderTitle => 'Quick workout? 💪';
 
   @override
-  String get workoutReminderBody => 'You\'re building a habit - keep going!';
+  String get workoutReminderBody => 'You\'re building a habit – keep going!';
 
   @override
   String get welcomeNotiTitle => 'Jump into your workout';
 
   @override
-  String get welcomeNotiBody => 'it won\'t be hard 😊';
+  String get welcomeNotiBody => 'It won\'t be hard 😊';
 
   @override
   String get streakNotiTitle => 'Workout streak 🔥';
@@ -338,7 +338,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get explosivePushDesc =>
-      'During a pushup, push yourself off the ground ';
+      'During the push-up, push yourself off the floor as forcefully as you can.';
 
   @override
   String get pseudoPushDesc =>
@@ -392,7 +392,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get lunge4Desc =>
-      'Place your back leg on a chair. Have your rear foot on your toes, while your front foot points forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.';
+      'Place your back leg on a chair. Rest your back foot on its toes, with your front foot pointing forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.';
 
   @override
   String get squat5Desc =>
@@ -400,7 +400,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get lunge5Desc =>
-      'Fill a bag with books or other weights. Place your back leg on a chair. Have your rear foot on your toes, while your front foot points forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.';
+      'Fill a bag with books or other weights. Place your back leg on a chair. Rest your back foot on its toes, with your front foot pointing forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.';
 
   @override
   String get glute1Desc =>
@@ -431,7 +431,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Lie face down on a chair and hold onto its legs. With your knees bent, lift your legs behind you as high as you can.';
 
   @override
-  String get lightBagPull => 'One Hand Bag Rows with less weight';
+  String get lightBagPull => 'One-Hand Bag Rows with less weight';
 
   @override
   String get runInPlace => 'Running In Place';
@@ -455,6 +455,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tip => 'Tip';
+
+  @override
+  String tipWithType(String type) {
+    return '$type tip';
+  }
 
   @override
   String get tipTypePrinciples => 'Mindset';
@@ -504,7 +509,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get advancedWorkout1 =>
-      'Four main muscle groups: push, pull, core, and legs.\n\nPush exercises are push-up variations, dips, the bench press and other exercises where you push something away from your body. They mainly target your chest, triceps and the front of your shoulders.\n\nPull exercises, like bag rows or pull-ups, are the ones where you pull something closer to your body. They mainly target your back, biceps and the back of your shoulders. There are two main types: vertical pulls (pull-ups) and horizontal pulls (bag rows).\n\nYour core muscles are your abs, lower back and obliques. They are trained in most bodyweight exercises, like push-ups and pull-ups, but you can also do specific exercises for them.\n\nYour legs have 4 main muscles: quads, hamstrings, glutes and calves. Squats train the quads really well, and hip thrusts/glute bridges mainly target the glutes. The most effective exercises for the hamstrings are the ones where you bend your leg, but there\'s no alternative for those with home equipment. However, lunges (shown in the app) and hip thrusts/glute bridges together train them sufficiently well. Calves do not have a dedicated exercise in the app, because they are trained well when you are running, and somewhat in other exercises as well.';
+      'Four main muscle groups: push, pull, core, and legs.\n\nPush exercises are push-up variations, dips, the bench press and other exercises where you push something away from your body. They mainly target your chest, triceps and the front of your shoulders.\n\nPull exercises, like bag rows or pull-ups, are the ones where you pull something closer to your body. They mainly target your back, biceps and the back of your shoulders. There are two main types: vertical pulls (pull-ups) and horizontal pulls (bag rows).\n\nYour core muscles are your abs, lower back and obliques. They are trained in most bodyweight exercises, like push-ups and pull-ups, but you can also do specific exercises for them.\n\nYour legs have 4 main muscles: quads, hamstrings, glutes and calves. Squats train the quads really well, and hip thrusts/glute bridges mainly target the glutes. The most effective exercises for the hamstrings are the ones where you bend your leg, but there\'s no home-equipment alternative for those. However, lunges (shown in the app) and hip thrusts/glute bridges together train them sufficiently well. Calves do not have a dedicated exercise in the app, because they are trained well when you are running, and somewhat in other exercises as well.';
 
   @override
   String get advancedWorkout2 =>

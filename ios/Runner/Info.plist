@@ -12,6 +12,20 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<!-- The languages of lib/l10n. The App Store lists them on the product
+	     page, and iOS offers them under Settings → GetShap → Language. -->
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>hu</string>
+		<string>de</string>
+		<string>es</string>
+		<string>fr</string>
+		<string>it</string>
+		<string>pt-BR</string>
+		<string>ru</string>
+		<string>tr</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>GetShap</string>
 	<key>CFBundlePackageType</key>

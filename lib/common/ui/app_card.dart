@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:getshap/common/upper_case.dart';
 import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_spacing.dart';
 import 'package:getshap/theme/app_typography.dart';
@@ -21,9 +22,10 @@ class AppCard extends StatelessWidget {
     /// Set by [AppCard.section]: a small uppercase label above a hairline rule.
     final String? _eyebrow;
 
-    /// Set by [AppCard.section]: a heavier word in front of the eyebrow — the
-    /// tip's type in "MINDSET TIPP".
-    final String? _eyebrowPrefix;
+    /// Set by [AppCard.section]: the part of the eyebrow set heavier — the
+    /// tip's type in "MINDSET TIPP". The translation decides where it sits:
+    /// in front in Hungarian, behind in "CONSEIL MINDSET".
+    final String? _eyebrowBold;
 
     /// Set by [AppCard.notice]: the colour of its icon and heading.
     final Color? _accent;
@@ -40,7 +42,7 @@ class AppCard extends StatelessWidget {
         this.shadow,
         this.onTap,
     })  : _eyebrow = null,
-            _eyebrowPrefix = null,
+            _eyebrowBold = null,
             _accent = null,
             _noticeIcon = null;
 
@@ -49,14 +51,14 @@ class AppCard extends StatelessWidget {
     const AppCard.section({
         super.key,
         required String eyebrow,
-        String? eyebrowPrefix,
+        String? eyebrowBold,
         required this.child,
         this.color,
         this.radius = AppRadius.md,
         this.shadow,
         this.onTap,
     })  : _eyebrow = eyebrow,
-            _eyebrowPrefix = eyebrowPrefix,
+            _eyebrowBold = eyebrowBold,
             _accent = null,
             _noticeIcon = null,
             padding = null;
@@ -79,7 +81,7 @@ class AppCard extends StatelessWidget {
     })  : _accent = accent,
             _noticeIcon = icon,
             _eyebrow = null,
-            _eyebrowPrefix = null,
+            _eyebrowBold = null,
             shadow = null,
             onTap = null;
 
@@ -88,7 +90,7 @@ class AppCard extends StatelessWidget {
         final Widget body = _accent != null
             ? _buildNotice()
             : _eyebrow != null
-                ? _buildSection()
+                ? _buildSection(context)
                 : _buildPlain();
 
         if (onTap == null) return body;
@@ -113,7 +115,17 @@ class AppCard extends StatelessWidget {
         );
     }
 
-    Widget _buildSection() {
+    Widget _buildSection(BuildContext context) {
+        final String eyebrow = upperCase(context, _eyebrow!);
+        final String bold =
+            _eyebrowBold == null ? '' : upperCase(context, _eyebrowBold);
+        final int boldAt = bold.isEmpty ? -1 : eyebrow.indexOf(bold);
+        // A space right after the bold part stays in its run, as it did when
+        // the type was a "MINDSET " prefix: Manrope kerns the "T" of MINDSET,
+        // WORKOUT and DIET into the space, and kerning only works within a run.
+        int boldEnd = boldAt + bold.length;
+        if (boldAt >= 0 && eyebrow.startsWith(' ', boldEnd)) boldEnd++;
+
         return Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -136,20 +148,26 @@ class AppCard extends StatelessWidget {
                         child: Text.rich(
                             TextSpan(
                                 children: <InlineSpan>[
-                                    if (_eyebrowPrefix != null)
+                                    if (boldAt < 0)
+                                        TextSpan(text: eyebrow)
+                                    // Around the bold part the label steps
+                                    // down to 500: next to 700, the bold
+                                    // part's 800 does not read as heavier at
+                                    // 12px.
+                                    else ...<InlineSpan>[
                                         TextSpan(
-                                            text: '${_eyebrowPrefix.toUpperCase()} ',
+                                            text: eyebrow.substring(0, boldAt),
+                                            style: AppText.weight(AppText.eyebrow, 500),
+                                        ),
+                                        TextSpan(
+                                            text: eyebrow.substring(boldAt, boldEnd),
                                             style: AppText.weight(AppText.eyebrow, 800),
                                         ),
-                                    // Behind a prefix the label steps down to
-                                    // 500: next to 700, the prefix's 800 does
-                                    // not read as heavier at 12px.
-                                    TextSpan(
-                                        text: _eyebrow!.toUpperCase(),
-                                        style: _eyebrowPrefix == null
-                                            ? null
-                                            : AppText.weight(AppText.eyebrow, 500),
-                                    ),
+                                        TextSpan(
+                                            text: eyebrow.substring(boldEnd),
+                                            style: AppText.weight(AppText.eyebrow, 500),
+                                        ),
+                                    ],
                                 ],
                             ),
                             style: AppText.eyebrow.copyWith(color: AppColors.brand500),

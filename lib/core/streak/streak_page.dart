@@ -5,6 +5,7 @@ import 'package:getshap/core/streak/streak_manager.dart';
 import 'package:getshap/core/streak/streak_calendar.dart';
 import 'package:getshap/core/streak/streak_freeze_slot.dart';
 import 'package:getshap/common/ui/app_card.dart';
+import 'package:getshap/common/upper_case.dart';
 import 'package:getshap/common/ui/app_scaffold.dart';
 import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_spacing.dart';
@@ -166,7 +167,7 @@ class _StreakPageState extends State<StreakPage> {
                 ),
                 const SizedBox(height: AppSpacing.sm),
                 Text(
-                    loc.workoutStreak.toUpperCase(),
+                    upperCase(context, loc.workoutStreak),
                     style: AppText.eyebrow.copyWith(color: AppColors.n500),
                 ),
             ],

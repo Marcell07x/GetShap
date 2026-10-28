@@ -7,7 +7,8 @@ import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_typography.dart';
 
 class TipDetailScreen extends StatelessWidget {
-    /// "Mindset", "Workout" or "Diet", shown in front of "TIP" in the header.
+    /// "Mindset", "Workout" or "Diet", shown in bold in the header's
+    /// "MINDSET TIP".
     final String type;
     final String tip;
     const TipDetailScreen({super.key, required this.type, required this.tip});
@@ -21,8 +22,8 @@ class TipDetailScreen extends StatelessWidget {
             swipeToPop: true,
             centerScrollable: true,
             body: AppCard.section(
-                eyebrowPrefix: type,
-                eyebrow: l.tip,
+                eyebrowBold: type,
+                eyebrow: l.tipWithType(type),
                 // The home screen's tip size, so opening the card does not
                 // shrink the text it just showed.
                 child: Text(

@@ -4,8 +4,8 @@ import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/tips/tip_manager.dart';
 import 'package:getshap/tips/tips_data.dart';
 
-/// The current tip's type — "Mindset", "Edzés" or "Diéta" — shown in front of
-/// "TIPP" in the tip card's header.
+/// The current tip's type — "Mindset", "Edzés" or "Diéta" — shown in bold in
+/// the tip card's header ("MINDSET TIPP").
 String getTipType(BuildContext context) {
     final AppLocalizations loc = AppLocalizations.of(context)!;
     final tipId = TipManager().currentTipId;

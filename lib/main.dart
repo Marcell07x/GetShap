@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:getshap/common/ui/app_button.dart';
 import 'package:getshap/common/ui/app_card.dart';
+import 'package:getshap/common/upper_case.dart';
 import 'package:getshap/common/ui/app_scaffold.dart';
 import 'package:getshap/common/ui/app_top_bar.dart';
 import 'package:getshap/theme/app_colors.dart';
@@ -16,6 +17,7 @@ import 'package:getshap/onboarding/questionaire.dart';
 import 'package:getshap/onboarding/question_gender.dart';
 import 'package:getshap/onboarding/consent_page.dart';
 import 'package:getshap/core/legal.dart';
+import 'package:getshap/core/app_locale.dart';
 import 'package:getshap/workout/workout_flow.dart';
 import 'package:getshap/warmup/warmup_flow.dart';
 import 'package:getshap/core/workout_signal.dart';
@@ -74,6 +76,7 @@ class MyApp extends StatelessWidget {
             theme: AppTheme.light(),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
+            localeListResolutionCallback: appLocale,
 
             home: SplashScreen(nextBuilder: _firstScreen),
         );
@@ -276,7 +279,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         _buildTipCard(loc),
                         const SizedBox(height: AppSpacing.huge),
                         AppButton(
-                            label: loc.startWorkout.toUpperCase(),
+                            label: upperCase(context, loc.startWorkout),
                             size: AppButtonSize.hero,
                             onPressed: _startWorkout,
                         ),
@@ -288,11 +291,13 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     Widget _buildTipCard(AppLocalizations loc) {
+        // "MINDSET TIPP". Not while loading: until the tip manager has run
+        // there is no tip id, and the type would read "Edzés".
+        final String? type = _isTipLoading ? null : getTipType(context);
+
         return AppCard.section(
-            // "MINDSET TIPP". Not while loading: until the tip manager has
-            // run there is no tip id, and the type would read "Edzés".
-            eyebrowPrefix: _isTipLoading ? null : getTipType(context),
-            eyebrow: loc.tip,
+            eyebrowBold: type,
+            eyebrow: type == null ? loc.tip : loc.tipWithType(type),
             // A tip the user has not seen this session gets a faint brand tint
             // instead of the old highlighter yellow.
             color: _isNewTip ? AppColors.brand50 : AppColors.surface,

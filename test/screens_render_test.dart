@@ -1,5 +1,5 @@
 // Renders every screen that can be built without a platform channel, at real
-// phone dimensions, in both locales and at a large system font scale.
+// phone dimensions, in every locale and at a large system font scale.
 //
 // `flutter_test` fails on any layout exception, so this catches the class of
 // bug a redesign actually produces: RenderFlex overflows, unbounded
@@ -125,7 +125,10 @@ void main() {
         'streak': () => const StreakPage(),
     };
 
-    for (final String locale in <String>['hu', 'en']) {
+    final Iterable<String> locales =
+        AppLocalizations.supportedLocales.map((Locale locale) => locale.languageCode);
+
+    for (final String locale in locales) {
         for (final MapEntry<String, Widget Function()> entry in screens.entries) {
             testWidgets('[$locale] ${entry.key} renders', (WidgetTester tester) async {
                 await show(tester, entry.value(), locale);
@@ -140,15 +143,17 @@ void main() {
     // you very little about 2.0, because the fixed-height boxes (buttons, the
     // app bar, the video frame) do not grow with the text inside them.
     //
-    // Hungarian only: it has the longer strings of the two locales, so it is
-    // the worse case at every scale.
-    for (final double scale in <double>[1.3, 2.0]) {
-        for (final MapEntry<String, Widget Function()> entry in screens.entries) {
-            testWidgets('[hu] ${entry.key} survives a ${scale}x system font',
-                (WidgetTester tester) async {
-                await show(tester, entry.value(), 'hu', textScale: scale);
-                expect(tester.takeException(), isNull);
-            });
+    // Every locale: with German, French and Russian in, which one has the
+    // longest strings differs from screen to screen.
+    for (final String locale in locales) {
+        for (final double scale in <double>[1.3, 2.0]) {
+            for (final MapEntry<String, Widget Function()> entry in screens.entries) {
+                testWidgets('[$locale] ${entry.key} survives a ${scale}x system font',
+                    (WidgetTester tester) async {
+                    await show(tester, entry.value(), locale, textScale: scale);
+                    expect(tester.takeException(), isNull);
+                });
+            }
         }
     }
 }

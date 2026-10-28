@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:getshap/common/ui/app_button.dart';
 import 'package:getshap/common/ui/app_card.dart';
+import 'package:getshap/common/upper_case.dart';
 import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_spacing.dart';
@@ -126,7 +127,7 @@ class _WorkoutFeedbackState extends State<WorkoutFeedback> {
                                                     crossAxisAlignment: CrossAxisAlignment.stretch,
                                                     children: [
                                                         Text(
-                                                            l10n.feedback.toUpperCase(),
+                                                            upperCase(context, l10n.feedback),
                                                             textAlign: TextAlign.center,
                                                             style: AppText.eyebrow.copyWith(color: AppColors.n500),
                                                         ),

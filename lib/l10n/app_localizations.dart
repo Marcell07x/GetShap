@@ -5,8 +5,15 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
+import 'app_localizations_fr.dart';
 import 'app_localizations_hu.dart';
+import 'app_localizations_it.dart';
+import 'app_localizations_pt.dart';
+import 'app_localizations_ru.dart';
+import 'app_localizations_tr.dart';
 
 // ignore_for_file: type=lint
 
@@ -94,8 +101,15 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
+    Locale('de'),
     Locale('en'),
+    Locale('es'),
+    Locale('fr'),
     Locale('hu'),
+    Locale('it'),
+    Locale('pt'),
+    Locale('ru'),
+    Locale('tr'),
   ];
 
   /// No description provided for @form.
@@ -221,7 +235,7 @@ abstract class AppLocalizations {
   /// No description provided for @diamondTablePush.
   ///
   /// In en, this message translates to:
-  /// **'Diamond Push Ups on Table'**
+  /// **'Diamond Push-Ups on a Table'**
   String get diamondTablePush;
 
   /// No description provided for @kneePush.
@@ -239,19 +253,19 @@ abstract class AppLocalizations {
   /// No description provided for @declinePush.
   ///
   /// In en, this message translates to:
-  /// **'Decline Push Ups'**
+  /// **'Decline Push-Ups'**
   String get declinePush;
 
   /// No description provided for @explosivePush.
   ///
   /// In en, this message translates to:
-  /// **'Explosive Push Ups'**
+  /// **'Explosive Push-Ups'**
   String get explosivePush;
 
   /// No description provided for @pseudoPush.
   ///
   /// In en, this message translates to:
-  /// **'Pseudo Push Ups'**
+  /// **'Pseudo Push-Ups'**
   String get pseudoPush;
 
   /// No description provided for @dipPush.
@@ -263,7 +277,7 @@ abstract class AppLocalizations {
   /// No description provided for @bagPull.
   ///
   /// In en, this message translates to:
-  /// **'One Hand Bag Rows'**
+  /// **'One-Hand Bag Rows'**
   String get bagPull;
 
   /// No description provided for @reverseSnowAngel.
@@ -281,7 +295,7 @@ abstract class AppLocalizations {
   /// No description provided for @pullup.
   ///
   /// In en, this message translates to:
-  /// **'Pullups'**
+  /// **'Pull-Ups'**
   String get pullup;
 
   /// No description provided for @squat1.
@@ -329,19 +343,19 @@ abstract class AppLocalizations {
   /// No description provided for @lunge4.
   ///
   /// In en, this message translates to:
-  /// **'Elevated Lunges'**
+  /// **'Bulgarian Split Squats'**
   String get lunge4;
 
   /// No description provided for @squat5.
   ///
   /// In en, this message translates to:
-  /// **'Archer Squats'**
+  /// **'Side Squats'**
   String get squat5;
 
   /// No description provided for @lunge5.
   ///
   /// In en, this message translates to:
-  /// **'Weighted Elevated Lunges'**
+  /// **'Weighted Bulgarian Split Squats'**
   String get lunge5;
 
   /// No description provided for @glute1.
@@ -383,7 +397,7 @@ abstract class AppLocalizations {
   /// No description provided for @core2.
   ///
   /// In en, this message translates to:
-  /// **'Back Extensions'**
+  /// **'Reverse Leg Raises'**
   String get core2;
 
   /// No description provided for @workout.
@@ -503,7 +517,7 @@ abstract class AppLocalizations {
   /// No description provided for @maxKneePush.
   ///
   /// In en, this message translates to:
-  /// **'How many knee pushups can you do?'**
+  /// **'How many knee push-ups can you do?'**
   String get maxKneePush;
 
   /// No description provided for @maxSquats.
@@ -539,7 +553,7 @@ abstract class AppLocalizations {
   /// No description provided for @motivation.
   ///
   /// In en, this message translates to:
-  /// **'How much are you motivated to work out?'**
+  /// **'How motivated are you to work out?'**
   String get motivation;
 
   /// No description provided for @notAtAll.
@@ -629,7 +643,7 @@ abstract class AppLocalizations {
   /// No description provided for @workoutReminderBody.
   ///
   /// In en, this message translates to:
-  /// **'You\'re building a habit - keep going!'**
+  /// **'You\'re building a habit – keep going!'**
   String get workoutReminderBody;
 
   /// No description provided for @welcomeNotiTitle.
@@ -641,7 +655,7 @@ abstract class AppLocalizations {
   /// No description provided for @welcomeNotiBody.
   ///
   /// In en, this message translates to:
-  /// **'it won\'t be hard 😊'**
+  /// **'It won\'t be hard 😊'**
   String get welcomeNotiBody;
 
   /// No description provided for @streakNotiTitle.
@@ -725,7 +739,7 @@ abstract class AppLocalizations {
   /// No description provided for @explosivePushDesc.
   ///
   /// In en, this message translates to:
-  /// **'During a pushup, push yourself off the ground '**
+  /// **'During the push-up, push yourself off the floor as forcefully as you can.'**
   String get explosivePushDesc;
 
   /// No description provided for @pseudoPushDesc.
@@ -809,7 +823,7 @@ abstract class AppLocalizations {
   /// No description provided for @lunge4Desc.
   ///
   /// In en, this message translates to:
-  /// **'Place your back leg on a chair. Have your rear foot on your toes, while your front foot points forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.'**
+  /// **'Place your back leg on a chair. Rest your back foot on its toes, with your front foot pointing forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.'**
   String get lunge4Desc;
 
   /// No description provided for @squat5Desc.
@@ -821,7 +835,7 @@ abstract class AppLocalizations {
   /// No description provided for @lunge5Desc.
   ///
   /// In en, this message translates to:
-  /// **'Fill a bag with books or other weights. Place your back leg on a chair. Have your rear foot on your toes, while your front foot points forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.'**
+  /// **'Fill a bag with books or other weights. Place your back leg on a chair. Rest your back foot on its toes, with your front foot pointing forward. Keep your feet slightly apart instead of in a straight line to maintain better balance. Keep your front shin vertical and your thigh pointing forward. Lean forward slightly so the weight is on the back of your front leg. Perform on both sides.'**
   String get lunge5Desc;
 
   /// No description provided for @glute1Desc.
@@ -869,7 +883,7 @@ abstract class AppLocalizations {
   /// No description provided for @lightBagPull.
   ///
   /// In en, this message translates to:
-  /// **'One Hand Bag Rows with less weight'**
+  /// **'One-Hand Bag Rows with less weight'**
   String get lightBagPull;
 
   /// No description provided for @runInPlace.
@@ -913,6 +927,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tip'**
   String get tip;
+
+  /// No description provided for @tipWithType.
+  ///
+  /// In en, this message translates to:
+  /// **'{type} tip'**
+  String tipWithType(String type);
 
   /// No description provided for @tipTypePrinciples.
   ///
@@ -995,7 +1015,7 @@ abstract class AppLocalizations {
   /// No description provided for @advancedWorkout1.
   ///
   /// In en, this message translates to:
-  /// **'Four main muscle groups: push, pull, core, and legs.\n\nPush exercises are push-up variations, dips, the bench press and other exercises where you push something away from your body. They mainly target your chest, triceps and the front of your shoulders.\n\nPull exercises, like bag rows or pull-ups, are the ones where you pull something closer to your body. They mainly target your back, biceps and the back of your shoulders. There are two main types: vertical pulls (pull-ups) and horizontal pulls (bag rows).\n\nYour core muscles are your abs, lower back and obliques. They are trained in most bodyweight exercises, like push-ups and pull-ups, but you can also do specific exercises for them.\n\nYour legs have 4 main muscles: quads, hamstrings, glutes and calves. Squats train the quads really well, and hip thrusts/glute bridges mainly target the glutes. The most effective exercises for the hamstrings are the ones where you bend your leg, but there\'s no alternative for those with home equipment. However, lunges (shown in the app) and hip thrusts/glute bridges together train them sufficiently well. Calves do not have a dedicated exercise in the app, because they are trained well when you are running, and somewhat in other exercises as well.'**
+  /// **'Four main muscle groups: push, pull, core, and legs.\n\nPush exercises are push-up variations, dips, the bench press and other exercises where you push something away from your body. They mainly target your chest, triceps and the front of your shoulders.\n\nPull exercises, like bag rows or pull-ups, are the ones where you pull something closer to your body. They mainly target your back, biceps and the back of your shoulders. There are two main types: vertical pulls (pull-ups) and horizontal pulls (bag rows).\n\nYour core muscles are your abs, lower back and obliques. They are trained in most bodyweight exercises, like push-ups and pull-ups, but you can also do specific exercises for them.\n\nYour legs have 4 main muscles: quads, hamstrings, glutes and calves. Squats train the quads really well, and hip thrusts/glute bridges mainly target the glutes. The most effective exercises for the hamstrings are the ones where you bend your leg, but there\'s no home-equipment alternative for those. However, lunges (shown in the app) and hip thrusts/glute bridges together train them sufficiently well. Calves do not have a dedicated exercise in the app, because they are trained well when you are running, and somewhat in other exercises as well.'**
   String get advancedWorkout1;
 
   /// No description provided for @advancedWorkout2.
@@ -1111,8 +1131,17 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'hu'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'de',
+    'en',
+    'es',
+    'fr',
+    'hu',
+    'it',
+    'pt',
+    'ru',
+    'tr',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -1121,10 +1150,24 @@ class _AppLocalizationsDelegate
 AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'de':
+      return AppLocalizationsDe();
     case 'en':
       return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
+    case 'fr':
+      return AppLocalizationsFr();
     case 'hu':
       return AppLocalizationsHu();
+    case 'it':
+      return AppLocalizationsIt();
+    case 'pt':
+      return AppLocalizationsPt();
+    case 'ru':
+      return AppLocalizationsRu();
+    case 'tr':
+      return AppLocalizationsTr();
   }
 
   throw FlutterError(

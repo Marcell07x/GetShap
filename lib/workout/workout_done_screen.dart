@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:getshap/common/ui/app_button.dart';
+import 'package:getshap/common/upper_case.dart';
 import 'package:getshap/core/streak/streak_increase.dart';
 import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/theme/app_colors.dart';
@@ -71,7 +72,7 @@ class CongratulationsScreen extends StatelessWidget {
                                                             const StreakIncrease(),
                                                             const SizedBox(height: AppSpacing.md),
                                                             Text(
-                                                                l10n.workoutStreak.toUpperCase(),
+                                                                upperCase(context, l10n.workoutStreak),
                                                                 textAlign: TextAlign.center,
                                                                 style: AppText.eyebrow.copyWith(
                                                                     color: AppColors.brand200,
@@ -92,7 +93,7 @@ class CongratulationsScreen extends StatelessWidget {
                                         ),
                                     ),
                                     AppButton(
-                                        label: l10n.finish.toUpperCase(),
+                                        label: upperCase(context, l10n.finish),
                                         variant: AppButtonVariant.inverse,
                                         onPressed: () => Navigator.popUntil(
                                             context,

@@ -136,7 +136,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get squat5 => 'Oldalas Guggolás';
 
   @override
-  String get lunge5 => 'Féllábas Kitörés Táskával';
+  String get lunge5 => 'Bolgár Guggolás Táskával';
 
   @override
   String get glute1 => 'Hátsó lábemelés';
@@ -339,7 +339,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get explosivePushDesc =>
-      'During the push-up, push yourself off the floor as forcefully as you can.';
+      'Fekvőtámasz közben told el magad a földtől, amilyen erősen csak tudod.';
 
   @override
   String get pseudoPushDesc =>
@@ -456,6 +456,11 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get tip => 'Tipp';
+
+  @override
+  String tipWithType(String type) {
+    return '$type tipp';
+  }
 
   @override
   String get tipTypePrinciples => 'Mindset';
