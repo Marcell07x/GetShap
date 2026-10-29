@@ -35,8 +35,10 @@
 
     "bagPull": "Çantayla tek kol row",
     "reverseSnowAngel": "Ters kar meleği",
-    "bwPull": "Ters row",
-    "pullup": "Barfiks",
+    "chestBwPull": "Göğüs hizasında ters row",
+    "waistBwPull": "Bel hizasında ters row",
+    "negPullUp": "Negatif barfiks",
+    "pullUp": "Barfiks",
 
     "squat1": "Destekli squat",
     "lunge1": "Destekli lunge",
@@ -63,8 +65,12 @@
     "nextWorkoutTomorrow": "Yarın yine antrenman yapabilirsin!",
     "nextWorkoutDays": "Sonraki antrenmana {days} gün var",
     "reps": "Tekrar",
+    "testRepsHint": "Yapabildiğin kadar yap, sonra kaç tane yaptığını yaz.",
     "seconds": "Saniye",
     "next": "İleri",
+    "save": "Kaydet",
+    "saveConfirm": "{reps} tekrar yaptığına emin misin?",
+    "cancel": "İptal",
     "goback": "Geri",
     "startWorkout": "Başla",
 
@@ -99,6 +105,12 @@
     "motivated": "Çok istekliyim",
 
     "age": "Hangi yaş grubundasın?",
+
+    "workoutPlaceQuestion": "Bundan sonra nerede antrenman yapmak istersin?",
+    "workoutPlaceNote": "Bunu daha sonra menüden değiştirebilirsin.",
+    "atHome": "Evde",
+    "inPark": "Parkta",
+    "workoutPlace": "Antrenman yeri",
 
 
     "congrat": "Tebrikler!",
@@ -138,8 +150,10 @@
     "dipPushDesc": "Barları, avuçlarının ortası üstte kalacak şekilde tut. Omuzlarını aşağıda tut ve bu pozisyonu baştan sona koru. Dirseklerin en az 90 derece bükülene kadar aşağı in, sonra kendini yukarı it.",
     "bagPullDesc": "Bir çantayı kitaplarla veya küçük ağırlıklarla doldur, en az 5–10 kg olsun. Bir elinle destek al, gövden düz ve yaklaşık yatay olsun. Elini indirdiğinde çantanın yere değmemesine çalış. Çekerken omuzlarını aşağıda tut – kulaklarına doğru kalkmasına izin verme. Kolunu yaklaşık 90°'ye kadar bük.\nÇok kolay geliyorsa:\n• ağırlığı artır\n• daha yavaş indir\n• daha fazla tekrar yap\nHer iki taraf için de yap.",
     "reverseSnowAngelDesc": "Yüzüstü yere uzan. Başını ve ellerini kaldır, ellerini başının üstünde birleştir. Kollarını yanlardan kalçana kadar indir, sonra ellerini tekrar başının üstünde birleştir.\nTam bir gidiş-dönüş bir tekrar sayılır.\nHareket boyunca ellerini yerden yukarıda tut.\nDaha zor hâle getirmek için her eline bir kitap al.",
-    "bwPullDesc": "",
-    "pullupDesc": "",
+    "chestBwPullDesc": "",
+    "waistBwPullDesc": "",
+    "negPullUpDesc": "",
+    "pullUpDesc": "",
     "squat1Desc": "Bir ya da iki elinle sağlam bir şeye tutun. Ayaklarını omuz genişliğinde aç, ayak uçların hafifçe dışa baksın. Önce dizlerini hafifçe öne doğru it, sonra kontrollü bir şekilde yaklaşık 90°'ye kadar in. Gövdeni baştan sona dik tut.",
     "lunge1Desc": "Bacakları sırayla değiştir – tekrarları bacak başına değil, toplam olarak say. Bir ya da iki elinle sağlam bir şeye tutun. Ön bacağının kaval kemiğini dik tutarak geriye bir adım at. Uyluğun öne baksın. Yükün ön bacağının arka tarafında olması için hafifçe öne eğil.",
     "squat2Desc": "Ayaklarını omuz genişliğinde aç, ayak uçların hafifçe dışa baksın. Önce dizlerini hafifçe öne doğru it, sonra kontrollü bir şekilde yaklaşık 90°'ye kadar in. Gövdeni baştan sona dik tut.",

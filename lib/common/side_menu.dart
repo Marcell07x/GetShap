@@ -8,6 +8,7 @@ import 'package:getshap/theme/app_spacing.dart';
 import 'package:getshap/theme/app_typography.dart';
 import 'package:getshap/tips/tip_library_screen.dart';
 import 'package:getshap/tips/tips_data.dart';
+import 'package:getshap/workout/workout_place_tile.dart';
 
 /// Which page the side menu is currently showing.
 enum SideMenuView { menu, contact, tipLibrary }
@@ -160,6 +161,7 @@ class SideMenu extends StatelessWidget {
                     title: Text(loc.tipLibrary),
                     onTap: onTipLibraryPressed,
                 ),
+                const WorkoutPlaceTile(),
                 ListTile(
                     leading: const Icon(Icons.person_outline),
                     title: Text(loc.contact),

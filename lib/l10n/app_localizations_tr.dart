@@ -103,10 +103,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get reverseSnowAngel => 'Ters kar meleği';
 
   @override
-  String get bwPull => 'Ters row';
+  String get chestBwPull => 'Göğüs hizasında ters row';
 
   @override
-  String get pullup => 'Barfiks';
+  String get waistBwPull => 'Bel hizasında ters row';
+
+  @override
+  String get negPullUp => 'Negatif barfiks';
+
+  @override
+  String get pullUp => 'Barfiks';
 
   @override
   String get squat1 => 'Destekli squat';
@@ -180,10 +186,25 @@ class AppLocalizationsTr extends AppLocalizations {
   String get reps => 'Tekrar';
 
   @override
+  String get testRepsHint =>
+      'Yapabildiğin kadar yap, sonra kaç tane yaptığını yaz.';
+
+  @override
   String get seconds => 'Saniye';
 
   @override
   String get next => 'İleri';
+
+  @override
+  String get save => 'Kaydet';
+
+  @override
+  String saveConfirm(int reps) {
+    return '$reps tekrar yaptığına emin misin?';
+  }
+
+  @override
+  String get cancel => 'İptal';
 
   @override
   String get goback => 'Geri';
@@ -250,6 +271,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get age => 'Hangi yaş grubundasın?';
+
+  @override
+  String get workoutPlaceQuestion =>
+      'Bundan sonra nerede antrenman yapmak istersin?';
+
+  @override
+  String get workoutPlaceNote => 'Bunu daha sonra menüden değiştirebilirsin.';
+
+  @override
+  String get atHome => 'Evde';
+
+  @override
+  String get inPark => 'Parkta';
+
+  @override
+  String get workoutPlace => 'Antrenman yeri';
 
   @override
   String get congrat => 'Tebrikler!';
@@ -358,10 +395,16 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yüzüstü yere uzan. Başını ve ellerini kaldır, ellerini başının üstünde birleştir. Kollarını yanlardan kalçana kadar indir, sonra ellerini tekrar başının üstünde birleştir.\nTam bir gidiş-dönüş bir tekrar sayılır.\nHareket boyunca ellerini yerden yukarıda tut.\nDaha zor hâle getirmek için her eline bir kitap al.';
 
   @override
-  String get bwPullDesc => '';
+  String get chestBwPullDesc => '';
 
   @override
-  String get pullupDesc => '';
+  String get waistBwPullDesc => '';
+
+  @override
+  String get negPullUpDesc => '';
+
+  @override
+  String get pullUpDesc => '';
 
   @override
   String get squat1Desc =>

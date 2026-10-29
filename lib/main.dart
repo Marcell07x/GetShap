@@ -37,6 +37,7 @@ import 'package:getshap/dev/debug_buttons.dart';
 import 'package:getshap/tips/tip_manager.dart';
 import 'package:getshap/tips/tips_data.dart';
 import 'package:getshap/tips/tip_type.dart';
+import 'package:getshap/workout/workout_place_page.dart';
 
 void main() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -56,7 +57,10 @@ void main() async {
     await PrefsMigration.run();
     bool hasData = await CheckData.checkData();
     ConsentStatus consent = await Legal.status();
-    runApp(MyApp(hasData: hasData, consent: consent));
+    //the home-or-park question stays in place of the home screen until it is
+    //answered, so it is back if the app was closed on it
+    bool askPlace = await placeQuestionDue();
+    runApp(MyApp(hasData: hasData, consent: consent, askPlace: askPlace));
 }
 
 class MyApp extends StatelessWidget {
@@ -67,7 +71,15 @@ class MyApp extends StatelessWidget {
     /// is still the current one.
     final ConsentStatus consent;
 
-    const MyApp({super.key, required this.hasData, required this.consent});
+    /// Whether the home-or-park question comes in place of the home screen.
+    final bool askPlace;
+
+    const MyApp({
+        super.key,
+        required this.hasData,
+        required this.consent,
+        this.askPlace = false,
+    });
 
     @override
     Widget build(BuildContext context) {
@@ -99,8 +111,11 @@ class MyApp extends StatelessWidget {
     /// longer the current one, since an earlier acceptance does not cover
     /// materially changed terms.
     Widget _firstScreen(BuildContext context) {
+        WidgetBuilder home = askPlace
+            ? (_) => WorkoutPlacePage(nextBuilder: (_) => const MyHomePage())
+            : (_) => const MyHomePage();
         WidgetBuilder afterConsent = hasData
-            ? (_) => const MyHomePage()
+            ? home
             : (_) => QuestionGenderPage(data: QuestionnaireData());
 
         if (consent == ConsentStatus.current) return afterConsent(context);

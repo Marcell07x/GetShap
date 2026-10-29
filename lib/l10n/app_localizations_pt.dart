@@ -103,10 +103,16 @@ class AppLocalizationsPt extends AppLocalizations {
   String get reverseSnowAngel => 'Anjo de neve invertido';
 
   @override
-  String get bwPull => 'Remada invertida';
+  String get chestBwPull => 'Remada invertida na altura do peito';
 
   @override
-  String get pullup => 'Barra fixa';
+  String get waistBwPull => 'Remada invertida na altura da cintura';
+
+  @override
+  String get negPullUp => 'Barra fixa negativa';
+
+  @override
+  String get pullUp => 'Barra fixa';
 
   @override
   String get squat1 => 'Agachamento assistido';
@@ -180,10 +186,31 @@ class AppLocalizationsPt extends AppLocalizations {
   String get reps => 'Repetições';
 
   @override
+  String get testRepsHint =>
+      'Faça o máximo que conseguir e depois digite quantas você fez.';
+
+  @override
   String get seconds => 'Segundos';
 
   @override
   String get next => 'Próximo';
+
+  @override
+  String get save => 'Salvar';
+
+  @override
+  String saveConfirm(int reps) {
+    String _temp0 = intl.Intl.pluralLogic(
+      reps,
+      locale: localeName,
+      other: '$reps repetições',
+      one: '$reps repetição',
+    );
+    return 'Você fez mesmo $_temp0?';
+  }
+
+  @override
+  String get cancel => 'Cancelar';
 
   @override
   String get goback => 'Voltar';
@@ -250,6 +277,22 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get age => 'Qual é a sua faixa etária?';
+
+  @override
+  String get workoutPlaceQuestion =>
+      'Onde você quer treinar a partir de agora?';
+
+  @override
+  String get workoutPlaceNote => 'Você pode mudar isso depois no menu.';
+
+  @override
+  String get atHome => 'Em casa';
+
+  @override
+  String get inPark => 'No parque';
+
+  @override
+  String get workoutPlace => 'Local de treino';
 
   @override
   String get congrat => 'Parabéns!';
@@ -359,10 +402,16 @@ class AppLocalizationsPt extends AppLocalizations {
       'Deite-se de bruços no chão. Levante a cabeça e as mãos, encostando as mãos uma na outra acima da cabeça. Leve os braços pelas laterais até o quadril e depois encoste as mãos de novo acima da cabeça.\nUma ida e volta completa conta como uma repetição.\nMantenha as mãos sem encostar no chão durante todo o movimento.\nPara deixar mais difícil, segure um livro em cada mão.';
 
   @override
-  String get bwPullDesc => '';
+  String get chestBwPullDesc => '';
 
   @override
-  String get pullupDesc => '';
+  String get waistBwPullDesc => '';
+
+  @override
+  String get negPullUpDesc => '';
+
+  @override
+  String get pullUpDesc => '';
 
   @override
   String get squat1Desc =>

@@ -103,10 +103,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get reverseSnowAngel => 'Reverse Snow Angels';
 
   @override
-  String get bwPull => 'Rudern mit Körpergewicht';
+  String get chestBwPull => 'Rudern an brusthoher Stange';
 
   @override
-  String get pullup => 'Klimmzüge';
+  String get waistBwPull => 'Rudern an hüfthoher Stange';
+
+  @override
+  String get negPullUp => 'Negative Klimmzüge';
+
+  @override
+  String get pullUp => 'Klimmzüge';
 
   @override
   String get squat1 => 'Kniebeugen mit Festhalten';
@@ -180,10 +186,31 @@ class AppLocalizationsDe extends AppLocalizations {
   String get reps => 'Wiederholungen';
 
   @override
+  String get testRepsHint =>
+      'Mach so viele, wie du schaffst, und trag dann ein, wie viele es waren.';
+
+  @override
   String get seconds => 'Sekunden';
 
   @override
   String get next => 'Weiter';
+
+  @override
+  String get save => 'Speichern';
+
+  @override
+  String saveConfirm(int reps) {
+    String _temp0 = intl.Intl.pluralLogic(
+      reps,
+      locale: localeName,
+      other: '$reps Wiederholungen',
+      one: '$reps Wiederholung',
+    );
+    return 'Hast du wirklich $_temp0 geschafft?';
+  }
+
+  @override
+  String get cancel => 'Abbrechen';
 
   @override
   String get goback => 'Zurück';
@@ -251,6 +278,21 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get age => 'Zu welcher Altersgruppe gehörst du?';
+
+  @override
+  String get workoutPlaceQuestion => 'Wo möchtest du ab jetzt trainieren?';
+
+  @override
+  String get workoutPlaceNote => 'Du kannst das später im Menü ändern.';
+
+  @override
+  String get atHome => 'Zu Hause';
+
+  @override
+  String get inPark => 'Im Park';
+
+  @override
+  String get workoutPlace => 'Trainingsort';
 
   @override
   String get congrat => 'Glückwunsch!';
@@ -361,10 +403,16 @@ class AppLocalizationsDe extends AppLocalizations {
       'Leg dich auf den Bauch. Heb Kopf und Hände an und bring die Hände über dem Kopf zusammen. Führ die Arme seitlich nach unten bis zur Hüfte und bring die Hände dann wieder über dem Kopf zusammen.\nEinmal hin und zurück zählt als eine Wiederholung.\nHalte die Hände während der ganzen Bewegung über dem Boden.\nUm es schwerer zu machen, nimm in jede Hand ein Buch.';
 
   @override
-  String get bwPullDesc => '';
+  String get chestBwPullDesc => '';
 
   @override
-  String get pullupDesc => '';
+  String get waistBwPullDesc => '';
+
+  @override
+  String get negPullUpDesc => '';
+
+  @override
+  String get pullUpDesc => '';
 
   @override
   String get squat1Desc =>

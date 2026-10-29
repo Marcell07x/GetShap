@@ -35,8 +35,10 @@
 
     "bagPull": "Remada unilateral com bolsa",
     "reverseSnowAngel": "Anjo de neve invertido",
-    "bwPull": "Remada invertida",
-    "pullup": "Barra fixa",
+    "chestBwPull": "Remada invertida na altura do peito",
+    "waistBwPull": "Remada invertida na altura da cintura",
+    "negPullUp": "Barra fixa negativa",
+    "pullUp": "Barra fixa",
 
     "squat1": "Agachamento assistido",
     "lunge1": "Afundo assistido",
@@ -63,8 +65,12 @@
     "nextWorkoutTomorrow": "Amanhã você já pode treinar de novo!",
     "nextWorkoutDays": "Faltam {days} dias para o próximo treino",
     "reps": "Repetições",
+    "testRepsHint": "Faça o máximo que conseguir e depois digite quantas você fez.",
     "seconds": "Segundos",
     "next": "Próximo",
+    "save": "Salvar",
+    "saveConfirm": "Você fez mesmo {reps, plural, =1{{reps} repetição} other{{reps} repetições}}?",
+    "cancel": "Cancelar",
     "goback": "Voltar",
     "startWorkout": "Começar treino",
 
@@ -99,6 +105,12 @@
     "motivated": "Muita",
 
     "age": "Qual é a sua faixa etária?",
+
+    "workoutPlaceQuestion": "Onde você quer treinar a partir de agora?",
+    "workoutPlaceNote": "Você pode mudar isso depois no menu.",
+    "atHome": "Em casa",
+    "inPark": "No parque",
+    "workoutPlace": "Local de treino",
 
 
     "congrat": "Parabéns!",
@@ -138,8 +150,10 @@
     "dipPushDesc": "Segure as barras com o centro das palmas apoiado em cima. Mantenha os ombros abaixados e conserve essa posição o tempo todo. Desça até que os cotovelos dobrem pelo menos 90 graus e depois empurre para subir.",
     "bagPullDesc": "Encha uma bolsa com livros ou pesos pequenos, com pelo menos 5–10 kg. Apoie-se com uma mão, com o tronco reto e mais ou menos na horizontal. Ao abaixar a mão, tente manter a bolsa sem tocar o chão. Na subida, mantenha os ombros abaixados – não deixe que subam em direção às orelhas. Dobre o braço até cerca de 90°.\nSe estiver fácil demais:\n• aumente o peso\n• desça mais devagar\n• faça mais repetições\nFaça dos dois lados.",
     "reverseSnowAngelDesc": "Deite-se de bruços no chão. Levante a cabeça e as mãos, encostando as mãos uma na outra acima da cabeça. Leve os braços pelas laterais até o quadril e depois encoste as mãos de novo acima da cabeça.\nUma ida e volta completa conta como uma repetição.\nMantenha as mãos sem encostar no chão durante todo o movimento.\nPara deixar mais difícil, segure um livro em cada mão.",
-    "bwPullDesc": "",
-    "pullupDesc": "",
+    "chestBwPullDesc": "",
+    "waistBwPullDesc": "",
+    "negPullUpDesc": "",
+    "pullUpDesc": "",
     "squat1Desc": "Segure-se em algo firme com uma ou as duas mãos. Fique com os pés na largura dos ombros, com as pontas um pouco para fora. Comece levando os joelhos um pouco para a frente e depois desça de forma controlada até cerca de 90°. Mantenha o tronco reto o tempo todo.",
     "lunge1Desc": "Alterne as pernas – conte o total de repetições, não por perna. Segure-se em algo firme com uma ou as duas mãos. Dê um passo para trás, mantendo a canela da frente na vertical. A coxa deve apontar para a frente. Incline-se um pouco para a frente para que o esforço fique na parte de trás da perna da frente.",
     "squat2Desc": "Fique com os pés na largura dos ombros, com as pontas um pouco para fora. Comece levando os joelhos um pouco para a frente e depois desça de forma controlada até cerca de 90°. Mantenha o tronco reto o tempo todo.",

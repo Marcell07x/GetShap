@@ -286,17 +286,29 @@ abstract class AppLocalizations {
   /// **'Reverse Snow Angel'**
   String get reverseSnowAngel;
 
-  /// No description provided for @bwPull.
+  /// No description provided for @chestBwPull.
   ///
   /// In en, this message translates to:
-  /// **'Bodyweight Rows'**
-  String get bwPull;
+  /// **'Bodyweight Rows on a Chest-High Bar'**
+  String get chestBwPull;
 
-  /// No description provided for @pullup.
+  /// No description provided for @waistBwPull.
+  ///
+  /// In en, this message translates to:
+  /// **'Bodyweight Rows on a Waist-High Bar'**
+  String get waistBwPull;
+
+  /// No description provided for @negPullUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Negative Pull-Ups'**
+  String get negPullUp;
+
+  /// No description provided for @pullUp.
   ///
   /// In en, this message translates to:
   /// **'Pull-Ups'**
-  String get pullup;
+  String get pullUp;
 
   /// No description provided for @squat1.
   ///
@@ -436,6 +448,12 @@ abstract class AppLocalizations {
   /// **'Repetitions'**
   String get reps;
 
+  /// No description provided for @testRepsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Do as many as you can, then enter how many you did.'**
+  String get testRepsHint;
+
   /// No description provided for @seconds.
   ///
   /// In en, this message translates to:
@@ -447,6 +465,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Next'**
   String get next;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @saveConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you did {reps, plural, =1{{reps} rep} other{{reps} reps}}?'**
+  String saveConfirm(int reps);
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
 
   /// No description provided for @goback.
   ///
@@ -579,6 +615,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'What is your age group?'**
   String get age;
+
+  /// No description provided for @workoutPlaceQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Where would you like to train from now on?'**
+  String get workoutPlaceQuestion;
+
+  /// No description provided for @workoutPlaceNote.
+  ///
+  /// In en, this message translates to:
+  /// **'You can change this later in the menu.'**
+  String get workoutPlaceNote;
+
+  /// No description provided for @atHome.
+  ///
+  /// In en, this message translates to:
+  /// **'At home'**
+  String get atHome;
+
+  /// No description provided for @inPark.
+  ///
+  /// In en, this message translates to:
+  /// **'In a park'**
+  String get inPark;
+
+  /// No description provided for @workoutPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout location'**
+  String get workoutPlace;
 
   /// No description provided for @congrat.
   ///
@@ -766,17 +832,29 @@ abstract class AppLocalizations {
   /// **'Lie face down on the floor. Raise your head and hands, touching your hands together above your head. Bring your arms out to the sides down to your hips, then touch your hands together above your head again.\nOne complete round trip counts as one repetition.\nKeep your hands elevated off the floor throughout the entire movement.\nTo make it more challenging, hold a book in each hand.'**
   String get reverseSnowAngelDesc;
 
-  /// No description provided for @bwPullDesc.
+  /// No description provided for @chestBwPullDesc.
   ///
   /// In en, this message translates to:
   /// **''**
-  String get bwPullDesc;
+  String get chestBwPullDesc;
 
-  /// No description provided for @pullupDesc.
+  /// No description provided for @waistBwPullDesc.
   ///
   /// In en, this message translates to:
   /// **''**
-  String get pullupDesc;
+  String get waistBwPullDesc;
+
+  /// No description provided for @negPullUpDesc.
+  ///
+  /// In en, this message translates to:
+  /// **''**
+  String get negPullUpDesc;
+
+  /// No description provided for @pullUpDesc.
+  ///
+  /// In en, this message translates to:
+  /// **''**
+  String get pullUpDesc;
 
   /// No description provided for @squat1Desc.
   ///

@@ -103,10 +103,16 @@ class AppLocalizationsIt extends AppLocalizations {
   String get reverseSnowAngel => 'Angeli nella neve inversi';
 
   @override
-  String get bwPull => 'Rematore inverso';
+  String get chestBwPull => 'Rematore inverso all\'altezza del petto';
 
   @override
-  String get pullup => 'Trazioni';
+  String get waistBwPull => 'Rematore inverso all\'altezza della vita';
+
+  @override
+  String get negPullUp => 'Trazioni negative';
+
+  @override
+  String get pullUp => 'Trazioni';
 
   @override
   String get squat1 => 'Squat assistiti';
@@ -180,10 +186,31 @@ class AppLocalizationsIt extends AppLocalizations {
   String get reps => 'Ripetizioni';
 
   @override
+  String get testRepsHint =>
+      'Fanne quante più riesci, poi scrivi quante ne hai fatte.';
+
+  @override
   String get seconds => 'Secondi';
 
   @override
   String get next => 'Avanti';
+
+  @override
+  String get save => 'Salva';
+
+  @override
+  String saveConfirm(int reps) {
+    String _temp0 = intl.Intl.pluralLogic(
+      reps,
+      locale: localeName,
+      other: '$reps ripetizioni',
+      one: '$reps ripetizione',
+    );
+    return 'Hai fatto davvero $_temp0?';
+  }
+
+  @override
+  String get cancel => 'Annulla';
 
   @override
   String get goback => 'Indietro';
@@ -250,6 +277,21 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get age => 'Qual è la tua fascia d\'età?';
+
+  @override
+  String get workoutPlaceQuestion => 'Dove vuoi allenarti d\'ora in poi?';
+
+  @override
+  String get workoutPlaceNote => 'Puoi cambiarlo più tardi nel menu.';
+
+  @override
+  String get atHome => 'A casa';
+
+  @override
+  String get inPark => 'Al parco';
+
+  @override
+  String get workoutPlace => 'Luogo di allenamento';
 
   @override
   String get congrat => 'Complimenti!';
@@ -359,10 +401,16 @@ class AppLocalizationsIt extends AppLocalizations {
       'Sdraiati a pancia in giù sul pavimento. Solleva la testa e le mani, unendo le mani sopra la testa. Porta le braccia di lato, verso il basso, fino ai fianchi, poi unisci di nuovo le mani sopra la testa.\nUn giro completo, andata e ritorno, conta come una ripetizione.\nTieni le mani sollevate da terra per tutto il movimento.\nPer renderlo più impegnativo, tieni un libro in ogni mano.';
 
   @override
-  String get bwPullDesc => '';
+  String get chestBwPullDesc => '';
 
   @override
-  String get pullupDesc => '';
+  String get waistBwPullDesc => '';
+
+  @override
+  String get negPullUpDesc => '';
+
+  @override
+  String get pullUpDesc => '';
 
   @override
   String get squat1Desc =>

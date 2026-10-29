@@ -35,8 +35,10 @@
 
     "bagPull": "Einarmiges Rudern mit Tasche",
     "reverseSnowAngel": "Reverse Snow Angels",
-    "bwPull": "Rudern mit Körpergewicht",
-    "pullup": "Klimmzüge",
+    "chestBwPull": "Rudern an brusthoher Stange",
+    "waistBwPull": "Rudern an hüfthoher Stange",
+    "negPullUp": "Negative Klimmzüge",
+    "pullUp": "Klimmzüge",
 
     "squat1": "Kniebeugen mit Festhalten",
     "lunge1": "Ausfallschritte mit Festhalten",
@@ -63,8 +65,12 @@
     "nextWorkoutTomorrow": "Morgen kannst du wieder trainieren!",
     "nextWorkoutDays": "Noch {days} Tage bis zum nächsten Training",
     "reps": "Wiederholungen",
+    "testRepsHint": "Mach so viele, wie du schaffst, und trag dann ein, wie viele es waren.",
     "seconds": "Sekunden",
     "next": "Weiter",
+    "save": "Speichern",
+    "saveConfirm": "Hast du wirklich {reps, plural, =1{{reps} Wiederholung} other{{reps} Wiederholungen}} geschafft?",
+    "cancel": "Abbrechen",
     "goback": "Zurück",
     "startWorkout": "Training starten",
 
@@ -99,6 +105,12 @@
     "motivated": "Ich bin motiviert",
 
     "age": "Zu welcher Altersgruppe gehörst du?",
+
+    "workoutPlaceQuestion": "Wo möchtest du ab jetzt trainieren?",
+    "workoutPlaceNote": "Du kannst das später im Menü ändern.",
+    "atHome": "Zu Hause",
+    "inPark": "Im Park",
+    "workoutPlace": "Trainingsort",
 
 
     "congrat": "Glückwunsch!",
@@ -138,8 +150,10 @@
     "dipPushDesc": "Greif die Holme so, dass die Mitte deiner Handflächen oben aufliegt. Drück die Schultern nach unten und halte sie die ganze Zeit so. Senk dich ab, bis deine Ellbogen mindestens 90 Grad gebeugt sind, und drück dich dann wieder hoch.",
     "bagPullDesc": "Füll eine Tasche mit Büchern oder kleinen Gewichten, mindestens 5–10 kg. Stütz dich mit einer Hand ab, den Oberkörper gerade und ungefähr waagerecht. Wenn du die Hand absenkst, sollte die Tasche möglichst nicht den Boden berühren. Halte beim Hochziehen die Schultern unten – lass sie nicht zu den Ohren hochwandern. Beug den Arm bis etwa 90°.\nWenn es dir zu leicht ist:\n• erhöhe das Gewicht\n• senk langsamer ab\n• mach mehr Wiederholungen\nMach die Übung auf beiden Seiten.",
     "reverseSnowAngelDesc": "Leg dich auf den Bauch. Heb Kopf und Hände an und bring die Hände über dem Kopf zusammen. Führ die Arme seitlich nach unten bis zur Hüfte und bring die Hände dann wieder über dem Kopf zusammen.\nEinmal hin und zurück zählt als eine Wiederholung.\nHalte die Hände während der ganzen Bewegung über dem Boden.\nUm es schwerer zu machen, nimm in jede Hand ein Buch.",
-    "bwPullDesc": "",
-    "pullupDesc": "",
+    "chestBwPullDesc": "",
+    "waistBwPullDesc": "",
+    "negPullUpDesc": "",
+    "pullUpDesc": "",
     "squat1Desc": "Halte dich mit einer oder beiden Händen an etwas Stabilem fest. Stell dich schulterbreit hin, die Zehen leicht nach außen gedreht. Schieb zuerst die Knie leicht nach vorne und senk dich dann kontrolliert bis etwa 90° ab. Halte den Oberkörper dabei die ganze Zeit gerade.",
     "lunge1Desc": "Wechsle die Beine ab – zähl die Wiederholungen insgesamt, nicht pro Bein. Halte dich mit einer oder beiden Händen an etwas Stabilem fest. Mach einen Schritt nach hinten; dein vorderes Schienbein bleibt senkrecht. Dein Oberschenkel zeigt nach vorne. Lehn dich leicht nach vorne, damit die Belastung auf der Rückseite deines vorderen Beins liegt.",
     "squat2Desc": "Stell dich schulterbreit hin, die Zehen leicht nach außen gedreht. Schieb zuerst die Knie leicht nach vorne und senk dich dann kontrolliert bis etwa 90° ab. Halte den Oberkörper dabei die ganze Zeit gerade.",

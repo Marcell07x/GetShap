@@ -8,6 +8,7 @@ import 'package:getshap/workout/workouta.dart';
 import 'package:getshap/workout/workouta_reps.dart';
 import 'package:getshap/workout/workoutb_home.dart';
 import 'package:getshap/workout/workoutb_reps.dart';
+import 'package:getshap/workout/pull_test.dart';
 import 'package:getshap/workout/legswitch.dart';
 import 'package:getshap/workout/coreswitch.dart';
 import 'package:getshap/core/level.dart';
@@ -39,6 +40,9 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
     //guards against a fast / double tap on the finish button running the
     //whole finish routine twice (which doubled counters and raced the save)
     bool _finishing = false;
+    //a park user still in the pull test does it in this workout's pull slots;
+    //each result is saved as soon as it is entered
+    PullTest? _pullTest;
 
     String _getLocalizedExerciseName(String localizationKey, BuildContext context) {
         final loc = AppLocalizations.of(context)!;
@@ -54,8 +58,10 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
             case 'dipPush': return loc.dipPush;
             case 'bagPull': return loc.bagPull;
             case 'reverseSnowAngel': return loc.reverseSnowAngel;
-            case 'bwPull': return loc.bwPull;
-            case 'pullup': return loc.pullup;
+            case 'chestBwPull': return loc.chestBwPull;
+            case 'waistBwPull': return loc.waistBwPull;
+            case 'negPullUp': return loc.negPullUp;
+            case 'pullUp': return loc.pullUp;
             case 'squat1': return loc.squat1;
             case 'lunge1': return loc.lunge1;
             case 'squat2': return loc.squat2;
@@ -84,8 +90,10 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
             case 'dipPushDesc': return loc.dipPushDesc;
             case 'bagPullDesc': return loc.bagPullDesc;
             case 'reverseSnowAngelDesc': return loc.reverseSnowAngelDesc;
-            case 'bwPullDesc': return loc.bwPullDesc;
-            case 'pullupDesc': return loc.pullupDesc;
+            case 'chestBwPullDesc': return loc.chestBwPullDesc;
+            case 'waistBwPullDesc': return loc.waistBwPullDesc;
+            case 'negPullUpDesc': return loc.negPullUpDesc;
+            case 'pullUpDesc': return loc.pullUpDesc;
             case 'squat1Desc': return loc.squat1Desc;
             case 'lunge1Desc': return loc.lunge1Desc;
             case 'squat2Desc': return loc.squat2Desc;
@@ -124,7 +132,9 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
         }  else {
             await workoutBHome.SetExerBHome();
             await workoutBReps.SetRepsB(workoutBHome.workout_partsBHome);
+            final pullTest = await PullTest.start(workoutBHome.workout_partsBHome);
             setState(() {
+                _pullTest = pullTest;
                 workouts.addAll(workoutBHome.workout_partsBHome);
             });
         }   
@@ -244,7 +254,10 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
         }
 
         final isLastWorkout = _currentIndex == workouts.length - 1;
-        final currentExercise = workouts[_currentIndex];
+        //in the pull test, a pull slot shows the test's exercise
+        final currentExercise = _pullTest?.exerciseAt(_currentIndex) ?? workouts[_currentIndex];
+        final index = _currentIndex;
+        final isTest = _pullTest?.isTestAt(index) ?? false;
         final isSimpleLunge = (currentExercise['nameKey']! == 'lunge1' || currentExercise['nameKey']! == 'lunge2' || currentExercise['nameKey']! == 'lunge3');
         
         String repetitions = currentExercise['reps']!;
@@ -273,6 +286,8 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
             currentIndex: _currentIndex,
             totalWorkouts: workouts.length,
             level: workoutLevel.level,
+            onTestRepsEntered: isTest ? (reps) => _pullTest!.record(index, reps) : null,
+            testReps: isTest ? _pullTest!.repsAt(index) : null,
         );
     }
 }

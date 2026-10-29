@@ -35,8 +35,10 @@
 
     "bagPull": "Rowing unilatéral avec un sac",
     "reverseSnowAngel": "Anges des neiges inversés",
-    "bwPull": "Rowing inversé",
-    "pullup": "Tractions",
+    "chestBwPull": "Rowing inversé à hauteur de poitrine",
+    "waistBwPull": "Rowing inversé à hauteur de taille",
+    "negPullUp": "Tractions négatives",
+    "pullUp": "Tractions",
 
     "squat1": "Squats assistés",
     "lunge1": "Fentes assistées",
@@ -63,8 +65,12 @@
     "nextWorkoutTomorrow": "Tu pourras t'entraîner à nouveau demain !",
     "nextWorkoutDays": "Prochain entraînement dans {days} jours",
     "reps": "Répétitions",
+    "testRepsHint": "Fais-en autant que tu peux, puis note combien tu en as fait.",
     "seconds": "Secondes",
     "next": "Suivant",
+    "save": "Enregistrer",
+    "saveConfirm": "As-tu vraiment fait {reps, plural, one{{reps} répétition} other{{reps} répétitions}} ?",
+    "cancel": "Annuler",
     "goback": "Retour",
     "startWorkout": "Commencer",
 
@@ -99,6 +105,12 @@
     "motivated": "Beaucoup",
 
     "age": "Quelle est ta tranche d'âge ?",
+
+    "workoutPlaceQuestion": "Où veux-tu t'entraîner désormais ?",
+    "workoutPlaceNote": "Tu pourras le modifier plus tard dans le menu.",
+    "atHome": "À la maison",
+    "inPark": "Dans un parc",
+    "workoutPlace": "Lieu d'entraînement",
 
 
     "congrat": "Félicitations !",
@@ -138,8 +150,10 @@
     "dipPushDesc": "Tiens les barres avec le centre de tes paumes posé dessus. Garde les épaules basses et maintiens cette position tout au long du mouvement. Descends jusqu'à ce que tes coudes soient fléchis à au moins 90 degrés, puis remonte en poussant.",
     "bagPullDesc": "Remplis un sac de livres ou de petits poids, au moins 5–10 kg. Appuie-toi sur une main, le buste droit et à peu près à l'horizontale. Quand tu baisses la main, essaie de garder le sac au-dessus du sol. Pendant la montée, garde les épaules basses – ne les laisse pas remonter vers les oreilles. Plie le bras à environ 90°.\nSi c'est trop facile :\n• augmente le poids\n• descends plus lentement\n• fais plus de répétitions\nFais-le des deux côtés.",
     "reverseSnowAngelDesc": "Allonge-toi sur le ventre. Lève la tête et les mains, et joins les mains au-dessus de ta tête. Ramène les bras sur les côtés jusqu'aux hanches, puis joins à nouveau les mains au-dessus de ta tête.\nUn aller-retour complet compte pour une répétition.\nGarde les mains décollées du sol pendant tout le mouvement.\nPour rendre l'exercice plus difficile, tiens un livre dans chaque main.",
-    "bwPullDesc": "",
-    "pullupDesc": "",
+    "chestBwPullDesc": "",
+    "waistBwPullDesc": "",
+    "negPullUpDesc": "",
+    "pullUpDesc": "",
     "squat1Desc": "Tiens-toi à quelque chose de stable avec une main ou les deux. Place les pieds à la largeur des épaules, pointes légèrement tournées vers l'extérieur. Commence par avancer légèrement les genoux, puis descends de façon contrôlée jusqu'à environ 90°. Garde le buste droit tout au long du mouvement.",
     "lunge1Desc": "Alterne les jambes – compte le total des répétitions, pas par jambe. Tiens-toi à quelque chose de stable avec une main ou les deux. Fais un pas en arrière en gardant le tibia avant vertical. Ta cuisse doit pointer vers l'avant. Penche-toi légèrement en avant pour que l'effort porte sur l'arrière de ta jambe avant.",
     "squat2Desc": "Place les pieds à la largeur des épaules, pointes légèrement tournées vers l'extérieur. Commence par avancer légèrement les genoux, puis descends de façon contrôlée jusqu'à environ 90°. Garde le buste droit tout au long du mouvement.",

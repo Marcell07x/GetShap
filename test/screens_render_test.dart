@@ -26,6 +26,7 @@ import 'package:getshap/tips/tips_data.dart';
 import 'package:getshap/workout/next_workout_page.dart';
 import 'package:getshap/workout/workout_done_screen.dart';
 import 'package:getshap/workout/workout_feedback.dart';
+import 'package:getshap/workout/workout_place_page.dart';
 
 /// A long Hungarian string with ő/ű, so wrapping is exercised on real copy.
 const String _huSample =
@@ -124,6 +125,7 @@ void main() {
             onNext: (_, __) {},
         ),
         'health warning': () => const FinishWarning(),
+        'workout place': () => const WorkoutPlacePage(),
         'tip detail': () => const TipDetailScreen(type: 'Mindset', tip: _huSample),
         'tip library': () {
             TipManager().tipLibrary = <String>['beginnerDiet1', 'beginnerDiet2', 'advancedDiet6'];

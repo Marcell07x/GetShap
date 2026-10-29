@@ -22,8 +22,10 @@ class QuestionOption {
 /// [onNext] callback — no per-screen scaffolding, background or option styling
 /// is duplicated anywhere else.
 class QuestionTemplate extends StatefulWidget {
-    /// Shown before the "question" word in the app bar, e.g. "2/7".
-    final String progressLabel;
+    /// Shown before the "question" word in the app bar, e.g. "2/7". Left null
+    /// on a question outside the onboarding run, which then reads just
+    /// "Question".
+    final String? progressLabel;
 
     /// Which question this is, 1-based, and how many there are. Drives the
     /// step bar under the app bar. Left null on a screen that is not part of a
@@ -33,6 +35,14 @@ class QuestionTemplate extends StatefulWidget {
 
     /// The question itself.
     final String title;
+
+    /// A smaller line under the question, e.g. that the answer can be changed
+    /// later.
+    final String? note;
+
+    /// Whether the app bar may show a back arrow. Off on a question that has
+    /// to be answered.
+    final bool showBack;
 
     /// The tappable answers.
     final List<QuestionOption> options;
@@ -46,10 +56,12 @@ class QuestionTemplate extends StatefulWidget {
 
     const QuestionTemplate({
         super.key,
-        required this.progressLabel,
+        this.progressLabel,
         this.step,
         this.stepCount,
         required this.title,
+        this.note,
+        this.showBack = true,
         required this.options,
         required this.nextLabel,
         required this.onNext,
@@ -67,7 +79,10 @@ class _QuestionTemplateState extends State<QuestionTemplate> {
         final AppLocalizations loc = AppLocalizations.of(context)!;
 
         return AppScaffold(
-            title: '${widget.progressLabel} ${loc.question}',
+            title: widget.progressLabel == null
+                ? loc.question
+                : '${widget.progressLabel} ${loc.question}',
+            showBack: widget.showBack,
             bottomBar: AppButton(
                 label: widget.nextLabel,
                 onPressed: _selected != null
@@ -93,6 +108,14 @@ class _QuestionTemplateState extends State<QuestionTemplate> {
                         textAlign: TextAlign.center,
                         style: AppText.headlineMedium.copyWith(color: AppColors.n900),
                     ),
+                    if (widget.note != null) ...[
+                        const SizedBox(height: AppSpacing.md),
+                        Text(
+                            widget.note!,
+                            textAlign: TextAlign.center,
+                            style: AppText.bodyMedium.copyWith(color: AppColors.n600),
+                        ),
+                    ],
                     const SizedBox(height: AppSpacing.giant),
                     for (final option in widget.options) ...[
                         AppOptionTile(

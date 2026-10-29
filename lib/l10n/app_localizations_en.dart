@@ -103,10 +103,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reverseSnowAngel => 'Reverse Snow Angel';
 
   @override
-  String get bwPull => 'Bodyweight Rows';
+  String get chestBwPull => 'Bodyweight Rows on a Chest-High Bar';
 
   @override
-  String get pullup => 'Pull-Ups';
+  String get waistBwPull => 'Bodyweight Rows on a Waist-High Bar';
+
+  @override
+  String get negPullUp => 'Negative Pull-Ups';
+
+  @override
+  String get pullUp => 'Pull-Ups';
 
   @override
   String get squat1 => 'Assisted Squats';
@@ -180,10 +186,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reps => 'Repetitions';
 
   @override
+  String get testRepsHint =>
+      'Do as many as you can, then enter how many you did.';
+
+  @override
   String get seconds => 'Seconds';
 
   @override
   String get next => 'Next';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String saveConfirm(int reps) {
+    String _temp0 = intl.Intl.pluralLogic(
+      reps,
+      locale: localeName,
+      other: '$reps reps',
+      one: '$reps rep',
+    );
+    return 'Are you sure you did $_temp0?';
+  }
+
+  @override
+  String get cancel => 'Cancel';
 
   @override
   String get goback => 'Back';
@@ -250,6 +277,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get age => 'What is your age group?';
+
+  @override
+  String get workoutPlaceQuestion =>
+      'Where would you like to train from now on?';
+
+  @override
+  String get workoutPlaceNote => 'You can change this later in the menu.';
+
+  @override
+  String get atHome => 'At home';
+
+  @override
+  String get inPark => 'In a park';
+
+  @override
+  String get workoutPlace => 'Workout location';
 
   @override
   String get congrat => 'Congratulations!';
@@ -357,10 +400,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'Lie face down on the floor. Raise your head and hands, touching your hands together above your head. Bring your arms out to the sides down to your hips, then touch your hands together above your head again.\nOne complete round trip counts as one repetition.\nKeep your hands elevated off the floor throughout the entire movement.\nTo make it more challenging, hold a book in each hand.';
 
   @override
-  String get bwPullDesc => '';
+  String get chestBwPullDesc => '';
 
   @override
-  String get pullupDesc => '';
+  String get waistBwPullDesc => '';
+
+  @override
+  String get negPullUpDesc => '';
+
+  @override
+  String get pullUpDesc => '';
 
   @override
   String get squat1Desc =>

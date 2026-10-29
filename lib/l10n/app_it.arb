@@ -35,8 +35,10 @@
 
     "bagPull": "Rematore a un braccio con borsa",
     "reverseSnowAngel": "Angeli nella neve inversi",
-    "bwPull": "Rematore inverso",
-    "pullup": "Trazioni",
+    "chestBwPull": "Rematore inverso all'altezza del petto",
+    "waistBwPull": "Rematore inverso all'altezza della vita",
+    "negPullUp": "Trazioni negative",
+    "pullUp": "Trazioni",
 
     "squat1": "Squat assistiti",
     "lunge1": "Affondi assistiti",
@@ -63,8 +65,12 @@
     "nextWorkoutTomorrow": "Domani puoi allenarti di nuovo!",
     "nextWorkoutDays": "Mancano {days} giorni al prossimo allenamento",
     "reps": "Ripetizioni",
+    "testRepsHint": "Fanne quante più riesci, poi scrivi quante ne hai fatte.",
     "seconds": "Secondi",
     "next": "Avanti",
+    "save": "Salva",
+    "saveConfirm": "Hai fatto davvero {reps, plural, =1{{reps} ripetizione} other{{reps} ripetizioni}}?",
+    "cancel": "Annulla",
     "goback": "Indietro",
     "startWorkout": "Inizia",
 
@@ -99,6 +105,12 @@
     "motivated": "Tanta",
 
     "age": "Qual è la tua fascia d'età?",
+
+    "workoutPlaceQuestion": "Dove vuoi allenarti d'ora in poi?",
+    "workoutPlaceNote": "Puoi cambiarlo più tardi nel menu.",
+    "atHome": "A casa",
+    "inPark": "Al parco",
+    "workoutPlace": "Luogo di allenamento",
 
 
     "congrat": "Complimenti!",
@@ -138,8 +150,10 @@
     "dipPushDesc": "Afferra le parallele con il centro dei palmi appoggiato sopra. Tieni le spalle basse e mantieni questa posizione per tutto il tempo. Scendi finché i gomiti non sono piegati almeno a 90 gradi, poi spingi per risalire.",
     "bagPullDesc": "Riempi una borsa con libri o piccoli pesi, almeno 5–10 kg. Appoggiati con una mano, con il busto dritto e più o meno orizzontale. Quando abbassi la mano, cerca di tenere la borsa sollevata da terra. Durante la tirata, tieni le spalle basse – non lasciarle salire verso le orecchie. Piega il braccio fino a circa 90°.\nSe ti sembra troppo facile:\n• aumenta il peso\n• abbassala più lentamente\n• fai più ripetizioni\nRipeti su entrambi i lati.",
     "reverseSnowAngelDesc": "Sdraiati a pancia in giù sul pavimento. Solleva la testa e le mani, unendo le mani sopra la testa. Porta le braccia di lato, verso il basso, fino ai fianchi, poi unisci di nuovo le mani sopra la testa.\nUn giro completo, andata e ritorno, conta come una ripetizione.\nTieni le mani sollevate da terra per tutto il movimento.\nPer renderlo più impegnativo, tieni un libro in ogni mano.",
-    "bwPullDesc": "",
-    "pullupDesc": "",
+    "chestBwPullDesc": "",
+    "waistBwPullDesc": "",
+    "negPullUpDesc": "",
+    "pullUpDesc": "",
     "squat1Desc": "Tieniti a qualcosa di stabile con una o entrambe le mani. Metti i piedi alla larghezza delle spalle, con le punte leggermente rivolte verso l'esterno. Inizia spingendo leggermente le ginocchia in avanti, poi scendi in modo controllato fino a circa 90°. Tieni il busto dritto per tutto il movimento.",
     "lunge1Desc": "Alterna le gambe – conta le ripetizioni totali, non per gamba. Tieniti a qualcosa di stabile con una o entrambe le mani. Fai un passo indietro, mantenendo verticale la tibia della gamba anteriore. La coscia deve puntare in avanti. Inclinati leggermente in avanti, in modo che il lavoro si concentri sulla parte posteriore della gamba anteriore.",
     "squat2Desc": "Metti i piedi alla larghezza delle spalle, con le punte leggermente rivolte verso l'esterno. Inizia spingendo leggermente le ginocchia in avanti, poi scendi in modo controllato fino a circa 90°. Tieni il busto dritto per tutto il movimento.",

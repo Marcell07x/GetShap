@@ -59,6 +59,9 @@ class Exercises {
         },
     };
 
+    // The home workout and the warm-up only read pull[1] and pull[2]. From 3
+    // on is the park ladder: a park user's pull level (pullLvl 1-4) is
+    // pull[pullLvl + 2].
     Map<int, Map<String, String>> pull = {
         1: {
             'videoPath': 'assets/videos/bagPull.mp4',
@@ -74,14 +77,26 @@ class Exercises {
         },
         3: {
             'videoPath': 'assets/videos/test1.mp4',
-            'nameKey': 'bwPull',
-            'descriptionKey': 'bwPullDesc',
+            'nameKey': 'chestBwPull',
+            'descriptionKey': 'chestBwPullDesc',
             'reps': ''
         },
         4: {
+            'videoPath': 'assets/videos/test1.mp4',
+            'nameKey': 'waistBwPull',
+            'descriptionKey': 'waistBwPullDesc',
+            'reps': ''
+        },
+        5: {
+            'videoPath': 'assets/videos/test1.mp4',
+            'nameKey': 'negPullUp',
+            'descriptionKey': 'negPullUpDesc',
+            'reps': ''
+        },
+        6: {
             'videoPath': 'assets/videos/pullup.mp4',
-            'nameKey': 'pullup',
-            'descriptionKey': 'pullupDesc',
+            'nameKey': 'pullUp',
+            'descriptionKey': 'pullUpDesc',
             'reps': ''
         },
     };

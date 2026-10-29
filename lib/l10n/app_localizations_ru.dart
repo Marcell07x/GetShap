@@ -103,10 +103,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get reverseSnowAngel => 'Обратный снежный ангел';
 
   @override
-  String get bwPull => 'Австралийские подтягивания';
+  String get chestBwPull => 'Австралийские подтягивания на уровне груди';
 
   @override
-  String get pullup => 'Подтягивания';
+  String get waistBwPull => 'Австралийские подтягивания на уровне пояса';
+
+  @override
+  String get negPullUp => 'Негативные подтягивания';
+
+  @override
+  String get pullUp => 'Подтягивания';
 
   @override
   String get squat1 => 'Приседания с опорой';
@@ -188,10 +194,33 @@ class AppLocalizationsRu extends AppLocalizations {
   String get reps => 'повторений';
 
   @override
+  String get testRepsHint =>
+      'Сделай столько, сколько сможешь, и впиши, сколько получилось.';
+
+  @override
   String get seconds => 'секунд';
 
   @override
   String get next => 'Далее';
+
+  @override
+  String get save => 'Сохранить';
+
+  @override
+  String saveConfirm(int reps) {
+    String _temp0 = intl.Intl.pluralLogic(
+      reps,
+      locale: localeName,
+      other: '$reps повторения',
+      many: '$reps повторений',
+      few: '$reps повторения',
+      one: '$reps повторение',
+    );
+    return 'У тебя точно получилось $_temp0?';
+  }
+
+  @override
+  String get cancel => 'Отмена';
 
   @override
   String get goback => 'Назад';
@@ -258,6 +287,21 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get age => 'Какая у тебя возрастная группа?';
+
+  @override
+  String get workoutPlaceQuestion => 'Где ты хочешь тренироваться дальше?';
+
+  @override
+  String get workoutPlaceNote => 'Позже ты сможешь изменить это в меню.';
+
+  @override
+  String get atHome => 'Дома';
+
+  @override
+  String get inPark => 'В парке';
+
+  @override
+  String get workoutPlace => 'Место тренировок';
 
   @override
   String get congrat => 'Поздравляем!';
@@ -365,10 +409,16 @@ class AppLocalizationsRu extends AppLocalizations {
       'Ляг на живот на пол. Подними голову и руки, соединив ладони над головой. Проведи руки через стороны вниз до бёдер, затем снова соедини ладони над головой.\nОдно полное движение туда и обратно – это одно повторение.\nНа протяжении всего движения держи руки над полом.\nЧтобы усложнить, возьми в каждую руку по книге.';
 
   @override
-  String get bwPullDesc => '';
+  String get chestBwPullDesc => '';
 
   @override
-  String get pullupDesc => '';
+  String get waistBwPullDesc => '';
+
+  @override
+  String get negPullUpDesc => '';
+
+  @override
+  String get pullUpDesc => '';
 
   @override
   String get squat1Desc =>

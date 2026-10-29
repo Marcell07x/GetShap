@@ -35,8 +35,10 @@
 
     "bagPull": "One-Hand Bag Rows",
     "reverseSnowAngel": "Reverse Snow Angel",
-    "bwPull": "Bodyweight Rows",
-    "pullup": "Pull-Ups",
+    "chestBwPull": "Bodyweight Rows on a Chest-High Bar",
+    "waistBwPull": "Bodyweight Rows on a Waist-High Bar",
+    "negPullUp": "Negative Pull-Ups",
+    "pullUp": "Pull-Ups",
 
     "squat1": "Assisted Squats",
     "lunge1": "Assisted Lunges",
@@ -68,8 +70,17 @@
         }
     },
     "reps": "Repetitions",
+    "testRepsHint": "Do as many as you can, then enter how many you did.",
     "seconds": "Seconds",
     "next": "Next",
+    "save": "Save",
+    "saveConfirm": "Are you sure you did {reps, plural, =1{{reps} rep} other{{reps} reps}}?",
+    "@saveConfirm": {
+        "placeholders": {
+            "reps": { "type": "int" }
+        }
+    },
+    "cancel": "Cancel",
     "goback": "Back",
     "startWorkout": "Start Workout",
 
@@ -104,6 +115,12 @@
     "motivated": "I'm motivated",
 
     "age": "What is your age group?",
+
+    "workoutPlaceQuestion": "Where would you like to train from now on?",
+    "workoutPlaceNote": "You can change this later in the menu.",
+    "atHome": "At home",
+    "inPark": "In a park",
+    "workoutPlace": "Workout location",
 
 
     "congrat": "Congratulations!",
@@ -143,8 +160,10 @@
     "dipPushDesc": "Hold the bars with the center of your palms on top. Keep your shoulders pressed down and maintain that position throughout. Lower yourself until your elbows reach at least a 90-degree bend, then push back up.",
     "bagPullDesc": "Fill a bag with books or small weights, aiming for at least 5–10 kg (11–22 lbs). Support yourself with one hand, keeping your torso straight and roughly horizontal. When you lower your hand, try to keep the bag off the ground. During the lift, keep your shoulders pressed down—don’t let them rise toward your ears. Bend your arm to about 90°. \nIf it feels too easy:\n• increase the weight\n• lower it more slowly\n• do more repetitions\nRepeat on both sides.",
     "reverseSnowAngelDesc": "Lie face down on the floor. Raise your head and hands, touching your hands together above your head. Bring your arms out to the sides down to your hips, then touch your hands together above your head again.\nOne complete round trip counts as one repetition.\nKeep your hands elevated off the floor throughout the entire movement.\nTo make it more challenging, hold a book in each hand.",
-    "bwPullDesc": "",
-    "pullupDesc": "",
+    "chestBwPullDesc": "",
+    "waistBwPullDesc": "",
+    "negPullUpDesc": "",
+    "pullUpDesc": "",
     "squat1Desc": "Hold onto something stable with one or both hands for support. Stand with your feet shoulder-width apart, toes slightly turned out. Start by pushing your knees slightly forward, then lower yourself in a controlled manner to about a 90° bend. Keep your torso straight throughout.",
     "lunge1Desc": "Alternate legs—count total reps, not per leg. Hold onto something stable with one or both hands for support. Step back, keeping your front shin vertical. Your thigh should point forward. Lean forward slightly so the focus is on the back of your front leg.",
     "squat2Desc": "Stand with your feet shoulder-width apart, toes slightly turned out. Start by pushing your knees slightly forward, then lower yourself in a controlled manner to about a 90° bend. Keep your torso straight throughout.",

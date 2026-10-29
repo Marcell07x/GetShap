@@ -35,8 +35,10 @@
 
     "bagPull": "Remo a una mano con bolsa",
     "reverseSnowAngel": "Ángeles de nieve invertidos",
-    "bwPull": "Remo invertido",
-    "pullup": "Dominadas",
+    "chestBwPull": "Remo invertido a la altura del pecho",
+    "waistBwPull": "Remo invertido a la altura de la cintura",
+    "negPullUp": "Dominadas negativas",
+    "pullUp": "Dominadas",
 
     "squat1": "Sentadillas asistidas",
     "lunge1": "Zancadas asistidas",
@@ -63,8 +65,12 @@
     "nextWorkoutTomorrow": "¡Mañana puedes volver a entrenar!",
     "nextWorkoutDays": "Faltan {days} días para tu próximo entrenamiento",
     "reps": "Repeticiones",
+    "testRepsHint": "Haz todas las que puedas y luego escribe cuántas hiciste.",
     "seconds": "Segundos",
     "next": "Siguiente",
+    "save": "Guardar",
+    "saveConfirm": "¿Seguro que hiciste {reps, plural, =1{{reps} repetición} other{{reps} repeticiones}}?",
+    "cancel": "Cancelar",
     "goback": "Atrás",
     "startWorkout": "Empezar",
 
@@ -99,6 +105,12 @@
     "motivated": "Muchas",
 
     "age": "¿Cuál es tu grupo de edad?",
+
+    "workoutPlaceQuestion": "¿Dónde quieres entrenar a partir de ahora?",
+    "workoutPlaceNote": "Puedes cambiarlo más tarde en el menú.",
+    "atHome": "En casa",
+    "inPark": "En un parque",
+    "workoutPlace": "Lugar de entrenamiento",
 
 
     "congrat": "¡Felicidades!",
@@ -138,8 +150,10 @@
     "dipPushDesc": "Sujeta las barras con el centro de las palmas apoyado encima. Mantén los hombros bajos y conserva esa posición todo el tiempo. Baja hasta que los codos lleguen al menos a 90 grados y luego empuja hacia arriba.",
     "bagPullDesc": "Llena una bolsa con libros o pesas pequeñas, de al menos 5–10 kg (11–22 lb). Apóyate con una mano, con el torso recto y más o menos horizontal. Al bajar la mano, intenta que la bolsa no toque el suelo. Al subir, mantén los hombros bajos – no dejes que suban hacia las orejas. Dobla el brazo hasta unos 90°.\nSi te resulta demasiado fácil:\n• aumenta el peso\n• bájala más despacio\n• haz más repeticiones\nHazlo con ambos lados.",
     "reverseSnowAngelDesc": "Acuéstate boca abajo en el suelo. Levanta la cabeza y las manos, y junta las manos por encima de la cabeza. Lleva los brazos por los lados hasta la cadera y luego vuelve a juntar las manos por encima de la cabeza.\nUna ida y vuelta completa cuenta como una repetición.\nMantén las manos sin tocar el suelo durante todo el movimiento.\nPara hacerlo más difícil, sostén un libro en cada mano.",
-    "bwPullDesc": "",
-    "pullupDesc": "",
+    "chestBwPullDesc": "",
+    "waistBwPullDesc": "",
+    "negPullUpDesc": "",
+    "pullUpDesc": "",
     "squat1Desc": "Sujétate a algo estable con una mano o con las dos. Coloca los pies al ancho de los hombros, con las puntas un poco hacia afuera. Empieza llevando las rodillas un poco hacia adelante y luego baja de forma controlada hasta unos 90°. Mantén el torso recto todo el tiempo.",
     "lunge1Desc": "Alterna las piernas – cuenta las repeticiones totales, no por pierna. Sujétate a algo estable con una mano o con las dos. Da un paso atrás manteniendo vertical la espinilla delantera. El muslo debe apuntar hacia adelante. Inclínate un poco hacia adelante para que el trabajo recaiga en la parte trasera de la pierna delantera.",
     "squat2Desc": "Coloca los pies al ancho de los hombros, con las puntas un poco hacia afuera. Empieza llevando las rodillas un poco hacia adelante y luego baja de forma controlada hasta unos 90°. Mantén el torso recto todo el tiempo.",

@@ -103,10 +103,16 @@ class AppLocalizationsFr extends AppLocalizations {
   String get reverseSnowAngel => 'Anges des neiges inversés';
 
   @override
-  String get bwPull => 'Rowing inversé';
+  String get chestBwPull => 'Rowing inversé à hauteur de poitrine';
 
   @override
-  String get pullup => 'Tractions';
+  String get waistBwPull => 'Rowing inversé à hauteur de taille';
+
+  @override
+  String get negPullUp => 'Tractions négatives';
+
+  @override
+  String get pullUp => 'Tractions';
 
   @override
   String get squat1 => 'Squats assistés';
@@ -181,10 +187,31 @@ class AppLocalizationsFr extends AppLocalizations {
   String get reps => 'Répétitions';
 
   @override
+  String get testRepsHint =>
+      'Fais-en autant que tu peux, puis note combien tu en as fait.';
+
+  @override
   String get seconds => 'Secondes';
 
   @override
   String get next => 'Suivant';
+
+  @override
+  String get save => 'Enregistrer';
+
+  @override
+  String saveConfirm(int reps) {
+    String _temp0 = intl.Intl.pluralLogic(
+      reps,
+      locale: localeName,
+      other: '$reps répétitions',
+      one: '$reps répétition',
+    );
+    return 'As-tu vraiment fait $_temp0 ?';
+  }
+
+  @override
+  String get cancel => 'Annuler';
 
   @override
   String get goback => 'Retour';
@@ -251,6 +278,22 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get age => 'Quelle est ta tranche d\'âge ?';
+
+  @override
+  String get workoutPlaceQuestion => 'Où veux-tu t\'entraîner désormais ?';
+
+  @override
+  String get workoutPlaceNote =>
+      'Tu pourras le modifier plus tard dans le menu.';
+
+  @override
+  String get atHome => 'À la maison';
+
+  @override
+  String get inPark => 'Dans un parc';
+
+  @override
+  String get workoutPlace => 'Lieu d\'entraînement';
 
   @override
   String get congrat => 'Félicitations !';
@@ -360,10 +403,16 @@ class AppLocalizationsFr extends AppLocalizations {
       'Allonge-toi sur le ventre. Lève la tête et les mains, et joins les mains au-dessus de ta tête. Ramène les bras sur les côtés jusqu\'aux hanches, puis joins à nouveau les mains au-dessus de ta tête.\nUn aller-retour complet compte pour une répétition.\nGarde les mains décollées du sol pendant tout le mouvement.\nPour rendre l\'exercice plus difficile, tiens un livre dans chaque main.';
 
   @override
-  String get bwPullDesc => '';
+  String get chestBwPullDesc => '';
 
   @override
-  String get pullupDesc => '';
+  String get waistBwPullDesc => '';
+
+  @override
+  String get negPullUpDesc => '';
+
+  @override
+  String get pullUpDesc => '';
 
   @override
   String get squat1Desc =>

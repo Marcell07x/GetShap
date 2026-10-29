@@ -9,6 +9,7 @@ import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_spacing.dart';
 import 'package:getshap/theme/app_theme.dart';
 import 'package:getshap/theme/app_typography.dart';
+import 'package:getshap/workout/workout_place_page.dart';
 
 /// The reward screen after a finished workout.
 ///
@@ -17,6 +18,19 @@ import 'package:getshap/theme/app_typography.dart';
 /// counting number the brightest things on screen.
 class CongratulationsScreen extends StatelessWidget {
     const CongratulationsScreen({super.key});
+
+    /// Back to the home screen, or, once level 150 is reached, to the
+    /// home-or-park question in its place.
+    Future<void> _finish(BuildContext context) async {
+        final navigator = Navigator.of(context);
+        if (await placeQuestionDue()) {
+            navigator.pushReplacement(
+                MaterialPageRoute<void>(builder: (context) => const WorkoutPlacePage()),
+            );
+        } else {
+            navigator.popUntil((route) => route.isFirst);
+        }
+    }
 
     @override
     Widget build(BuildContext context) {
@@ -95,10 +109,7 @@ class CongratulationsScreen extends StatelessWidget {
                                     AppButton(
                                         label: upperCase(context, l10n.finish),
                                         variant: AppButtonVariant.inverse,
-                                        onPressed: () => Navigator.popUntil(
-                                            context,
-                                            (route) => route.isFirst,
-                                        ),
+                                        onPressed: () => _finish(context),
                                     ),
                                 ],
                             ),
