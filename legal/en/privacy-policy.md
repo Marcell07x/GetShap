@@ -1,6 +1,6 @@
 # GetShap Privacy Policy
 
-**Last updated:** 13 August 2026
+**Last updated:** 29 October 2026
 
 This privacy policy applies to the GetShap application.
 
@@ -68,7 +68,7 @@ from users of any age.
 Because no data about you is collected or stored by the developer, there is
 nothing held about you to access, correct or erase. The data on your device is
 under your control: you can change it by retaking the questionnaire, and remove
-it by uninstalling the app. If you have any question you can write to the
+it by uninstalling the app. If you have any questions, you can write to the
 address below.
 
 If you believe your data protection rights have been infringed, you may lodge a
@@ -82,4 +82,4 @@ document.
 
 ## Contact
 
-Questions about this policy: **bmarci891@gmail.com**
+Questions about this policy: **marcell@getshap.com**

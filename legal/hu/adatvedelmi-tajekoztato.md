@@ -1,6 +1,6 @@
 # GetShap – Adatvédelmi tájékoztató
 
-**Utolsó frissítés:** 2026. augusztus 13.
+**Utolsó frissítés:** 2026. október 29.
 
 Ez a tájékoztató a GetShap alkalmazásra vonatkozik.
 
@@ -82,4 +82,4 @@ A tájékoztató bármely módosítását a dokumentum tetején lévő dátum je
 
 ## Kapcsolat
 
-Kérdés a tájékoztatóval kapcsolatban: **bmarci891@gmail.com**
+Kérdés a tájékoztatóval kapcsolatban: **marcell@getshap.com**

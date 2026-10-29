@@ -44,6 +44,18 @@ flutter:
   assets:
     - assets/videos/
     - assets/icon/logo_mark.png
+    # The legal documents, shown in the app from the same markdown the website
+    # is built from (legal/build_site.dart). One line per language: an asset
+    # directory does not take its subdirectories along.
+    - legal/de/
+    - legal/en/
+    - legal/es/
+    - legal/fr/
+    - legal/hu/
+    - legal/it/
+    - legal/pt/
+    - legal/ru/
+    - legal/tr/
 
   # Manrope, SIL Open Font License 1.1 (assets/fonts/OFL.txt). This is the
   # variable file: its default instance is ExtraLight, so every style in

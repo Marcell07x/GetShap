@@ -1,6 +1,6 @@
 # GetShap – Felhasználási feltételek
 
-**Hatályos:** 2026. augusztus 13. · **Verzió:** 1.0
+**Hatályos:** 2026. október 29. · **Verzió:** 1.0
 
 Kérjük, olvasd el figyelmesen. A GetShap alkalmazás letöltésével, telepítésével
 vagy használatával elfogadod az alábbi feltételeket. Ha nem fogadod el, ne
@@ -13,12 +13,12 @@ használd az alkalmazást.
 | | |
 |---|---|
 | Név | Bodnár Marcell |
-| E-mail | bmarci891@gmail.com |
+| E-mail | marcell@getshap.com |
 | Weboldal | https://getshap.com |
 
 A GetShapot egyetlen magánszemély fejleszti és tartja karban (a továbbiakban:
 **Szolgáltató**). A jelen feltételek a Szolgáltató és az alkalmazást használó
-személy (a továbbiakban: **Felhasználó**, „te") között jönnek létre.
+személy (a továbbiakban: **Felhasználó**, „te”) között jönnek létre.
 
 ## 2. Mire való a GetShap
 
@@ -72,7 +72,7 @@ kizárólag a saját készülékeden.
 
 ## 6. Felhasználási engedély
 
-A Szolgáltató nem kizárólagos, nem átruházható, vissza nem adható,
+A Szolgáltató nem kizárólagos, nem átruházható, visszavonható,
 személyes, nem kereskedelmi célú felhasználási jogot ad az alkalmazás
 használatára a saját eszközödön. Az alkalmazás nem kerül a tulajdonodba.
 
@@ -97,11 +97,11 @@ Szolgáltató szellemi tulajdonát képezi, és szerzői jogi védelem alatt ál
 jelen feltételek egyetlen rendelkezése sem ruház rád semmilyen tulajdonjogot
 vagy védjegyhasználati jogot.
 
-## 8. Az alkalmazás elérhetősége, „adott állapotban" történő nyújtás
+## 8. Az alkalmazás elérhetősége, „adott állapotban” történő nyújtás
 
-Az alkalmazást a Szolgáltató **„adott állapotban" (as is)** bocsátja
+Az alkalmazást a Szolgáltató **„adott állapotban” (as is)** bocsátja
 rendelkezésre. A Szolgáltató nem szavatolja, hogy az alkalmazás hibamentes,
-folyamatosan elérhető, minden eszközön és operációs rendszer-verzión működik,
+folyamatosan elérhető, minden eszközön és operációsrendszer-verzión működik,
 vagy hogy a benne található információk minden esetben pontosak, teljesek és
 naprakészek.
 
@@ -186,7 +186,7 @@ jelen feltételeknek.
 - A jelen feltételek kizárólag közted és a Szolgáltató között jönnek létre; az
   alkalmazásért, annak tartalmáért, támogatásáért és az esetleges szavatossági
   igényekért kizárólag a Szolgáltató felel, az Apple és a Google nem.
-- Terméktámogatás és hibabejelentés: bmarci891@gmail.com. Az Apple és a Google
+- Terméktámogatás és hibabejelentés: marcell@getshap.com. Az Apple és a Google
   semmilyen karbantartási vagy támogatási kötelezettséggel nem tartozik.
 - Ha az alkalmazás nem felel meg a rá vonatkozó szavatossági feltételeknek, az
   Apple a vételárat visszatérítheti (ingyenes alkalmazás esetén ez nulla); ezen
@@ -196,7 +196,7 @@ jelen feltételeknek.
 - Kijelented, hogy nem tartózkodsz az Egyesült Államok által embargó alá vont
   országban, és nem szerepelsz tiltott felek amerikai listáján.
 - Az Apple Inc. és leányvállalatai a jelen feltételek kedvezményezett harmadik
-  személyei, és jogosultak azt veled szemben érvényesíteni.
+  személyei, és jogosultak azokat veled szemben érvényesíteni.
 
 Az alkalmazás használatára az adott áruház saját felhasználási feltételei is
 vonatkoznak.
@@ -206,11 +206,9 @@ vonatkoznak.
 A jelen feltételekre a **magyar jog** irányadó. A felek a jogvitákat elsősorban
 békés úton, egyeztetéssel rendezik.
 
-Fogyasztói panasszal a bmarci891@gmail.com címen élhetsz. Ha a panaszkezeléssel
+Fogyasztói panasszal a marcell@getshap.com címen élhetsz. Ha a panaszkezeléssel
 nem értesz egyet, a lakóhelyed szerint illetékes **békéltető testülethez**
-fordulhatsz (elérhetőségek: <https://bekeltetes.hu>), illetve bírósághoz. Az
-Európai Bizottság online vitarendezési platformja:
-<https://ec.europa.eu/consumers/odr>.
+fordulhatsz (elérhetőségek: <https://bekeltetes.hu>), illetve bírósághoz.
 
 ## 18. Vegyes rendelkezések
 
@@ -221,4 +219,4 @@ teljes megállapodását az alkalmazás használatáról.
 
 ---
 
-**Kapcsolat:** bmarci891@gmail.com
+**Kapcsolat:** marcell@getshap.com

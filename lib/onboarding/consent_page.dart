@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart' show CupertinoPageRoute;
 import 'package:getshap/common/ui/app_button.dart';
 import 'package:getshap/common/ui/app_card.dart';
 import 'package:getshap/common/ui/app_scaffold.dart';
@@ -7,6 +8,7 @@ import 'package:getshap/theme/app_spacing.dart';
 import 'package:getshap/theme/app_typography.dart';
 import 'package:getshap/core/legal.dart';
 import 'package:getshap/l10n/app_localizations.dart';
+import 'package:getshap/onboarding/legal_document_page.dart';
 
 /// The consent gate: a short summary of what the user is agreeing to, links to
 /// the full documents, and a checkbox that has to be ticked before the button
@@ -104,9 +106,9 @@ class _ConsentPageState extends State<ConsentPage> {
                     _buildPoint(l.consentPoint2),
                     _buildPoint(l.consentPoint3),
                     const Divider(height: AppSpacing.xxxl),
-                    _buildLink(l.consentTermsLink, Legal.termsUrl(context)),
-                    _buildLink(l.consentHealthLink, Legal.healthUrl(context)),
-                    _buildLink(l.consentPrivacyLink, Legal.privacyUrl(context)),
+                    _buildLink(l.consentTermsLink, Legal.termsAsset(context)),
+                    _buildLink(l.consentHealthLink, Legal.healthAsset(context)),
+                    _buildLink(l.consentPrivacyLink, Legal.privacyAsset(context)),
                 ],
             ),
         );
@@ -147,15 +149,21 @@ class _ConsentPageState extends State<ConsentPage> {
         );
     }
 
-    Widget _buildLink(String label, String url) {
+    /// Opens a document inside the app: reading what is being accepted needs
+    /// neither a browser nor a network.
+    Widget _buildLink(String label, String asset) {
         return InkWell(
-            onTap: () => Legal.open(url),
+            onTap: () => Navigator.of(context).push(
+                CupertinoPageRoute<void>(
+                    builder: (BuildContext context) => LegalDocumentPage(asset: asset),
+                ),
+            ),
             borderRadius: AppRadius.all(AppRadius.xs),
             child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: AppSpacing.sm),
                 child: Row(
                     children: [
-                        const Icon(Icons.open_in_new, size: 16, color: AppColors.brand500),
+                        const Icon(Icons.description_outlined, size: 16, color: AppColors.brand500),
                         const SizedBox(width: AppSpacing.sm),
                         Flexible(
                             child: Text(

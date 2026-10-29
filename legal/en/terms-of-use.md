@@ -1,6 +1,6 @@
 # GetShap – Terms of Use
 
-**Effective:** 13 August 2026 · **Version:** 1.0
+**Effective:** 29 October 2026 · **Version:** 1.0
 
 Please read these terms carefully. By downloading, installing or using the
 GetShap application you accept them. If you do not accept them, do not use the
@@ -13,7 +13,7 @@ application.
 | | |
 |---|---|
 | Name | Marcell Bodnár |
-| E-mail | bmarci891@gmail.com |
+| E-mail | marcell@getshap.com |
 | Website | https://getshap.com |
 
 GetShap is developed and maintained by a single individual (the **Provider**).
@@ -177,7 +177,7 @@ operators (Apple Inc., Google LLC) are **not parties** to these terms.
 - These terms are concluded solely between you and the Provider; the Provider
   alone – and not Apple or Google – is responsible for the application, its
   content, its support and any warranty claims.
-- Support and bug reports: bmarci891@gmail.com. Apple and Google have no
+- Support and bug reports: marcell@getshap.com. Apple and Google have no
   maintenance or support obligation whatsoever.
 - If the application fails to conform to any applicable warranty, Apple may
   refund the purchase price (zero for a free application); beyond that, Apple
@@ -198,11 +198,9 @@ application.
 These terms are governed by **Hungarian law**. The parties will primarily seek
 to settle disputes amicably.
 
-You may submit a consumer complaint to bmarci891@gmail.com. If you disagree with
+You may submit a consumer complaint to marcell@getshap.com. If you disagree with
 how the complaint is handled, you may turn to the conciliation board competent
-for your place of residence (<https://bekeltetes.hu>) or to a court. The European
-Commission's online dispute resolution platform:
-<https://ec.europa.eu/consumers/odr>.
+for your place of residence (<https://bekeltetes.hu>) or to a court.
 
 ## 18. Miscellaneous
 
@@ -213,4 +211,4 @@ regarding use of the application.
 
 ---
 
-**Contact:** bmarci891@gmail.com
+**Contact:** marcell@getshap.com

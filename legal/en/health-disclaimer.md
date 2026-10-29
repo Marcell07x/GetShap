@@ -1,6 +1,6 @@
 # GetShap – Health Disclaimer and Assumption of Risk
 
-**Effective:** 13 August 2026 · **Version:** 1.0
+**Effective:** 29 October 2026 · **Version:** 1.0
 
 > **Please read this before you start your first workout.**
 > By using GetShap you accept the terms set out below.
@@ -172,4 +172,4 @@ consumer.
 
 ## 11. Contact
 
-Questions, feedback, bug reports: **bmarci891@gmail.com**
+Questions, feedback, bug reports: **marcell@getshap.com**

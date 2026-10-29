@@ -15,6 +15,8 @@ legal/
 │   ├── terms-of-use.md
 │   ├── health-disclaimer.md
 │   └── privacy-policy.md
+├── de/ es/ fr/ it/ pt/ ru/ tr/          fordítások, az angol fájlnevekkel
+├── build_site.dart                      ebből lesznek a weboldal jogi oldalai (legal/site/)
 └── consent-screen-copy.md               az appban megjelenő rövid szöveg + ARB kulcsok
 ```
 
@@ -41,42 +43,42 @@ weboldal, postacím nélkül.
 Ha nem akarsz lakcímet közzétenni, a szokásos megoldás postafiók vagy virtuális
 iroda címe.
 
-## 2. Publikálás a getshap.com-on
+## 2. A weboldal (getshap.com)
 
-Az adatvédelmi tájékoztató már fent van a getshap.com-on – az itteni változat
-ennek a frissítése (lásd lentebb), plusz a magyar fordítása. A feltételeket és
-az egészségügyi tájékoztatót is fel kell tenni, hogy legyen mire linkelni az
-appból és a store-okból. Javasolt URL-ek:
+A jogi oldalakat a `build_site.dart` generálja ezekből a markdown fájlokból, mind
+a 9 nyelven. Az angol és a magyar címek a régiek maradtak, mert ezekre linkelnek
+a régebbi appverziók és a store-ok. A többi nyelv a saját kódja alatt van, angol
+útvonallal:
 
 ```
-getshap.com/privacy          (megvan)
-getshap.com/terms
-getshap.com/health
-getshap.com/hu/adatvedelem
-getshap.com/hu/feltetelek
-getshap.com/hu/egeszseg
+getshap.com/terms          getshap.com/hu/feltetelek      getshap.com/de/terms
+getshap.com/health         getshap.com/hu/egeszseg        getshap.com/de/health
+getshap.com/privacy        getshap.com/hu/adatvedelem     getshap.com/de/privacy
+                                                          (ugyanígy: es, fr, it, pt, ru, tr)
 ```
 
-**Fontos, hogy egy forrás legyen:** ha az appban is megjeleníted a szövegeket
-(pl. assetként), az ne térhessen el attól, ami a weben van. A legegyszerűbb, ha
-az app csak linkel a weboldalra.
+A fejlécben lenyíló nyelvmenü van, amely ugyanazt a dokumentumot nyitja meg a
+többi nyelven. A nyitóoldalakat (`/`, `/hu/`, `/de/` …) semmi nem generálja:
+kézzel készülnek, csak a weboldal mappában vannak, és ugyanilyen nyelvmenüjük
+van.
 
-**Ez egyben jogszabályi elvárás is.** Az Elker. tv. (2001. évi CVIII.) 5. §-a
+**Frissítés:** `dart run legal/build_site.dart`, majd a `legal/site/` tartalmát
+másold be a weboldal mappába, és töltsd fel. A nyitóoldalakat a bemásolás nem
+írja felül.
+
+**Egy forrás.** Az app ugyanezeket a markdown fájlokat viszi magával assetként,
+és offline mutatja őket az elfogadó oldalon
+(`lib/onboarding/legal_document_page.dart`). Ha egy dokumentum változik, a
+weboldalt újra kell generálni, az app pedig a következő buildben kapja meg az új
+szöveget. A kettő csak akkor térhet el, ha az egyiket elfelejted frissíteni.
+
+**A weboldalnak fent kell maradnia.** Az Elker. tv. (2001. évi CVIII.) 5. §-a
 szerint a szolgáltatónak úgy kell elérhetővé tennie a szerződési feltételeket,
 hogy azokat a felhasználó **tárolni és előhívni** tudja. Egy weboldal ennek
 megfelel (menthető, nyomtatható, később visszakereshető); egy csak az appban
-felvillanó, bezárás után eltűnő szövegablak önmagában nem. Ezért mutatnak a
-linkek a webre, és ezért kell a menüben is elérhetőnek maradniuk.
-
-### Amit a getshap.com jelenlegi szövegén javítani kell
-
-A publikált változat azt írja, hogy az app offline működik és nem tud adatot
-továbbítani. Ez a verzióellenőrzés bevezetése óta nem pontos: iOS-en az app
-lekérdezi az `itunes.apple.com`-ot, Androidon a Play szolgáltatását
-(`lib/core/app_update.dart`). Az itteni változat ezt az „Internetkapcsolat"
-szakaszban rendezi – érdemes a weboldalt is erre cserélni. Hozzákerült még két
-szakasz, ami eddig hiányzott: mi tárolódik a készüléken, és a helyi
-értesítések.
+felvillanó, bezárás után eltűnő szövegablak önmagában nem. Az app az elfogadás
+előtt mutatja a teljes szöveget, a menthető, bármikor előhívható változat pedig
+a weboldal.
 
 ## 3. Mi kerül a store-okba
 
@@ -114,10 +116,10 @@ alapján tudni fogod, ki mit fogadott el. Ez a bizonyíték, ha valaha kérdés 
 
 | Fájl | Szerep |
 |---|---|
-| `lib/core/legal.dart` | A `gaveConsent` kulcs olvasása/írása és a dokumentumok URL-jei (nyelv szerint) |
+| `lib/core/legal.dart` | A `gaveConsent` kulcs olvasása/írása és a dokumentumok asset-útvonalai (az app nyelve szerint) |
 | `lib/onboarding/consent_page.dart` | Maga a képernyő: összefoglaló, linkek, checkbox, gomb |
+| `lib/onboarding/legal_document_page.dart` | Egy dokumentum az appban, offline – a három link ezt nyitja meg |
 | `lib/main.dart` | A kapu: kinek és mikor jelenik meg |
-| `lib/common/side_menu.dart` | A három link az Info nézetben |
 
 **A kapu logikája:**
 
@@ -173,11 +175,15 @@ ha minden apróságért újrakérdezel, a felhasználók megtanulják gépiesen 
 – pont akkor lesz értéktelen a képernyő, amikor egyszer tényleg számítana.
 
 Ilyen esetben a dokumentum fejlécében a dátumot frissítsd, a verziószámot ne, és
-elég a weboldalt újragenerálni (`dart run legal/build_site.dart`) és feltölteni.
+elég a weboldalt újragenerálni (`dart run legal/build_site.dart`) és feltölteni;
+az app a következő buildben kapja meg az új szöveget.
+
+**Bármilyen módosítás mind a 9 nyelvre vonatkozik:** amit az angol vagy a magyar
+szövegen változtatsz, azt a 7 fordításban (de, es, fr, it, pt, ru, tr) is át kell
+vezetni. A `test/legal_documents_test.dart` jelez, ha egy fordításból kimarad egy
+fejezet, egy felsorolás vagy egy link.
 
 ## 7. Ami még hátravan
-
-## 6. Ami még hátravan
 
 - Egészségügyi szűrő kérdés a kérdőívbe (lásd `consent-screen-copy.md` vége).
   Ez átszámozza a kérdőívet 7-ről 8 kérdésre.

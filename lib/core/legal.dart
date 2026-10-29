@@ -18,7 +18,7 @@ enum ConsentStatus {
     current,
 }
 
-/// Consent state plus the links to the published legal documents.
+/// Consent state plus where the legal documents are.
 ///
 /// The gate is a stored flag, `gaveConsent`, together with the version that was
 /// accepted. Nothing writes them until the user actually ticks the box on the
@@ -44,8 +44,6 @@ class Legal {
     static const String _keyGaveConsent = 'gaveConsent';
     static const String _keyAcceptedAt = 'consentAcceptedAt';
     static const String _keyVersion = 'consentVersion';
-
-    static const String _baseUrl = 'https://getshap.com';
 
     /// Reads the stored acceptance and compares it with [documentVersion].
     ///
@@ -74,22 +72,27 @@ class Legal {
         await prefs.setString(_keyVersion, documentVersion);
     }
 
-    // The documents are published in both languages; the device locale decides
-    // which one opens. Anything that is not Hungarian gets the English text.
-    static String _path(BuildContext context, String hu, String en) =>
-        Localizations.localeOf(context).languageCode == 'hu' ? hu : en;
+    // The documents ship with the app, in every language it speaks: the same
+    // markdown the website is built from (legal/build_site.dart), shown by
+    // LegalDocumentPage in the app's language. The Hungarian files have
+    // Hungarian names; every other language uses the English ones.
+    static String _asset(BuildContext context, String hu, String other) {
+        final String language = Localizations.localeOf(context).languageCode;
+        return 'legal/$language/${language == 'hu' ? hu : other}.md';
+    }
 
-    static String termsUrl(BuildContext context) =>
-        '$_baseUrl${_path(context, '/hu/feltetelek', '/terms')}';
+    static String termsAsset(BuildContext context) =>
+        _asset(context, 'felhasznalasi-feltetelek', 'terms-of-use');
 
-    static String healthUrl(BuildContext context) =>
-        '$_baseUrl${_path(context, '/hu/egeszseg', '/health')}';
+    static String healthAsset(BuildContext context) =>
+        _asset(context, 'egeszsegugyi-tajekoztato', 'health-disclaimer');
 
-    static String privacyUrl(BuildContext context) =>
-        '$_baseUrl${_path(context, '/hu/adatvedelem', '/privacy')}';
+    static String privacyAsset(BuildContext context) =>
+        _asset(context, 'adatvedelmi-tajekoztato', 'privacy-policy');
 
-    /// Opens a document in the browser. Failures are swallowed on purpose: no
-    /// browser, or no network, must not be able to block the consent screen.
+    /// Opens a web address from one of the documents — an authority's site, a
+    /// store's privacy policy — in the browser. Failures are swallowed on
+    /// purpose: a missing browser must not be able to break the page.
     static Future<void> open(String url) async {
         try {
             await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);

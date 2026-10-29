@@ -3,13 +3,17 @@
 //   dart run legal/build_site.dart
 //
 // Output goes to legal/site/, laid out as directories with index.html files so
-// the clean URLs (/terms, /hu/feltetelek, ...) work on any static host without
-// rewrite rules. Upload the *contents* of legal/site/ to the web root.
+// the clean URLs (/terms, /hu/feltetelek, /de/terms, ...) work on any static
+// host without rewrite rules. Copy the *contents* of legal/site/ into the
+// website folder. Only the document pages are generated: the landing pages
+// (/, /hu/, /de/, ...) are hand-made and live in the website folder alone, so
+// copying never touches them.
 //
 // The markdown here is hand-written and uses a small, known subset, so this
 // converter only implements that subset rather than pulling in a dependency:
 // headings, paragraphs, bold, inline code, links, autolinks, bullet and
-// numbered lists, tables and horizontal rules.
+// numbered lists, tables and horizontal rules. The app shows the same files
+// and renders the same subset (lib/onboarding/legal_document_page.dart).
 
 import 'dart:io';
 
@@ -18,114 +22,130 @@ import 'dart:io';
 class Doc {
     final String source;
     final String outPath;
-    final String lang;
     final String navLabel;
-    /// The same document in the other language.
-    final String otherLangPath;
 
     const Doc({
         required this.source,
         required this.outPath,
-        required this.lang,
         required this.navLabel,
-        required this.otherLangPath,
     });
 }
 
-const List<Doc> docs = [
-    Doc(
-        source: 'legal/hu/felhasznalasi-feltetelek.md',
-        outPath: 'hu/feltetelek',
-        lang: 'hu',
-        navLabel: 'Felhasználási feltételek',
-        otherLangPath: '/terms/',
-    ),
-    Doc(
-        source: 'legal/hu/egeszsegugyi-tajekoztato.md',
-        outPath: 'hu/egeszseg',
-        lang: 'hu',
-        navLabel: 'Egészségügyi tájékoztató',
-        otherLangPath: '/health/',
-    ),
-    Doc(
-        source: 'legal/hu/adatvedelmi-tajekoztato.md',
-        outPath: 'hu/adatvedelem',
-        lang: 'hu',
-        navLabel: 'Adatvédelem',
-        otherLangPath: '/privacy/',
-    ),
-    Doc(
-        source: 'legal/en/terms-of-use.md',
-        outPath: 'terms',
-        lang: 'en',
-        navLabel: 'Terms of Use',
-        otherLangPath: '/hu/feltetelek/',
-    ),
-    Doc(
-        source: 'legal/en/health-disclaimer.md',
-        outPath: 'health',
-        lang: 'en',
-        navLabel: 'Health Disclaimer',
-        otherLangPath: '/hu/egeszseg/',
-    ),
-    Doc(
-        source: 'legal/en/privacy-policy.md',
-        outPath: 'privacy',
-        lang: 'en',
-        navLabel: 'Privacy Policy',
-        otherLangPath: '/hu/adatvedelem/',
-    ),
+/// One language's copy of the three documents.
+class Lang {
+    final String code;
+
+    /// The language's own name, as the language menu lists it.
+    final String name;
+
+    /// Terms, health disclaimer, privacy policy – in this order in every
+    /// language, so the language menu can link each one to its translations.
+    final List<Doc> docs;
+
+    const Lang({required this.code, required this.name, required this.docs});
+
+    /// The language's landing page.
+    String get home => code == 'en' ? '/' : '/$code/';
+}
+
+/// English and Hungarian came first and keep their addresses, which older app
+/// versions and the stores link to. Every other language lives under its own
+/// code, with the English file names and paths.
+final List<Lang> langs = [
+    const Lang(code: 'en', name: 'English', docs: [
+        Doc(
+            source: 'legal/en/terms-of-use.md',
+            outPath: 'terms',
+            navLabel: 'Terms of Use',
+        ),
+        Doc(
+            source: 'legal/en/health-disclaimer.md',
+            outPath: 'health',
+            navLabel: 'Health Disclaimer',
+        ),
+        Doc(
+            source: 'legal/en/privacy-policy.md',
+            outPath: 'privacy',
+            navLabel: 'Privacy Policy',
+        ),
+    ]),
+    const Lang(code: 'hu', name: 'Magyar', docs: [
+        Doc(
+            source: 'legal/hu/felhasznalasi-feltetelek.md',
+            outPath: 'hu/feltetelek',
+            navLabel: 'Felhasználási feltételek',
+        ),
+        Doc(
+            source: 'legal/hu/egeszsegugyi-tajekoztato.md',
+            outPath: 'hu/egeszseg',
+            navLabel: 'Egészségügyi tájékoztató',
+        ),
+        Doc(
+            source: 'legal/hu/adatvedelmi-tajekoztato.md',
+            outPath: 'hu/adatvedelem',
+            navLabel: 'Adatvédelem',
+        ),
+    ]),
+    _translated('de', 'Deutsch',
+        'Nutzungsbedingungen', 'Gesundheitshinweis', 'Datenschutzerklärung'),
+    _translated('es', 'Español',
+        'Términos de uso', 'Aviso de salud', 'Política de privacidad'),
+    _translated('fr', 'Français',
+        "Conditions d'utilisation", 'Avertissement santé', 'Politique de confidentialité'),
+    _translated('it', 'Italiano',
+        'Termini di utilizzo', 'Avvertenza sulla salute', 'Informativa sulla privacy'),
+    _translated('pt', 'Português',
+        'Termos de Uso', 'Aviso de Saúde', 'Política de Privacidade'),
+    _translated('ru', 'Русский',
+        'Условия использования', 'Предупреждение о здоровье', 'Политика конфиденциальности'),
+    _translated('tr', 'Türkçe',
+        'Kullanım Koşulları', 'Sağlık Uyarısı', 'Gizlilik Politikası'),
 ];
 
-/// The documents cross-reference each other by relative markdown path; on the
-/// web those have to become the published URLs.
-const Map<String, String> linkRewrites = {
-    './egeszsegugyi-tajekoztato.md': '/hu/egeszseg/',
-    './adatvedelmi-tajekoztato.md': '/hu/adatvedelem/',
-    './felhasznalasi-feltetelek.md': '/hu/feltetelek/',
-    './health-disclaimer.md': '/health/',
-    './privacy-policy.md': '/privacy/',
-    './terms-of-use.md': '/terms/',
-};
+Lang _translated(
+    String code,
+    String name,
+    String terms,
+    String health,
+    String privacy,
+) {
+    return Lang(code: code, name: name, docs: [
+        Doc(source: 'legal/$code/terms-of-use.md', outPath: '$code/terms', navLabel: terms),
+        Doc(source: 'legal/$code/health-disclaimer.md', outPath: '$code/health', navLabel: health),
+        Doc(source: 'legal/$code/privacy-policy.md', outPath: '$code/privacy', navLabel: privacy),
+    ]);
+}
 
 void main() {
     final outputRoot = Directory('legal/site');
     if (outputRoot.existsSync()) outputRoot.deleteSync(recursive: true);
 
-    for (final doc in docs) {
-        final file = File(doc.source);
-        if (!file.existsSync()) {
-            stderr.writeln('Missing source: ${doc.source}');
-            exitCode = 1;
-            return;
+    for (final lang in langs) {
+        for (var index = 0; index < lang.docs.length; index++) {
+            final doc = lang.docs[index];
+            final file = File(doc.source);
+            if (!file.existsSync()) {
+                stderr.writeln('Missing source: ${doc.source}');
+                exitCode = 1;
+                return;
+            }
+
+            final markdown = file.readAsStringSync();
+            final html = _page(
+                lang: lang,
+                index: index,
+                title: _firstHeading(markdown),
+                body: _renderBlocks(markdown, lang),
+            );
+
+            final target = File('legal/site/${doc.outPath}/index.html');
+            target.parent.createSync(recursive: true);
+            target.writeAsStringSync(html);
+            stdout.writeln('${doc.outPath}/index.html  <-  ${doc.source}');
         }
-
-        final markdown = file.readAsStringSync();
-        final title = _firstHeading(markdown);
-        final body = _renderBlocks(markdown);
-        final html = _page(doc: doc, title: title, body: body);
-
-        final target = File('legal/site/${doc.outPath}/index.html');
-        target.parent.createSync(recursive: true);
-        target.writeAsStringSync(html);
-        stdout.writeln('${doc.outPath}/index.html  <-  ${doc.source}');
     }
 
-    // The site root already served the privacy policy before these pages
-    // existed, and that URL is what the app stores have on file as the privacy
-    // policy link. Publishing the same document at the root keeps that link
-    // working; the canonical tag points search engines at the real address.
-    final rootDoc = docs.firstWhere((d) => d.outPath == 'privacy');
-    final rootMarkdown = File(rootDoc.source).readAsStringSync();
-    File('legal/site/index.html').writeAsStringSync(_page(
-        doc: rootDoc,
-        title: _firstHeading(rootMarkdown),
-        body: _renderBlocks(rootMarkdown),
-        canonical: 'https://getshap.com/privacy/',
-    ));
-    stdout.writeln('index.html  <-  ${rootDoc.source}  (root copy)');
-
-    stdout.writeln('\nDone. Upload the contents of legal/site/ to the web root.');
+    stdout.writeln('\nDone. Copy the contents of legal/site/ into the website folder.');
 }
 
 String _firstHeading(String markdown) {
@@ -135,11 +155,22 @@ String _firstHeading(String markdown) {
     return 'GetShap';
 }
 
+/// The documents link to each other by relative markdown path; on the web that
+/// becomes the other document's address in the same language.
+String _href(String target, Lang lang) {
+    if (!target.startsWith('./')) return target;
+    final file = target.substring(2);
+    for (final doc in lang.docs) {
+        if (doc.source.endsWith('/$file')) return '/${doc.outPath}/';
+    }
+    return target;
+}
+
 // ---------------------------------------------------------------------------
 // Block-level conversion
 // ---------------------------------------------------------------------------
 
-String _renderBlocks(String markdown) {
+String _renderBlocks(String markdown, Lang lang) {
     final lines = markdown.replaceAll('\r\n', '\n').split('\n');
     final out = StringBuffer();
     var i = 0;
@@ -165,7 +196,7 @@ String _renderBlocks(String markdown) {
             // The document's own H1 is rendered by the page template, so it is
             // skipped here to avoid printing the title twice.
             if (level > 1) {
-                out.writeln('<h$level>${_inline(text)}</h$level>');
+                out.writeln('<h$level>${_inline(text, lang)}</h$level>');
             }
             i++;
             continue;
@@ -177,7 +208,7 @@ String _renderBlocks(String markdown) {
                 quoted.add(lines[i].trim().substring(1).trim());
                 i++;
             }
-            out.writeln('<blockquote>${_inline(quoted.join(' '))}</blockquote>');
+            out.writeln('<blockquote>${_inline(quoted.join(' '), lang)}</blockquote>');
             continue;
         }
 
@@ -187,7 +218,7 @@ String _renderBlocks(String markdown) {
                 table.add(lines[i].trim());
                 i++;
             }
-            out.writeln(_renderTable(table));
+            out.writeln(_renderTable(table, lang));
             continue;
         }
 
@@ -211,7 +242,7 @@ String _renderBlocks(String markdown) {
             final tag = ordered ? 'ol' : 'ul';
             out.writeln('<$tag>');
             for (final item in items) {
-                out.writeln('<li>${_inline(item)}</li>');
+                out.writeln('<li>${_inline(item, lang)}</li>');
             }
             out.writeln('</$tag>');
             continue;
@@ -233,7 +264,7 @@ String _renderBlocks(String markdown) {
             paragraph.add(current);
             i++;
         }
-        out.writeln('<p>${_inline(paragraph.join(' '))}</p>');
+        out.writeln('<p>${_inline(paragraph.join(' '), lang)}</p>');
     }
 
     return out.toString();
@@ -248,7 +279,7 @@ String _stripMarker(String line) {
     return line.replaceFirst(RegExp(r'^\d+\.\s+'), '').trim();
 }
 
-String _renderTable(List<String> rows) {
+String _renderTable(List<String> rows, Lang lang) {
     List<String> cells(String row) {
         var trimmed = row;
         if (trimmed.startsWith('|')) trimmed = trimmed.substring(1);
@@ -283,7 +314,7 @@ String _renderTable(List<String> rows) {
 
         out.write('<tr>');
         for (final cell in cells(row)) {
-            out.write('<$tag>${_inline(cell)}</$tag>');
+            out.write('<$tag>${_inline(cell, lang)}</$tag>');
         }
         out.write('</tr>');
 
@@ -298,7 +329,7 @@ String _renderTable(List<String> rows) {
 // Inline conversion
 // ---------------------------------------------------------------------------
 
-String _inline(String text) {
+String _inline(String text, Lang lang) {
     // Escape first, so anything in the source is inert; the patterns below then
     // match against the escaped form (autolinks become &lt;...&gt;).
     var result = text
@@ -313,10 +344,7 @@ String _inline(String text) {
 
     result = result.replaceAllMapped(
         RegExp(r'\[([^\]]+)\]\(([^)]+)\)'),
-        (m) {
-            final href = linkRewrites[m[2]] ?? m[2]!;
-            return '<a href="$href">${m[1]}</a>';
-        },
+        (m) => '<a href="${_href(m[2]!, lang)}">${m[1]}</a>',
     );
 
     result = result.replaceAllMapped(
@@ -336,27 +364,44 @@ String _inline(String text) {
 // Page template
 // ---------------------------------------------------------------------------
 
+/// The page for document [index] of [lang]: its language menu links the same
+/// document in every language, its footer the language's other two documents.
 String _page({
-    required Doc doc,
+    required Lang lang,
+    required int index,
     required String title,
     required String body,
-    String? canonical,
 }) {
-    final siblings = docs.where((d) => d.lang == doc.lang && d != doc);
-    final otherLangLabel = doc.lang == 'hu' ? 'English' : 'Magyar';
-    final backLabel = doc.lang == 'hu' ? 'GetShap' : 'GetShap';
+    final doc = lang.docs[index];
 
-    final navLinks = siblings
+    final alternates = [
+        for (final other in langs)
+            '<link rel="alternate" hreflang="${other.code}" '
+                'href="https://getshap.com/${other.docs[index].outPath}/">',
+        '<link rel="alternate" hreflang="x-default" '
+            'href="https://getshap.com/${langs.first.docs[index].outPath}/">',
+    ].join('\n');
+
+    final menu = [
+        for (final other in langs)
+            '<a href="/${other.docs[index].outPath}/" hreflang="${other.code}" '
+                'lang="${other.code}"${other == lang ? ' aria-current="page"' : ''}>'
+                '${other.name}</a>',
+    ].join('\n                ');
+
+    final navLinks = lang.docs
+        .where((d) => d != doc)
         .map((d) => '<a href="/${d.outPath}/">${d.navLabel}</a>')
         .join('\n            ');
 
     return '''<!doctype html>
-<html lang="${doc.lang}">
+<html lang="${lang.code}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>$title</title>
-${canonical == null ? '' : '<link rel="canonical" href="$canonical">'}
+<link rel="canonical" href="https://getshap.com/${doc.outPath}/">
+$alternates
 <style>
 :root {
     --blue: #2E6BF0;
@@ -399,13 +444,41 @@ header .inner {
 }
 header a { color: #fff; text-decoration: none; }
 header .brand { font-size: 21px; font-weight: 800; letter-spacing: .3px; }
-header .lang {
+.lang { position: relative; }
+.lang summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    color: #fff;
     font-size: 14px;
     border: 1px solid rgba(255,255,255,.55);
     border-radius: 999px;
     padding: 4px 12px;
     white-space: nowrap;
 }
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: " \\25BE"; }
+.lang nav {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    z-index: 10;
+    min-width: 170px;
+    padding: 6px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0,0,0,.18);
+}
+.lang nav a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 15px;
+}
+.lang nav a:hover { background: var(--card); }
+.lang nav a[aria-current] { color: var(--blue); font-weight: 600; }
 h1 { font-size: 30px; line-height: 1.25; margin: 0 0 8px; }
 h2 { font-size: 20px; margin: 38px 0 10px; }
 h3 { font-size: 17px; margin: 28px 0 8px; }
@@ -449,8 +522,13 @@ footer a { display: inline-block; margin-right: 18px; }
 <body>
 <header>
     <div class="inner">
-        <a class="brand" href="/">$backLabel</a>
-        <a class="lang" href="${doc.otherLangPath}">$otherLangLabel</a>
+        <a class="brand" href="${lang.home}">GetShap</a>
+        <details class="lang">
+            <summary>${lang.name}</summary>
+            <nav>
+                $menu
+            </nav>
+        </details>
     </div>
 </header>
 <div class="wrap">

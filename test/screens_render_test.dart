@@ -6,14 +6,17 @@
 // constraints, content that no longer fits once the type scale changed.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:getshap/core/legal.dart';
 import 'package:getshap/core/streak/streak_manager.dart';
 import 'package:getshap/core/streak/streak_page.dart';
 import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/onboarding/consent_page.dart';
 import 'package:getshap/onboarding/finish_warning.dart';
+import 'package:getshap/onboarding/legal_document_page.dart';
 import 'package:getshap/onboarding/question_template.dart';
 import 'package:getshap/theme/app_theme.dart';
 import 'package:getshap/tips/tip_detail_screen.dart';
@@ -69,6 +72,10 @@ void main() {
         // spinner: StreakManager's operation chain would still belong to the
         // fake-async zone of an earlier test.
         StreakManager.resetForTest();
+        // The same goes for a legal document read in an earlier test: the
+        // asset cache would hand this one that test's future, and the page
+        // would stay empty.
+        rootBundle.clear();
         tester.view.physicalSize = const Size(1080, 2340);
         tester.view.devicePixelRatio = 3.0;
         addTearDown(tester.view.resetPhysicalSize);
@@ -95,6 +102,16 @@ void main() {
         'consent (re-acceptance)': () => ConsentPage(
             nextBuilder: (_) => const SizedBox.shrink(),
             isUpdate: true,
+        ),
+        // The documents in the app's language, as the consent screen opens them.
+        'terms of use': () => Builder(
+            builder: (BuildContext context) => LegalDocumentPage(asset: Legal.termsAsset(context)),
+        ),
+        'health disclaimer': () => Builder(
+            builder: (BuildContext context) => LegalDocumentPage(asset: Legal.healthAsset(context)),
+        ),
+        'privacy policy': () => Builder(
+            builder: (BuildContext context) => LegalDocumentPage(asset: Legal.privacyAsset(context)),
         ),
         'questionnaire': () => QuestionTemplate(
             progressLabel: '3/7',

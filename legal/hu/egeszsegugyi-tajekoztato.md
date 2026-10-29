@@ -1,6 +1,6 @@
 # GetShap – Egészségügyi tájékoztató és felelősségvállalási nyilatkozat
 
-**Hatályos:** 2026. augusztus 13. · **Verzió:** 1.0
+**Hatályos:** 2026. október 29. · **Verzió:** 1.0
 
 > **Kérjük, olvasd el figyelmesen, mielőtt az első edzésbe belekezdesz.**
 > A GetShap használatával elfogadod az itt leírtakat.
@@ -87,7 +87,7 @@ bármit tapasztalsz:
 - éles, szúró vagy hirtelen jelentkező ízületi vagy izomfájdalom;
 - bármilyen tünet, ami ijesztő vagy szokatlan.
 
-**A fájdalmat soha ne „edzd le".** A GetShap semmilyen része nem bátorít arra,
+**A fájdalmat soha ne „edzd le”.** A GetShap semmilyen része nem bátorít arra,
 hogy fájdalmon vagy rosszulléten keresztül folytasd a mozgást.
 
 ## 5. Biztonságos edzés – a te felelősséged
@@ -172,4 +172,4 @@ fogyasztót a kógens jogszabályok alapján megillető jogokat.
 
 ## 11. Kapcsolat
 
-Kérdés, észrevétel, hibajelzés: **bmarci891@gmail.com**
+Kérdés, észrevétel, hibajelzés: **marcell@getshap.com**
