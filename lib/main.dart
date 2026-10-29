@@ -34,6 +34,7 @@ import 'package:getshap/tips/tip_detail_screen.dart';
 import 'package:getshap/tips/cut_tip_text.dart';
 import 'package:getshap/common/side_menu.dart';
 import 'package:getshap/dev/debug_buttons.dart';
+import 'package:getshap/dev/debug_language.dart';
 import 'package:getshap/tips/tip_manager.dart';
 import 'package:getshap/tips/tips_data.dart';
 import 'package:getshap/tips/tip_type.dart';
@@ -49,6 +50,7 @@ void main() async {
     SystemChrome.setSystemUIOverlayStyle(AppTheme.systemBars);
     await ScheduleNotifications.initNotification();
     await DebugClock.load();
+    await DebugLanguage.load();
     await StreakManager.checkStreak();
     await WorkoutSignal.refreshSignal();
     await prefsInit();
@@ -83,14 +85,20 @@ class MyApp extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.light(),
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
-            localeListResolutionCallback: appLocale,
+        return ValueListenableBuilder<Locale?>(
+            valueListenable: DebugLanguage.locale,
+            builder: (context, debugLocale, _) => MaterialApp(
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme.light(),
+                localizationsDelegates: AppLocalizations.localizationsDelegates,
+                supportedLocales: AppLocalizations.supportedLocales,
+                localeListResolutionCallback: appLocale,
+                // A language picked with the debug menu's Language button.
+                // null, as always in release builds, leaves it to the phone.
+                locale: debugLocale,
 
-            home: SplashScreen(nextBuilder: _firstScreen),
+                home: SplashScreen(nextBuilder: _firstScreen),
+            ),
         );
     }
 
@@ -283,6 +291,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     onDumpStatePressed: () => DebugButtonsLogic.handleDumpStatePressed(context),
                     onFormPressed: () => DebugButtonsLogic.handleFormPressed(context),
+                    onLanguagePressed: () => DebugButtonsLogic.handleLanguagePressed(context),
                 ),
                 // Weighted rather than centred-then-nudged: the tip sits in the
                 // upper third, the call to action just below the middle, and

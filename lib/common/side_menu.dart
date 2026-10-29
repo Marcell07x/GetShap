@@ -18,6 +18,7 @@ class SideMenu extends StatelessWidget {
     final VoidCallback onAdvanceDayPressed;
     final VoidCallback onDumpStatePressed;
     final VoidCallback onFormPressed;
+    final VoidCallback onLanguagePressed;
     // The sub-pages are shown inside this same drawer. The parent owns the
     // current view so the Android back button can step
     // sub-page -> menu -> home.
@@ -32,6 +33,7 @@ class SideMenu extends StatelessWidget {
         required this.onAdvanceDayPressed,
         required this.onDumpStatePressed,
         required this.onFormPressed,
+        required this.onLanguagePressed,
         required this.view,
         required this.onTipLibraryPressed,
         required this.onContactPressed,
@@ -168,7 +170,7 @@ class SideMenu extends StatelessWidget {
                     onTap: onContactPressed,
                 ),
                 // The menu is available in release mode but these options
-                // are only visible when in debug mode. They now say so: four
+                // are only visible when in debug mode. They now say so: five
                 // developer tools sitting flush against "Contact" read as
                 // shipped features to anyone looking over your shoulder.
                 if (kDebugMode) ...[
@@ -200,6 +202,11 @@ class SideMenu extends StatelessWidget {
                         leading: const Icon(Icons.assignment),
                         title: Text(loc.form),
                         onTap: onFormPressed,
+                    ),
+                    ListTile(
+                        leading: const Icon(Icons.language),
+                        title: const Text('Language'),
+                        onTap: onLanguagePressed,
                     ),
                 ],
             ],

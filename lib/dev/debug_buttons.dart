@@ -6,6 +6,7 @@ import 'package:getshap/core/streak/streak_manager.dart';
 import 'package:getshap/core/streak/streak_date_utils.dart';
 import 'package:getshap/notifications/schedule_noti.dart';
 import 'package:getshap/dev/manuallysetlevel.dart';
+import 'package:getshap/dev/debug_language.dart';
 import 'package:getshap/onboarding/question_gender.dart';
 import 'package:getshap/onboarding/questionaire.dart';
 
@@ -116,5 +117,43 @@ class DebugButtonsLogic {
                 builder: (context) => QuestionGenderPage(data: QuestionnaireData()),
             ),
         );
+    }
+
+    //debug: show the app in another of its languages without touching the
+    //phone's settings. "Phone language" goes back to the normal rule.
+    static Future<void> handleLanguagePressed(BuildContext context) async {
+        Navigator.of(context).pop();
+        //'phone' or a language code, each language under its own name
+        const Map<String, String> languages = <String, String>{
+            'phone': 'Phone language',
+            'en': 'English',
+            'hu': 'Magyar',
+            'de': 'Deutsch',
+            'es': 'Español',
+            'fr': 'Français',
+            'it': 'Italiano',
+            'pt': 'Português',
+            'ru': 'Русский',
+            'tr': 'Türkçe',
+        };
+        final String current = DebugLanguage.locale.value?.languageCode ?? 'phone';
+
+        //null when the dialog is closed without a pick
+        final String? picked = await showDialog<String>(
+            context: context,
+            builder: (context) => SimpleDialog(
+                title: const Text('Language'),
+                children: [
+                    for (final MapEntry<String, String> language in languages.entries)
+                        ListTile(
+                            title: Text(language.value),
+                            trailing: language.key == current ? const Icon(Icons.check) : null,
+                            onTap: () => Navigator.pop(context, language.key),
+                        ),
+                ],
+            ),
+        );
+        if (picked == null) return;
+        await DebugLanguage.change(picked == 'phone' ? null : Locale(picked));
     }
 }
