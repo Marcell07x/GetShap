@@ -115,6 +115,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get pullUp => 'Húzódzkodás';
 
   @override
+  String get monkeyBarRows => 'Majomlétrás Evezés';
+
+  @override
   String get squat1 => 'Kapaszkodással Guggolás';
 
   @override
@@ -404,6 +407,9 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get pullUpDesc => '';
+
+  @override
+  String get monkeyBarRowsDesc => '';
 
   @override
   String get squat1Desc =>

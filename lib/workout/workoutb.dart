@@ -4,15 +4,16 @@ import "package:shared_preferences/shared_preferences.dart";
 import 'package:getshap/workout/legswitch.dart';
 import 'package:getshap/workout/coreswitch.dart';
 import 'package:getshap/workout/pullprogression.dart';
+import 'package:getshap/workout/workoutb_park.dart';
 
-class WorkoutBHome {
+class WorkoutB {
     late int _levelE;
     Exercises exercises = Exercises();
     WorkoutLevel workoutLevel = WorkoutLevel();
     LegSwitch legSwitch = LegSwitch();
     CoreSwitch coreSwitch = CoreSwitch();
 
-    List<Map<String, String>> workout_partsBHome = [];
+    List<Map<String, String>> workout_partsB = [];
 
     late int _pushe;
     late int _pulle;
@@ -29,10 +30,10 @@ class WorkoutBHome {
     late var _pushexpp;
     late var _legsexpp;
 
-    Future<void> SetExerBHome() async {
+    Future<void> SetExerB() async {
         await legSwitch.getSwitch();
         await coreSwitch.getSwitch();
-        await workoutLevel.getLevel(); 
+        await workoutLevel.getLevel();
         _levelE = workoutLevel.level;
 
         final prefs = await SharedPreferences.getInstance();
@@ -68,7 +69,7 @@ class WorkoutBHome {
 
         if (_levelE < 190) {
             // 150-189: still the variation the user stepped up to at 90; 190 brings the next one.
-            workout_partsBHome = [
+            workout_partsB = [
                 {..._pushex}, {..._pullex}, {..._legsex},
                 {..._pushex}, {..._pullex}, {..._legsex},
                 {..._pushex}, {..._pullex}, {..._legsex}
@@ -76,33 +77,33 @@ class WorkoutBHome {
         } else if (_levelE < 230) {
             // 190+: the next push variation enters as a single set, placed SECOND (idx3)
             // so a lighter set leads into it - extra ramp-up for the new variation.
-            workout_partsBHome = [
+            workout_partsB = [
                 {..._pushex}, {..._pullex}, {..._legsex},
                 {..._pushexp}, {..._pullex}, {..._legsex},
                 {..._pushex}, {..._pullex}, {..._legsex}
             ];
         } else if (_levelE < 310) {
             // 230+: second harder-push set added.
-            workout_partsBHome = [
+            workout_partsB = [
                 {..._pushexp}, {..._pullex}, {..._legsex},
                 {..._pushexp}, {..._pullex}, {..._legsex},
                 {..._pushex}, {..._pullex}, {..._legsex}
             ];
         } else if (_levelE < 350) {
-            workout_partsBHome = [
+            workout_partsB = [
                 {..._pushexp}, {..._pullex}, {..._legsex},
                 {..._pushexp}, {..._pullex}, {..._legsex},
                 {..._pushexp}, {..._pullex}, {..._legsex}
             ];
         } else if (_levelE < 390) {
-            workout_partsBHome = [
+            workout_partsB = [
                 {..._pushexp}, {..._pullex}, {..._legsex},
                 {..._pushexp}, {..._pullex}, {..._legsex},
                 {..._pushexp}, {..._pullex}, {..._legsex},
                 {..._pushex}, {..._pullex}, {..._legsex}
             ];
         } else if (_levelE < 430) {
-            workout_partsBHome = [
+            workout_partsB = [
                 {..._pushexp}, {..._pullex}, {..._legsexp},
                 {..._pushexp}, {..._pullex}, {..._legsexp},
                 {..._pushexp}, {..._pullex}, {..._legsexp},
@@ -110,26 +111,40 @@ class WorkoutBHome {
             ];
         } else if (_levelE < 470) {
             // 430+: core enters, appended to the first two blocks.
-            workout_partsBHome = [
+            workout_partsB = [
                 {..._pushexp}, {..._pullex}, {..._legsexp}, {..._coreex},
                 {..._pushexp}, {..._pullex}, {..._legsexp}, {..._coreex},
                 {..._pushexp}, {..._pullex}, {..._legsexp},
                 {..._pushexp}, {..._pullex}, {..._legsexp}
             ];
         } else if (_levelE < 510) {
-            workout_partsBHome = [
+            workout_partsB = [
                 {..._pushexp}, {..._pullex}, {..._legsexp}, {..._coreex},
                 {..._pushexpp}, {..._pullex}, {..._legsexpp}, {..._coreex},
                 {..._pushexp}, {..._pullex}, {..._legsexp},
                 {..._pushexp}, {..._pullex}, {..._legsexp}
             ];
-        } else {
-            workout_partsBHome = [
+        } else if (_levelE < 550) {
+            workout_partsB = [
                 {..._pushexp}, {..._pullex}, {..._legsexp}, {..._coreex},
                 {..._pushexpp}, {..._pullex}, {..._legsexpp}, {..._coreex},
                 {..._pushexpp}, {..._pullex}, {..._legsexpp},
                 {..._pushexp}, {..._pullex}, {..._legsexp}
             ];
+        } else {
+            // 550+: a fifth round, on the lighter variations, as the fourth
+            // came at 350.
+            workout_partsB = [
+                {..._pushexp}, {..._pullex}, {..._legsexp}, {..._coreex},
+                {..._pushexpp}, {..._pullex}, {..._legsexpp}, {..._coreex},
+                {..._pushexpp}, {..._pullex}, {..._legsexpp},
+                {..._pushexp}, {..._pullex}, {..._legsexp},
+                {..._pushexp}, {..._pullex}, {..._legsexp}
+            ];
         }
+
+        // In a park only the pull exercises differ: they come from the park
+        // ladder instead.
+        await WorkoutBPark.parkify(workout_partsB);
     }
 }

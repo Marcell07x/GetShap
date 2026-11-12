@@ -115,6 +115,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get pullUp => 'Trazioni';
 
   @override
+  String get monkeyBarRows => 'Rematore inverso alla scala orizzontale';
+
+  @override
   String get squat1 => 'Squat assistiti';
 
   @override
@@ -411,6 +414,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get pullUpDesc => '';
+
+  @override
+  String get monkeyBarRowsDesc => '';
 
   @override
   String get squat1Desc =>

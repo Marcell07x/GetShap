@@ -115,6 +115,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get pullUp => 'Dominadas';
 
   @override
+  String get monkeyBarRows => 'Remo invertido en escalera horizontal';
+
+  @override
   String get squat1 => 'Sentadillas asistidas';
 
   @override
@@ -410,6 +413,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get pullUpDesc => '';
+
+  @override
+  String get monkeyBarRowsDesc => '';
 
   @override
   String get squat1Desc =>

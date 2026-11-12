@@ -60,8 +60,9 @@ class Exercises {
     };
 
     // The home workout and the warm-up only read pull[1] and pull[2]. From 3
-    // on is the park ladder: a park user's pull level (pullLvl 1-4) is
-    // pull[pullLvl + 2].
+    // on are the park pulls: pull[pullLvl + 2] is what the pull test tests at
+    // a pull level (pullLvl 1-4), and the park workout picks its pulls by
+    // name (workoutb_park.dart).
     Map<int, Map<String, String>> pull = {
         1: {
             'videoPath': 'assets/videos/bagPull.mp4',
@@ -97,6 +98,12 @@ class Exercises {
             'videoPath': 'assets/videos/pullup.mp4',
             'nameKey': 'pullUp',
             'descriptionKey': 'pullUpDesc',
+            'reps': ''
+        },
+        7: {
+            'videoPath': 'assets/videos/test1.mp4',
+            'nameKey': 'monkeyBarRows',
+            'descriptionKey': 'monkeyBarRowsDesc',
             'reps': ''
         },
     };

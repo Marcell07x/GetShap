@@ -115,6 +115,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get pullUp => 'Подтягивания';
 
   @override
+  String get monkeyBarRows => 'Австралийские подтягивания на рукоходе';
+
+  @override
   String get squat1 => 'Приседания с опорой';
 
   @override
@@ -419,6 +422,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pullUpDesc => '';
+
+  @override
+  String get monkeyBarRowsDesc => '';
 
   @override
   String get squat1Desc =>

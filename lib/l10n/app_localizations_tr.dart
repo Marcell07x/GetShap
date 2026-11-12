@@ -115,6 +115,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get pullUp => 'Barfiks';
 
   @override
+  String get monkeyBarRows => 'Yatay merdivende ters row';
+
+  @override
   String get squat1 => 'Destekli squat';
 
   @override
@@ -405,6 +408,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get pullUpDesc => '';
+
+  @override
+  String get monkeyBarRowsDesc => '';
 
   @override
   String get squat1Desc =>

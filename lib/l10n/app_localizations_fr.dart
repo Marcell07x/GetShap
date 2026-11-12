@@ -115,6 +115,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get pullUp => 'Tractions';
 
   @override
+  String get monkeyBarRows => 'Rowing inversé à l\'échelle horizontale';
+
+  @override
   String get squat1 => 'Squats assistés';
 
   @override
@@ -413,6 +416,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get pullUpDesc => '';
+
+  @override
+  String get monkeyBarRowsDesc => '';
 
   @override
   String get squat1Desc =>

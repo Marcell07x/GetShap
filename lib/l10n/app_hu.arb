@@ -39,6 +39,7 @@
     "waistBwPull": "Derékmagas Rudas Evezés",
     "negPullUp": "Negatív Húzódzkodás",
     "pullUp": "Húzódzkodás",
+    "monkeyBarRows": "Majomlétrás Evezés",
 
     "squat1": "Kapaszkodással Guggolás",
     "lunge1": "Kapaszkodással Kitörés",
@@ -153,6 +154,7 @@
     "waistBwPullDesc": "",
     "negPullUpDesc": "",
     "pullUpDesc": "",
+    "monkeyBarRowsDesc": "",
     "squat1Desc": "Támaszkodj/kapaszkodj valami stabil dologba az egyik vagy mindkét oldaladon. Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezdd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen.",
     "lunge1Desc": "A két lábra összesen számold az ismétléseket, ne lábanként külön. Támaszkodj/kapaszkodj valami stabil dologba az egyik vagy mindkét oldaladon. Lépj hátra, miközben az elülső sípcsontod függőlegesen marad. A combod mutasson előre. Kicsit dőlj előre, hogy az elülső lábad hátsó részén legyen a hangsúly.",
     "squat2Desc": "Vállszéles terpeszben a lábfejeid kicsit kifele nézzenek. Kezdd kicsit előrevinni a térdeidet, majd kontrollált tempóban ereszkedj le nagyjából 90° mélységébe. Tartsd a törzsed egyenesen.",

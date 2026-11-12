@@ -281,6 +281,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         context: context,
                         updateState: () => setState(() {}),
                     ),
+                    onSetParkLevelPressed: () => DebugButtonsLogic.handleSetParkLevelPressed(context),
                     onAdvanceDayPressed: () => DebugButtonsLogic.handleAdvanceDayPressed(
                         context: context,
                         refresh: () async {

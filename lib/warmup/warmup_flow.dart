@@ -38,6 +38,7 @@ class _WarmupFlowState extends State<WarmupFlow> {
             case 'waistBwPull': return loc.waistBwPull;
             case 'negPullUp': return loc.negPullUp;
             case 'pullUp': return loc.pullUp;
+            case 'monkeyBarRows': return loc.monkeyBarRows;
             case 'squat1': return loc.squat1;
             case 'lunge1': return loc.lunge1;
             case 'squat2': return loc.squat2;
@@ -72,6 +73,7 @@ class _WarmupFlowState extends State<WarmupFlow> {
             case 'waistBwPullDesc': return loc.waistBwPullDesc;
             case 'negPullUpDesc': return loc.negPullUpDesc;
             case 'pullUpDesc': return loc.pullUpDesc;
+            case 'monkeyBarRowsDesc': return loc.monkeyBarRowsDesc;
             case 'squat1Desc': return loc.squat1Desc;
             case 'lunge1Desc': return loc.lunge1Desc;
             case 'squat2Desc': return loc.squat2Desc;

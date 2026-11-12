@@ -115,6 +115,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get pullUp => 'Klimmzüge';
 
   @override
+  String get monkeyBarRows => 'Rudern an der Hangelleiter';
+
+  @override
   String get squat1 => 'Kniebeugen mit Festhalten';
 
   @override
@@ -413,6 +416,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get pullUpDesc => '';
+
+  @override
+  String get monkeyBarRowsDesc => '';
 
   @override
   String get squat1Desc =>

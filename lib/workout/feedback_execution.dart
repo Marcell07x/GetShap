@@ -1,4 +1,5 @@
 import "package:shared_preferences/shared_preferences.dart";
+import 'package:getshap/workout/workoutb_park.dart';
 
 class FeedbackExecution {
     static Future<void> executeOnFeedback() async {
@@ -7,6 +8,7 @@ class FeedbackExecution {
         int rpe = prefs.getInt('rpe_value') ?? 5;
         int level = prefs.getInt('level')!;
         int inc = prefs.getInt('incspeed')!;
+        final int levelBefore = level;
 
         //people shouldn't be able to drop back to phase A from phase B
         if ((150 <= level && level < 170 && rpe == 10) ||
@@ -41,6 +43,8 @@ class FeedbackExecution {
         if (rpe != 5 && rpe != 6) {
             await prefs.setInt('incspeed', inc);
             await prefs.setInt('level', level);
+            //after a park workout the park level moves with the level
+            await WorkoutBPark.move(level - levelBefore);
         }
     }
 }

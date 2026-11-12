@@ -1,5 +1,7 @@
 import "package:shared_preferences/shared_preferences.dart";
 import 'package:getshap/workout/exercises.dart';
+import 'package:getshap/workout/workoutb_park.dart';
+import 'package:getshap/workout/workoutb_reps_park.dart';
 
 /// The pull test of a park workout. It sets the park pull level (pullLvl):
 /// 1 chest-high row, 2 waist-high row, 3 negative pull-up, 4 pull-up.
@@ -10,7 +12,11 @@ import 'package:getshap/workout/exercises.dart';
 /// falling short ends the test. Level 4 has no target: the pull-ups are saved
 /// as pullUpMax, and the test is over. Two tests a workout at most, so someone
 /// who passes both carries on in the next park workout. The other pull slots
-/// get the exercise of the level reached so far, with the home workout's reps.
+/// get what the park ladder (workoutb_park.dart) has where the level reached
+/// so far enters it.
+///
+/// When the test is over, the user's park level (parkLevel) starts from the
+/// entry of their pull level, and the pull level never changes again.
 ///
 /// Every result is saved the moment it is entered, and stays: going back shows
 /// it but cannot change it, and an abandoned workout picks the test up where
@@ -21,7 +27,6 @@ class PullTest {
     static const int _testsPerWorkout = 2;
 
     final Exercises _exercises = Exercises();
-    final List<Map<String, String>> _workout;
     final int _startLvl;
 
     /// Workout indices of the pull slots, in order.
@@ -30,11 +35,10 @@ class PullTest {
     /// The reps entered on the tests, by pull slot number.
     final Map<int, int> _reps = {};
 
-    PullTest._(this._workout, this._startLvl, this._pullSlots);
+    PullTest._(this._startLvl, this._pullSlots);
 
     /// Null unless the user trains in a park (placeSwitch 1) and the test is
-    /// not over yet. Every other workout is the home one: there is no park
-    /// workout yet.
+    /// not over yet.
     static Future<PullTest?> start(List<Map<String, String>> workout) async {
         final prefs = await SharedPreferences.getInstance();
         if ((prefs.getInt('placeSwitch') ?? 0) != 1 ||
@@ -42,14 +46,8 @@ class PullTest {
             return null;
         }
 
-        final Set<String?> pullKeys =
-            Exercises().pull.values.map((exercise) => exercise['nameKey']).toSet();
-        final List<int> pullSlots = <int>[
-            for (int i = 0; i < workout.length; i++)
-                if (pullKeys.contains(workout[i]['nameKey'])) i,
-        ];
         final int startLvl = (prefs.getInt('pullLvl') ?? 1).clamp(1, 4);
-        return PullTest._(workout, startLvl, pullSlots);
+        return PullTest._(startLvl, WorkoutBPark.pullSlots(workout));
     }
 
     /// Where the test stands before pull slot [slot]: the level reached,
@@ -78,13 +76,20 @@ class PullTest {
     }
 
     /// The exercise for workout index [index], or null when it is not a pull
-    /// slot. It keeps the slot's own reps, which a test does not use.
+    /// slot. A test is on the exercise of the level it tests. Every other
+    /// pull slot gets what the park ladder has at that slot where the level
+    /// reached so far enters it, with the park reps.
     Map<String, String>? exerciseAt(int index) {
         final int? slot = _slotAt(index);
         if (slot == null) return null;
+        final state = _before(slot);
+        if (isTestAt(index)) return {..._exercises.pull[state.lvl + 2]!};
+
+        final int parkLevel = WorkoutBPark.entry[state.lvl]!;
+        final String nameKey = WorkoutBPark.pulls(parkLevel, _pullSlots.length)[slot];
         return {
-            ..._exercises.pull[_before(slot).lvl + 2]!,
-            'reps': _workout[index]['reps']!,
+            ...WorkoutBPark.exercise(nameKey),
+            'reps': WorkoutBRepsPark.reps(nameKey, parkLevel, state.lvl, state.pullUpMax ?? 0),
         };
     }
 
@@ -103,8 +108,8 @@ class PullTest {
         await _save();
     }
 
-    /// Once the test is over, the switch goes back to home, because there is
-    /// no park workout yet.
+    /// Once the test is over, the user is on the park ladder, where their
+    /// pull level enters it.
     Future<void> _save() async {
         final prefs = await SharedPreferences.getInstance();
         final result = _before(_pullSlots.length);
@@ -114,7 +119,7 @@ class PullTest {
         }
         if (result.over) {
             await prefs.setBool('pullTestDone', true);
-            await prefs.setInt('placeSwitch', 0);
+            await prefs.setInt('parkLevel', WorkoutBPark.entry[result.lvl]!);
         }
     }
 }

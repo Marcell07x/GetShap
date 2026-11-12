@@ -27,6 +27,19 @@ class DebugButtonsLogic {
         }
     }
 
+    //debug: jump to any stage of the park ladder (workoutb_park.dart) without
+    //doing the park workouts that lead there
+    static Future<void> handleSetParkLevelPressed(BuildContext context) async {
+        Navigator.of(context).pop();
+        int? parkLevel = await ManuallySetLevel.showLevelInputDialog(context, title: 'Set park level');
+        if (parkLevel == null) return;
+
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setInt('parkLevel', parkLevel);
+        if (!context.mounted) return;
+        ManuallySetLevel.showSuccess(context, 'Park level set: $parkLevel');
+    }
+
     //debug: move the simulated clock forward by a few days and open a fresh
     //day (workout enabled again), exactly as if that many days had passed
     static Future<void> handleAdvanceDayPressed({
@@ -76,6 +89,7 @@ class DebugButtonsLogic {
             'legse=${prefs.getInt('legse')}  switch=${prefs.getInt('switch')}  coreSwitch=${prefs.getInt('coreSwitch')}  prefsVersion=${prefs.getInt('prefsVersion')}',
             'placeQuestionAnswered=${prefs.getBool('placeQuestionAnswered')}  placeSwitch=${prefs.getInt('placeSwitch')}',
             'pullLvl=${prefs.getInt('pullLvl')}  pullTestDone=${prefs.getBool('pullTestDone')}  pullUpMax=${prefs.getInt('pullUpMax')}',
+            'parkLevel=${prefs.getInt('parkLevel')}',
             'streak=${prefs.getInt('streak')}  freeze=${prefs.getInt('streakFreeze')}',
             'startDate=${prefs.getInt('streakStartDate')}',
             'lastStreakDate=${prefs.getInt('lastStreakDate')}',

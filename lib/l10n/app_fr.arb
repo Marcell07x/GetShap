@@ -39,6 +39,7 @@
     "waistBwPull": "Rowing inversé à hauteur de taille",
     "negPullUp": "Tractions négatives",
     "pullUp": "Tractions",
+    "monkeyBarRows": "Rowing inversé à l'échelle horizontale",
 
     "squat1": "Squats assistés",
     "lunge1": "Fentes assistées",
@@ -154,6 +155,7 @@
     "waistBwPullDesc": "",
     "negPullUpDesc": "",
     "pullUpDesc": "",
+    "monkeyBarRowsDesc": "",
     "squat1Desc": "Tiens-toi à quelque chose de stable avec une main ou les deux. Place les pieds à la largeur des épaules, pointes légèrement tournées vers l'extérieur. Commence par avancer légèrement les genoux, puis descends de façon contrôlée jusqu'à environ 90°. Garde le buste droit tout au long du mouvement.",
     "lunge1Desc": "Alterne les jambes – compte le total des répétitions, pas par jambe. Tiens-toi à quelque chose de stable avec une main ou les deux. Fais un pas en arrière en gardant le tibia avant vertical. Ta cuisse doit pointer vers l'avant. Penche-toi légèrement en avant pour que l'effort porte sur l'arrière de ta jambe avant.",
     "squat2Desc": "Place les pieds à la largeur des épaules, pointes légèrement tournées vers l'extérieur. Commence par avancer légèrement les genoux, puis descends de façon contrôlée jusqu'à environ 90°. Garde le buste droit tout au long du mouvement.",

@@ -1,4 +1,5 @@
 import 'package:getshap/core/level.dart';
+import 'package:getshap/workout/workoutb_reps_park.dart';
 
 class WorkoutBReps{
     var _Reps = [];
@@ -26,15 +27,23 @@ class WorkoutBReps{
         } else if (_levelR < 430) {
             _Reps = ['10-15', '10-15', '10-15', '10-15', '10-15', '10-15', 
                      '10-15', '10-15', '10-15', '10-15', '10-15', '10-15'];
-        } else {
-            _Reps = ['10-15', '10-15', '10-15', '15-20', '10-15', '10-15', 
+        } else if (_levelR < 550) {
+            _Reps = ['10-15', '10-15', '10-15', '15-20', '10-15', '10-15',
                      '10-15', '15-20', '10-15', '10-15', '10-15', '10-15',
                      '10-15', '10-15'];
+        } else {
+            // 550+: the fifth round.
+            _Reps = ['10-15', '10-15', '10-15', '15-20', '10-15', '10-15',
+                     '10-15', '15-20', '10-15', '10-15', '10-15', '10-15',
+                     '10-15', '10-15', '10-15', '10-15', '10-15'];
         }
-        
-        //This should stay at the end
+
+        //This should stay at the end, only the park reps come after it
         for (int i = 0; i < _Reps.length; i++) {
             workoutParts[i]['reps'] = _Reps[i].toString();
         }
+
+        // In a park the pull slots get the park reps instead.
+        await WorkoutBRepsPark.parkify(workoutParts);
     }
 }

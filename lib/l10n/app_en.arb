@@ -39,6 +39,7 @@
     "waistBwPull": "Bodyweight Rows on a Waist-High Bar",
     "negPullUp": "Negative Pull-Ups",
     "pullUp": "Pull-Ups",
+    "monkeyBarRows": "Bodyweight Rows on Monkey Bars",
 
     "squat1": "Assisted Squats",
     "lunge1": "Assisted Lunges",
@@ -164,6 +165,7 @@
     "waistBwPullDesc": "",
     "negPullUpDesc": "",
     "pullUpDesc": "",
+    "monkeyBarRowsDesc": "",
     "squat1Desc": "Hold onto something stable with one or both hands for support. Stand with your feet shoulder-width apart, toes slightly turned out. Start by pushing your knees slightly forward, then lower yourself in a controlled manner to about a 90° bend. Keep your torso straight throughout.",
     "lunge1Desc": "Alternate legs—count total reps, not per leg. Hold onto something stable with one or both hands for support. Step back, keeping your front shin vertical. Your thigh should point forward. Lean forward slightly so the focus is on the back of your front leg.",
     "squat2Desc": "Stand with your feet shoulder-width apart, toes slightly turned out. Start by pushing your knees slightly forward, then lower yourself in a controlled manner to about a 90° bend. Keep your torso straight throughout.",

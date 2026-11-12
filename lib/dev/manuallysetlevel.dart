@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ManuallySetLevel {
-    static Future<int?> showLevelInputDialog(BuildContext context) async {
+    static Future<int?> showLevelInputDialog(BuildContext context, {String title = 'Set Level'}) async {
         TextEditingController controller = TextEditingController();
-        
+
         return await showDialog<int>(
             context: context,
             builder: (context) {
                 return AlertDialog(
-                    title: Text('Set Level'),
+                    title: Text(title),
                     content: TextField(
                         controller: controller,
                         keyboardType: TextInputType.number,

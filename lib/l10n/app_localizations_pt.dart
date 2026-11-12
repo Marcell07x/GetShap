@@ -115,6 +115,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get pullUp => 'Barra fixa';
 
   @override
+  String get monkeyBarRows => 'Remada invertida na escada horizontal';
+
+  @override
   String get squat1 => 'Agachamento assistido';
 
   @override
@@ -412,6 +415,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get pullUpDesc => '';
+
+  @override
+  String get monkeyBarRowsDesc => '';
 
   @override
   String get squat1Desc =>

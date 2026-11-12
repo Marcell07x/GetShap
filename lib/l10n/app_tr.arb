@@ -39,6 +39,7 @@
     "waistBwPull": "Bel hizasında ters row",
     "negPullUp": "Negatif barfiks",
     "pullUp": "Barfiks",
+    "monkeyBarRows": "Yatay merdivende ters row",
 
     "squat1": "Destekli squat",
     "lunge1": "Destekli lunge",
@@ -154,6 +155,7 @@
     "waistBwPullDesc": "",
     "negPullUpDesc": "",
     "pullUpDesc": "",
+    "monkeyBarRowsDesc": "",
     "squat1Desc": "Bir ya da iki elinle sağlam bir şeye tutun. Ayaklarını omuz genişliğinde aç, ayak uçların hafifçe dışa baksın. Önce dizlerini hafifçe öne doğru it, sonra kontrollü bir şekilde yaklaşık 90°'ye kadar in. Gövdeni baştan sona dik tut.",
     "lunge1Desc": "Bacakları sırayla değiştir – tekrarları bacak başına değil, toplam olarak say. Bir ya da iki elinle sağlam bir şeye tutun. Ön bacağının kaval kemiğini dik tutarak geriye bir adım at. Uyluğun öne baksın. Yükün ön bacağının arka tarafında olması için hafifçe öne eğil.",
     "squat2Desc": "Ayaklarını omuz genişliğinde aç, ayak uçların hafifçe dışa baksın. Önce dizlerini hafifçe öne doğru it, sonra kontrollü bir şekilde yaklaşık 90°'ye kadar in. Gövdeni baştan sona dik tut.",

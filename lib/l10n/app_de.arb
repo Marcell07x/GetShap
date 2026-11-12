@@ -39,6 +39,7 @@
     "waistBwPull": "Rudern an hüfthoher Stange",
     "negPullUp": "Negative Klimmzüge",
     "pullUp": "Klimmzüge",
+    "monkeyBarRows": "Rudern an der Hangelleiter",
 
     "squat1": "Kniebeugen mit Festhalten",
     "lunge1": "Ausfallschritte mit Festhalten",
@@ -154,6 +155,7 @@
     "waistBwPullDesc": "",
     "negPullUpDesc": "",
     "pullUpDesc": "",
+    "monkeyBarRowsDesc": "",
     "squat1Desc": "Halte dich mit einer oder beiden Händen an etwas Stabilem fest. Stell dich schulterbreit hin, die Zehen leicht nach außen gedreht. Schieb zuerst die Knie leicht nach vorne und senk dich dann kontrolliert bis etwa 90° ab. Halte den Oberkörper dabei die ganze Zeit gerade.",
     "lunge1Desc": "Wechsle die Beine ab – zähl die Wiederholungen insgesamt, nicht pro Bein. Halte dich mit einer oder beiden Händen an etwas Stabilem fest. Mach einen Schritt nach hinten; dein vorderes Schienbein bleibt senkrecht. Dein Oberschenkel zeigt nach vorne. Lehn dich leicht nach vorne, damit die Belastung auf der Rückseite deines vorderen Beins liegt.",
     "squat2Desc": "Stell dich schulterbreit hin, die Zehen leicht nach außen gedreht. Schieb zuerst die Knie leicht nach vorne und senk dich dann kontrolliert bis etwa 90° ab. Halte den Oberkörper dabei die ganze Zeit gerade.",

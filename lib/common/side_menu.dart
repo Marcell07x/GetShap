@@ -15,6 +15,7 @@ enum SideMenuView { menu, contact, tipLibrary }
 
 class SideMenu extends StatelessWidget {
     final VoidCallback onSetLevelPressed;
+    final VoidCallback onSetParkLevelPressed;
     final VoidCallback onAdvanceDayPressed;
     final VoidCallback onDumpStatePressed;
     final VoidCallback onFormPressed;
@@ -30,6 +31,7 @@ class SideMenu extends StatelessWidget {
     const SideMenu({
         super.key,
         required this.onSetLevelPressed,
+        required this.onSetParkLevelPressed,
         required this.onAdvanceDayPressed,
         required this.onDumpStatePressed,
         required this.onFormPressed,
@@ -187,6 +189,11 @@ class SideMenu extends StatelessWidget {
                         leading: const Icon(Icons.settings),
                         title: const Text('Set Level'),
                         onTap: onSetLevelPressed,
+                    ),
+                    ListTile(
+                        leading: const Icon(Icons.park_outlined),
+                        title: const Text('Set park level'),
+                        onTap: onSetParkLevelPressed,
                     ),
                     ListTile(
                         leading: const Icon(Icons.fast_forward),

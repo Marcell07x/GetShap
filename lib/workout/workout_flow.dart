@@ -6,8 +6,9 @@ import 'package:getshap/workout/workout_screen.dart';
 import 'package:getshap/workout/workout_done_screen.dart';
 import 'package:getshap/workout/workouta.dart';
 import 'package:getshap/workout/workouta_reps.dart';
-import 'package:getshap/workout/workoutb_home.dart';
+import 'package:getshap/workout/workoutb.dart';
 import 'package:getshap/workout/workoutb_reps.dart';
+import 'package:getshap/workout/workoutb_park.dart';
 import 'package:getshap/workout/pull_test.dart';
 import 'package:getshap/workout/legswitch.dart';
 import 'package:getshap/workout/coreswitch.dart';
@@ -29,7 +30,7 @@ class WorkoutFlow extends StatefulWidget {
 class _WorkoutFlowState extends State<WorkoutFlow> {
     WorkoutA workouta = WorkoutA();
     WorkoutAReps workoutareps = WorkoutAReps();
-    WorkoutBHome workoutBHome = WorkoutBHome();
+    WorkoutB workoutB = WorkoutB();
     WorkoutBReps workoutBReps = WorkoutBReps();
     LegSwitch legSwitch = LegSwitch();
     CoreSwitch coreSwitch = CoreSwitch();
@@ -62,6 +63,7 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
             case 'waistBwPull': return loc.waistBwPull;
             case 'negPullUp': return loc.negPullUp;
             case 'pullUp': return loc.pullUp;
+            case 'monkeyBarRows': return loc.monkeyBarRows;
             case 'squat1': return loc.squat1;
             case 'lunge1': return loc.lunge1;
             case 'squat2': return loc.squat2;
@@ -94,6 +96,7 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
             case 'waistBwPullDesc': return loc.waistBwPullDesc;
             case 'negPullUpDesc': return loc.negPullUpDesc;
             case 'pullUpDesc': return loc.pullUpDesc;
+            case 'monkeyBarRowsDesc': return loc.monkeyBarRowsDesc;
             case 'squat1Desc': return loc.squat1Desc;
             case 'lunge1Desc': return loc.lunge1Desc;
             case 'squat2Desc': return loc.squat2Desc;
@@ -130,12 +133,12 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
                 workouts.addAll(workouta.workout_partsA);
             });
         }  else {
-            await workoutBHome.SetExerBHome();
-            await workoutBReps.SetRepsB(workoutBHome.workout_partsBHome);
-            final pullTest = await PullTest.start(workoutBHome.workout_partsBHome);
+            await workoutB.SetExerB();
+            await workoutBReps.SetRepsB(workoutB.workout_partsB);
+            final pullTest = await PullTest.start(workoutB.workout_partsB);
             setState(() {
                 _pullTest = pullTest;
-                workouts.addAll(workoutBHome.workout_partsBHome);
+                workouts.addAll(workoutB.workout_partsB);
             });
         }   
     }
@@ -185,6 +188,8 @@ class _WorkoutFlowState extends State<WorkoutFlow> {
             await prefs.setInt('incspeed', inc);
         }
         await workoutLevel.setLevel();
+        //a park workout moves the user on along the park ladder by as much
+        await WorkoutBPark.move(inc);
         //record the finished workout, maintain the transition-week bonus token
         //and clear today's signal; needs the post-setLevel level to detect the
         //150 crossing, and runs before laterNoti so the reminders use the fresh

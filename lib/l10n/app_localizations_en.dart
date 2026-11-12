@@ -115,6 +115,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pullUp => 'Pull-Ups';
 
   @override
+  String get monkeyBarRows => 'Bodyweight Rows on Monkey Bars';
+
+  @override
   String get squat1 => 'Assisted Squats';
 
   @override
@@ -410,6 +413,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pullUpDesc => '';
+
+  @override
+  String get monkeyBarRowsDesc => '';
 
   @override
   String get squat1Desc =>

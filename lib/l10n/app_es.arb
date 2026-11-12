@@ -39,6 +39,7 @@
     "waistBwPull": "Remo invertido a la altura de la cintura",
     "negPullUp": "Dominadas negativas",
     "pullUp": "Dominadas",
+    "monkeyBarRows": "Remo invertido en escalera horizontal",
 
     "squat1": "Sentadillas asistidas",
     "lunge1": "Zancadas asistidas",
@@ -154,6 +155,7 @@
     "waistBwPullDesc": "",
     "negPullUpDesc": "",
     "pullUpDesc": "",
+    "monkeyBarRowsDesc": "",
     "squat1Desc": "Sujétate a algo estable con una mano o con las dos. Coloca los pies al ancho de los hombros, con las puntas un poco hacia afuera. Empieza llevando las rodillas un poco hacia adelante y luego baja de forma controlada hasta unos 90°. Mantén el torso recto todo el tiempo.",
     "lunge1Desc": "Alterna las piernas – cuenta las repeticiones totales, no por pierna. Sujétate a algo estable con una mano o con las dos. Da un paso atrás manteniendo vertical la espinilla delantera. El muslo debe apuntar hacia adelante. Inclínate un poco hacia adelante para que el trabajo recaiga en la parte trasera de la pierna delantera.",
     "squat2Desc": "Coloca los pies al ancho de los hombros, con las puntas un poco hacia afuera. Empieza llevando las rodillas un poco hacia adelante y luego baja de forma controlada hasta unos 90°. Mantén el torso recto todo el tiempo.",

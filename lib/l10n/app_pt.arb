@@ -39,6 +39,7 @@
     "waistBwPull": "Remada invertida na altura da cintura",
     "negPullUp": "Barra fixa negativa",
     "pullUp": "Barra fixa",
+    "monkeyBarRows": "Remada invertida na escada horizontal",
 
     "squat1": "Agachamento assistido",
     "lunge1": "Afundo assistido",
@@ -154,6 +155,7 @@
     "waistBwPullDesc": "",
     "negPullUpDesc": "",
     "pullUpDesc": "",
+    "monkeyBarRowsDesc": "",
     "squat1Desc": "Segure-se em algo firme com uma ou as duas mãos. Fique com os pés na largura dos ombros, com as pontas um pouco para fora. Comece levando os joelhos um pouco para a frente e depois desça de forma controlada até cerca de 90°. Mantenha o tronco reto o tempo todo.",
     "lunge1Desc": "Alterne as pernas – conte o total de repetições, não por perna. Segure-se em algo firme com uma ou as duas mãos. Dê um passo para trás, mantendo a canela da frente na vertical. A coxa deve apontar para a frente. Incline-se um pouco para a frente para que o esforço fique na parte de trás da perna da frente.",
     "squat2Desc": "Fique com os pés na largura dos ombros, com as pontas um pouco para fora. Comece levando os joelhos um pouco para a frente e depois desça de forma controlada até cerca de 90°. Mantenha o tronco reto o tempo todo.",

@@ -310,6 +310,12 @@ abstract class AppLocalizations {
   /// **'Pull-Ups'**
   String get pullUp;
 
+  /// No description provided for @monkeyBarRows.
+  ///
+  /// In en, this message translates to:
+  /// **'Bodyweight Rows on Monkey Bars'**
+  String get monkeyBarRows;
+
   /// No description provided for @squat1.
   ///
   /// In en, this message translates to:
@@ -855,6 +861,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **''**
   String get pullUpDesc;
+
+  /// No description provided for @monkeyBarRowsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **''**
+  String get monkeyBarRowsDesc;
 
   /// No description provided for @squat1Desc.
   ///

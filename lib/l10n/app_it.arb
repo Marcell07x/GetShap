@@ -39,6 +39,7 @@
     "waistBwPull": "Rematore inverso all'altezza della vita",
     "negPullUp": "Trazioni negative",
     "pullUp": "Trazioni",
+    "monkeyBarRows": "Rematore inverso alla scala orizzontale",
 
     "squat1": "Squat assistiti",
     "lunge1": "Affondi assistiti",
@@ -154,6 +155,7 @@
     "waistBwPullDesc": "",
     "negPullUpDesc": "",
     "pullUpDesc": "",
+    "monkeyBarRowsDesc": "",
     "squat1Desc": "Tieniti a qualcosa di stabile con una o entrambe le mani. Metti i piedi alla larghezza delle spalle, con le punte leggermente rivolte verso l'esterno. Inizia spingendo leggermente le ginocchia in avanti, poi scendi in modo controllato fino a circa 90°. Tieni il busto dritto per tutto il movimento.",
     "lunge1Desc": "Alterna le gambe – conta le ripetizioni totali, non per gamba. Tieniti a qualcosa di stabile con una o entrambe le mani. Fai un passo indietro, mantenendo verticale la tibia della gamba anteriore. La coscia deve puntare in avanti. Inclinati leggermente in avanti, in modo che il lavoro si concentri sulla parte posteriore della gamba anteriore.",
     "squat2Desc": "Metti i piedi alla larghezza delle spalle, con le punte leggermente rivolte verso l'esterno. Inizia spingendo leggermente le ginocchia in avanti, poi scendi in modo controllato fino a circa 90°. Tieni il busto dritto per tutto il movimento.",
