@@ -8,7 +8,7 @@ import 'package:getshap/workout/workoutb_park.dart';
 class WorkoutBRepsPark {
     /// The reps of the park pull called [nameKey] at [parkLevel].
     ///
-    /// Someone who did pull-ups on the pull test (pull level 4) gets their
+    /// Someone who passed the pull-up test (pull level 4) gets their
     /// pull-ups counted from that max ([pullUpMax]), at least 1. Everyone
     /// else gets a fixed range.
     static String reps(String nameKey, int parkLevel, int pullLvl, int pullUpMax) {

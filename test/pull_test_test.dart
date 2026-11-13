@@ -149,6 +149,78 @@ void main() {
             expect(prefs.getInt('parkLevel'), WorkoutBPark.entry[3]);
         });
 
+        test('from level 3: 10 negatives, then 5 pull-ups: back on level 3, over', () async {
+            final PullTest pullTest =
+                (await start(<String, Object>{'placeSwitch': 1, 'pullLvl': 3}))!;
+            await pullTest.record(1, 10);
+            expect(pullTest.isTestAt(4), isTrue);
+            expect(nameAt(pullTest, 4), 'pullUp');
+
+            await pullTest.record(4, 5);
+            // On the way back the pull-ups are still a test, with their number.
+            expect(pullTest.isTestAt(4), isTrue);
+            expect(pullTest.repsAt(4), 5);
+            expect(pullTest.isTestAt(7), isFalse);
+            expect(nameAt(pullTest, 7), ladderAt(3, 2));
+
+            final SharedPreferences prefs = await SharedPreferences.getInstance();
+            expect(prefs.getInt('pullLvl'), 3);
+            // The number is kept: the test is never taken again.
+            expect(prefs.getInt('pullUpMax'), 5);
+            expect(prefs.getBool('pullTestDone'), isTrue);
+            expect(prefs.getInt('placeSwitch'), 1);
+            expect(prefs.getInt('parkLevel'), WorkoutBPark.entry[3]);
+        });
+
+        test('the app is closed after 10 negatives: the pull-ups come first next time', () async {
+            final PullTest closed =
+                (await start(<String, Object>{'placeSwitch': 1, 'pullLvl': 3}))!;
+            await closed.record(1, 10);
+
+            // Level 4 is not kept yet: the test is still on.
+            final SharedPreferences prefs = await SharedPreferences.getInstance();
+            expect(prefs.getInt('pullLvl'), 4);
+            expect(prefs.getBool('pullTestDone'), isNull);
+            expect(prefs.getInt('parkLevel'), isNull);
+
+            final PullTest again = (await PullTest.start(workoutB()))!;
+            expect(again.isTestAt(1), isTrue);
+            expect(nameAt(again, 1), 'pullUp');
+
+            await again.record(1, 5);
+            expect(again.isTestAt(4), isFalse);
+            expect(nameAt(again, 4), ladderAt(3, 1));
+            expect(
+                again.exerciseAt(4)!['reps'],
+                WorkoutBRepsPark.reps(ladderAt(3, 1), WorkoutBPark.entry[3]!, 3, 5),
+            );
+
+            expect(prefs.getInt('pullLvl'), 3);
+            expect(prefs.getBool('pullTestDone'), isTrue);
+            expect(prefs.getInt('parkLevel'), WorkoutBPark.entry[3]);
+        });
+
+        test('from level 4, four pull slots: 5 pull-ups put the user back on level 3', () async {
+            final PullTest pullTest =
+                (await start(<String, Object>{'placeSwitch': 1, 'pullLvl': 4}, rounds: 4))!;
+            expect(nameAt(pullTest, 1), 'pullUp');
+            await pullTest.record(1, 5);
+
+            // The rest of the workout is what level 3 enters the ladder on,
+            // not level 4: no second set of pull-ups.
+            expect(pullTest.isTestAt(4), isFalse);
+            expect(nameAt(pullTest, 4), ladderAt(3, 1, slots: 4));
+            expect(nameAt(pullTest, 4), isNot('pullUp'));
+            expect(nameAt(pullTest, 7), ladderAt(3, 2, slots: 4));
+            expect(nameAt(pullTest, 10), ladderAt(3, 3, slots: 4));
+
+            final SharedPreferences prefs = await SharedPreferences.getInstance();
+            expect(prefs.getInt('pullLvl'), 3);
+            expect(prefs.getInt('pullUpMax'), 5);
+            expect(prefs.getBool('pullTestDone'), isTrue);
+            expect(prefs.getInt('parkLevel'), WorkoutBPark.entry[3]);
+        });
+
         test('from level 4, four pull slots: the pull-up set after the test is max - 2', () async {
             final PullTest pullTest =
                 (await start(<String, Object>{'placeSwitch': 1, 'pullLvl': 4}, rounds: 4))!;

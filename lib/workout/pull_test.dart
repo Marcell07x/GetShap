@@ -9,11 +9,12 @@ import 'package:getshap/workout/workoutb_reps_park.dart';
 /// While the test is on, the first two pull slots of the workout are tests:
 /// the user does as many reps as they can and enters the number. Reaching the
 /// level's target moves them up a level, and the next slot tests that one;
-/// falling short ends the test. Level 4 has no target: the pull-ups are saved
-/// as pullUpMax, and the test is over. Two tests a workout at most, so someone
-/// who passes both carries on in the next park workout. The other pull slots
-/// get what the park ladder (workoutb_park.dart) has where the level reached
-/// so far enters it.
+/// falling short ends the test. The pull-ups of level 4 end it either way:
+/// the number is saved as pullUpMax, and fewer than the target put the user
+/// back on level 3. So level 4 takes passing both the negatives and the
+/// pull-ups. Two tests a workout at most, so someone who passes both carries
+/// on in the next park workout. The other pull slots get what the park ladder
+/// (workoutb_park.dart) has where the level reached so far enters it.
 ///
 /// When the test is over, the user's park level (parkLevel) starts from the
 /// entry of their pull level, and the pull level never changes again.
@@ -22,8 +23,9 @@ import 'package:getshap/workout/workoutb_reps_park.dart';
 /// it but cannot change it, and an abandoned workout picks the test up where
 /// it stopped.
 class PullTest {
-    /// The reps that move the user up from a level. Level 4 has no target.
-    static const Map<int, int> _targets = {1: 15, 2: 15, 3: 10};
+    /// The reps that pass the test of a level. Passing moves the user up from
+    /// levels 1-3, and keeps them on level 4.
+    static const Map<int, int> _targets = {1: 15, 2: 15, 3: 10, 4: 6};
     static const int _testsPerWorkout = 2;
 
     final Exercises _exercises = Exercises();
@@ -57,8 +59,24 @@ class PullTest {
         for (int i = 0; i < slot && i < _testsPerWorkout; i++) {
             final int? reps = _reps[i];
             if (reps == null) break;
-            if (lvl == 4) return (lvl: lvl, over: true, pullUpMax: reps);
-            if (reps < _targets[lvl]!) return (lvl: lvl, over: true, pullUpMax: null);
+
+            final bool passed = reps >= _targets[lvl]!;
+
+            // The pull-ups end the test either way: enough of them keep the
+            // user on level 4, fewer put them back on level 3.
+            if (lvl == 4) {
+                if (passed) {
+                    return (lvl: 4, over: true, pullUpMax: reps);
+                } else {
+                    return (lvl: 3, over: true, pullUpMax: reps);
+                }
+            }
+
+            // On a lower level, falling short ends the test on that level.
+            if (!passed) {
+                return (lvl: lvl, over: true, pullUpMax: null);
+            }
+
             lvl++;
         }
         return (lvl: lvl, over: false, pullUpMax: null);
@@ -66,7 +84,8 @@ class PullTest {
 
     int? _slotAt(int index) {
         final int slot = _pullSlots.indexOf(index);
-        return slot < 0 ? null : slot;
+        if (slot < 0) return null;
+        return slot;
     }
 
     /// Whether workout index [index] is a test.
@@ -96,7 +115,8 @@ class PullTest {
     /// The saved result of the test at [index], shown locked on the way back.
     int? repsAt(int index) {
         final int? slot = _slotAt(index);
-        return slot == null ? null : _reps[slot];
+        if (slot == null) return null;
+        return _reps[slot];
     }
 
     /// Saves a test result the moment it is entered. Only the first number
@@ -118,8 +138,11 @@ class PullTest {
             await prefs.setInt('pullUpMax', result.pullUpMax!);
         }
         if (result.over) {
-            await prefs.setBool('pullTestDone', true);
+            // pullTestDone last: it is what ends the test. If the app dies
+            // between two writes, the test is still on, and the next park
+            // workout carries on with it.
             await prefs.setInt('parkLevel', WorkoutBPark.entry[result.lvl]!);
+            await prefs.setBool('pullTestDone', true);
         }
     }
 }
