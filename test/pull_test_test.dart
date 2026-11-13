@@ -55,7 +55,7 @@ void main() {
             expect(nameAt(pullTest, 4), ladderAt(1, 1));
             expect(
                 pullTest.exerciseAt(4)!['reps'],
-                WorkoutBRepsPark.reps(ladderAt(1, 1), WorkoutBPark.entry[1]!, 1, 0),
+                WorkoutBRepsPark.reps(ladderAt(1, 1), WorkoutBPark.entry[1]!),
             );
             expect(nameAt(pullTest, 7), ladderAt(1, 2));
 
@@ -106,7 +106,7 @@ void main() {
             expect(nameAt(pullTest, 7), ladderAt(3, 2));
             expect(
                 pullTest.exerciseAt(7)!['reps'],
-                WorkoutBRepsPark.reps(ladderAt(3, 2), WorkoutBPark.entry[3]!, 3, 0),
+                WorkoutBRepsPark.reps(ladderAt(3, 2), WorkoutBPark.entry[3]!),
             );
 
             final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -192,7 +192,7 @@ void main() {
             expect(nameAt(again, 4), ladderAt(3, 1));
             expect(
                 again.exerciseAt(4)!['reps'],
-                WorkoutBRepsPark.reps(ladderAt(3, 1), WorkoutBPark.entry[3]!, 3, 5),
+                WorkoutBRepsPark.reps(ladderAt(3, 1), WorkoutBPark.entry[3]!),
             );
 
             expect(prefs.getInt('pullLvl'), 3);
@@ -221,22 +221,26 @@ void main() {
             expect(prefs.getInt('parkLevel'), WorkoutBPark.entry[3]);
         });
 
-        test('from level 4, four pull slots: the pull-up set after the test is max - 2', () async {
+        test('from level 4, four pull slots: the pull-up set after the test gets the reps of the ladder', () async {
             final PullTest pullTest =
                 (await start(<String, Object>{'placeSwitch': 1, 'pullLvl': 4}, rounds: 4))!;
             expect(nameAt(pullTest, 1), 'pullUp');
             await pullTest.record(1, 6);
 
             // The test is over, and level 4 enters the ladder on two sets of
-            // pull-ups: the second one is counted from the max just entered.
+            // pull-ups: the second one gets the reps the ladder has there,
+            // whatever the number just entered.
             expect(pullTest.isTestAt(4), isFalse);
             expect(nameAt(pullTest, 4), 'pullUp');
-            expect(pullTest.exerciseAt(4)!['reps'], '4');
+            expect(
+                pullTest.exerciseAt(4)!['reps'],
+                WorkoutBRepsPark.reps('pullUp', WorkoutBPark.entry[4]!),
+            );
             expect(nameAt(pullTest, 7), ladderAt(4, 2, slots: 4));
             expect(nameAt(pullTest, 10), ladderAt(4, 3, slots: 4));
         });
 
-        test('from level 4, three pull slots: the second slot is pull-ups at max - 2', () async {
+        test('from level 4, three pull slots: the second slot is pull-ups too', () async {
             final PullTest pullTest =
                 (await start(<String, Object>{'placeSwitch': 1, 'pullLvl': 4}))!;
             await pullTest.record(1, 6);
@@ -245,7 +249,10 @@ void main() {
             // the second set of pull-ups fits in as well.
             expect(pullTest.isTestAt(4), isFalse);
             expect(nameAt(pullTest, 4), 'pullUp');
-            expect(pullTest.exerciseAt(4)!['reps'], '4');
+            expect(
+                pullTest.exerciseAt(4)!['reps'],
+                WorkoutBRepsPark.reps('pullUp', WorkoutBPark.entry[4]!),
+            );
             expect(nameAt(pullTest, 7), 'waistBwPull');
         });
 

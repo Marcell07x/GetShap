@@ -25,7 +25,7 @@ void main() {
     const Set<String> rows = <String>{chest, waist, monkey};
 
     /// Park levels all along the ladder, and well past its last stage.
-    final List<int> parkLevels = <int>[for (int level = 0; level <= 600; level += 5) level];
+    final List<int> parkLevels = <int>[for (int level = 0; level <= 800; level += 5) level];
 
     /// The first park workout's pulls of someone the test put on [pullLvl].
     List<String> entryOf(int pullLvl, int slots) =>
@@ -70,7 +70,12 @@ void main() {
         test('the last two pull slots are always rows, the last one with three', () {
             for (final int level in parkLevels) {
                 for (int slots = 3; slots <= 5; slots++) {
-                    final int tail = slots >= 4 ? 2 : 1;
+                    int tail;
+                    if (slots >= 4) {
+                        tail = 2;
+                    } else {
+                        tail = 1;
+                    }
                     final List<String> pulls = WorkoutBPark.pulls(level, slots);
                     expect(
                         rows.containsAll(pulls.sublist(slots - tail)),
@@ -99,37 +104,48 @@ void main() {
     });
 
     group('the park reps', () {
-        test('rows and negatives are the same for everyone', () {
-            for (final String nameKey in <String>[chest, waist, monkey, neg]) {
-                expect(WorkoutBRepsPark.reps(nameKey, 0, 1, 0), WorkoutBRepsPark.reps(nameKey, 500, 4, 12));
-                expect(WorkoutBRepsPark.reps(nameKey, 0, 1, 0), isNotEmpty);
-            }
-        });
+        /// The lowest number of a reps text: 8 of "8-12".
+        int lowest(String reps) => int.parse(reps.split('-').first);
 
-        test('pull level 4 starts on max - 2 pull-ups, at least 1', () {
-            final int entry = WorkoutBPark.entry[4]!;
-            expect(WorkoutBRepsPark.reps(pullUp, entry, 4, 8), '6');
-            expect(WorkoutBRepsPark.reps(pullUp, entry, 4, 3), '1');
-            expect(WorkoutBRepsPark.reps(pullUp, entry, 4, 2), '1');
-            expect(WorkoutBRepsPark.reps(pullUp, entry, 4, 0), '1');
-        });
+        /// The highest number of a reps text: 12 of "8-12".
+        int highest(String reps) => int.parse(reps.split('-').last);
 
-        test('pull level 4 never gets fewer pull-ups further on', () {
-            int before = 0;
-            for (final int level in parkLevels) {
-                final int reps = int.parse(WorkoutBRepsPark.reps(pullUp, level, 4, 8));
-                expect(reps, greaterThanOrEqualTo(before), reason: 'park level $level');
-                before = reps;
-            }
-        });
-
-        test('below pull level 4 the pull-ups are a fixed range, whatever the max', () {
-            for (final int level in parkLevels) {
-                for (int pullLvl = 1; pullLvl <= 3; pullLvl++) {
-                    final String reps = WorkoutBRepsPark.reps(pullUp, level, pullLvl, 0);
-                    expect(reps, matches(RegExp(r'^\d+-\d+$')), reason: 'park level $level');
-                    expect(WorkoutBRepsPark.reps(pullUp, level, pullLvl, 20), reps);
+        test('chest-high rows, waist-high rows and negatives are the same all along', () {
+            for (final String nameKey in <String>[chest, waist, neg]) {
+                final String atStart = WorkoutBRepsPark.reps(nameKey, 0);
+                expect(atStart, isNotEmpty);
+                for (final int level in parkLevels) {
+                    expect(WorkoutBRepsPark.reps(nameKey, level), atStart, reason: 'park level $level');
                 }
+            }
+        });
+
+        test('pull-ups and monkey bar rows never get fewer further on', () {
+            for (final String nameKey in <String>[pullUp, monkey]) {
+                String before = WorkoutBRepsPark.reps(nameKey, 0);
+                for (final int level in parkLevels) {
+                    final String now = WorkoutBRepsPark.reps(nameKey, level);
+                    final String where = '$nameKey, park level $level';
+                    expect(lowest(now), greaterThanOrEqualTo(lowest(before)), reason: where);
+                    expect(highest(now), greaterThanOrEqualTo(highest(before)), reason: where);
+                    before = now;
+                }
+            }
+        });
+
+        test('pull level 4 still gets more pull-ups and monkey bar rows in the second half of its way', () {
+            // Someone the test put on pull level 4 gets 400 further by level
+            // 550, where the home workout changes for the last time: the park
+            // question came at 150.
+            final int entry = WorkoutBPark.entry[4]!;
+            final int end = entry + 400;
+            final int halfway = entry + 200;
+            for (final String nameKey in <String>[pullUp, monkey]) {
+                expect(
+                    highest(WorkoutBRepsPark.reps(nameKey, end)),
+                    greaterThan(highest(WorkoutBRepsPark.reps(nameKey, halfway))),
+                    reason: nameKey,
+                );
             }
         });
     });
@@ -182,7 +198,7 @@ void main() {
                         continue;
                     }
                     expect(park[i]['nameKey'], ladder[slot], reason: 'level ${at.key}, part $i');
-                    expect(park[i]['reps'], WorkoutBRepsPark.reps(ladder[slot], 280, 3, 0));
+                    expect(park[i]['reps'], WorkoutBRepsPark.reps(ladder[slot], 280));
                 }
             }
         });
@@ -204,19 +220,25 @@ void main() {
             expect(testing, home);
         });
 
-        test('someone who did pull-ups on the test gets them counted from that max', () async {
-            final List<Map<String, String>> park = await workoutB(<String, Object>{
+        test('the pull level and the pull-ups of the test do not change the workout', () async {
+            final int parkLevel = WorkoutBPark.entry[4]!;
+            final Map<String, Object> there = <String, Object>{
                 'level': 350,
                 'placeSwitch': 1,
                 'pullTestDone': true,
-                'pullLvl': 4,
-                'pullUpMax': 9,
-                'parkLevel': WorkoutBPark.entry[4]!,
-            });
-            final List<int> slots = WorkoutBPark.pullSlots(park);
-            expect(park[slots[0]]['nameKey'], pullUp);
-            expect(park[slots[0]]['reps'], '7');
-            expect(park[slots[1]]['reps'], '7');
+                'parkLevel': parkLevel,
+            };
+            // One did 9 pull-ups on the test, the other got this far from
+            // pull level 3.
+            final List<Map<String, String>> passedTheTest =
+                await workoutB(<String, Object>{...there, 'pullLvl': 4, 'pullUpMax': 9});
+            final List<Map<String, String>> cameUp =
+                await workoutB(<String, Object>{...there, 'pullLvl': 3});
+
+            final List<int> slots = WorkoutBPark.pullSlots(passedTheTest);
+            expect(passedTheTest[slots[0]]['nameKey'], pullUp);
+            expect(passedTheTest[slots[0]]['reps'], WorkoutBRepsPark.reps(pullUp, parkLevel));
+            expect(cameUp, passedTheTest);
         });
     });
 

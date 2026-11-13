@@ -108,7 +108,7 @@ class PullTest {
         final String nameKey = WorkoutBPark.pulls(parkLevel, _pullSlots.length)[slot];
         return {
             ...WorkoutBPark.exercise(nameKey),
-            'reps': WorkoutBRepsPark.reps(nameKey, parkLevel, state.lvl, state.pullUpMax ?? 0),
+            'reps': WorkoutBRepsPark.reps(nameKey, parkLevel),
         };
     }
 
