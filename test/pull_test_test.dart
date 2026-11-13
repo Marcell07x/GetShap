@@ -164,6 +164,19 @@ void main() {
             expect(nameAt(pullTest, 10), ladderAt(4, 3, slots: 4));
         });
 
+        test('from level 4, three pull slots: the second slot is pull-ups at max - 2', () async {
+            final PullTest pullTest =
+                (await start(<String, Object>{'placeSwitch': 1, 'pullLvl': 4}))!;
+            await pullTest.record(1, 6);
+
+            // With three pull slots only the last one is kept for a row, so
+            // the second set of pull-ups fits in as well.
+            expect(pullTest.isTestAt(4), isFalse);
+            expect(nameAt(pullTest, 4), 'pullUp');
+            expect(pullTest.exerciseAt(4)!['reps'], '4');
+            expect(nameAt(pullTest, 7), 'waistBwPull');
+        });
+
         test('a saved result cannot be changed on the way back', () async {
             final PullTest pullTest = (await start(<String, Object>{'placeSwitch': 1}))!;
             await pullTest.record(1, 15);

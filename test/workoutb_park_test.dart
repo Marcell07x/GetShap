@@ -42,12 +42,14 @@ void main() {
             expect(entryOf(2, 4), <String>[waist, waist, chest, chest]);
         });
 
-        test('pull level 3 starts on two negatives and two rows', () {
+        test('pull level 3 starts on two negatives, with three pull slots too', () {
             expect(entryOf(3, 4), <String>[neg, neg, waist, waist]);
+            expect(entryOf(3, 3), <String>[neg, neg, waist]);
         });
 
-        test('pull level 4 starts on two sets of pull-ups', () {
+        test('pull level 4 starts on two sets of pull-ups, with three pull slots too', () {
             expect(entryOf(4, 4), <String>[pullUp, pullUp, waist, waist]);
+            expect(entryOf(4, 3), <String>[pullUp, pullUp, waist]);
         });
 
         test('a higher pull level starts further on', () {
@@ -62,15 +64,16 @@ void main() {
             );
             expect(WorkoutBPark.pulls(first, 5), <String>[pullUp, neg, neg, waist, waist]);
             expect(WorkoutBPark.pulls(first, 4), <String>[pullUp, neg, waist, waist]);
-            expect(WorkoutBPark.pulls(first, 3), <String>[pullUp, waist, waist]);
+            expect(WorkoutBPark.pulls(first, 3), <String>[pullUp, neg, waist]);
         });
 
-        test('the last two pull slots are always rows', () {
+        test('the last two pull slots are always rows, the last one with three', () {
             for (final int level in parkLevels) {
                 for (int slots = 3; slots <= 5; slots++) {
+                    final int tail = slots >= 4 ? 2 : 1;
                     final List<String> pulls = WorkoutBPark.pulls(level, slots);
                     expect(
-                        rows.containsAll(pulls.sublist(slots - 2)),
+                        rows.containsAll(pulls.sublist(slots - tail)),
                         isTrue,
                         reason: 'park level $level, $slots pull slots: $pulls',
                     );

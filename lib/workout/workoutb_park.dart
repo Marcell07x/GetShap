@@ -21,7 +21,8 @@ class WorkoutBPark {
     ///
     /// A stage names what stands at the front, in order, and the row that
     /// fills the rest. A negative or a pull-up never takes one of the last
-    /// two pull slots: those are always rows.
+    /// two pull slots, or the last one when there are only three: those are
+    /// always rows.
     static List<String> pulls(int parkLevel, int slots) {
         const String chest = 'chestBwPull';
         const String waist = 'waistBwPull';
@@ -68,13 +69,19 @@ class WorkoutBPark {
             rest = monkey;
         }
 
-        return <String>[
-            for (int i = 0; i < slots; i++)
-                if (i < front.length && (rows.contains(front[i]) || i < slots - 2))
-                    front[i]
-                else
-                    rest,
-        ];
+        // The pull slots at the end where no negative or pull-up goes: the last
+        // two, or the last one when there are only three.
+        final int tail = slots >= 4 ? 2 : 1;
+
+        final List<String> ladder = [];
+        for (int i = 0; i < slots; i++) {
+            if (i < front.length && (rows.contains(front[i]) || i < slots - tail)) {
+                ladder.add(front[i]);
+            } else {
+                ladder.add(rest);
+            }
+        }
+        return ladder;
     }
 
     /// The pull exercise called [nameKey], with its reps still to be set.
@@ -86,10 +93,13 @@ class WorkoutBPark {
     static List<int> pullSlots(List<Map<String, String>> workout) {
         final Set<String?> pullKeys =
             Exercises().pull.values.map((exercise) => exercise['nameKey']).toSet();
-        return <int>[
-            for (int i = 0; i < workout.length; i++)
-                if (pullKeys.contains(workout[i]['nameKey'])) i,
-        ];
+        final List<int> slots = [];
+        for (int i = 0; i < workout.length; i++) {
+            if (pullKeys.contains(workout[i]['nameKey'])) {
+                slots.add(i);
+            }
+        }
+        return slots;
     }
 
     /// Whether the user is on the ladder: they train in a park (placeSwitch 1)
@@ -106,8 +116,8 @@ class WorkoutBPark {
 
         final List<int> slots = pullSlots(workout);
         final List<String> ladder = pulls(prefs.getInt('parkLevel') ?? 0, slots.length);
-        for (int slot = 0; slot < slots.length; slot++) {
-            workout[slots[slot]] = exercise(ladder[slot]);
+        for (int i = 0; i < slots.length; i++) {
+            workout[slots[i]] = exercise(ladder[i]);
         }
     }
 
