@@ -9,7 +9,7 @@
     "consentCheckbox": "Ich habe die Nutzungsbedingungen und den Gesundheitshinweis gelesen und akzeptiere sie. Mir ist bewusst, dass ich auf eigenes Risiko trainiere.",
     "consentAccept": "Akzeptieren und starten",
     "consentUpdatedTitle": "Neue Bedingungen",
-    "consentUpdatedBody": "Die Nutzungsbedingungen und der Gesundheitshinweis wurden aktualisiert. Bitte lies sie und akzeptiere sie, um fortzufahren.",
+    "consentUpdatedBody": "Die Nutzungsbedingungen und die Datenschutzerklärung wurden aktualisiert: Die App lädt die Übungsvideos jetzt aus dem Internet herunter. Bitte lies sie und akzeptiere die Bedingungen, um fortzufahren.",
     "consentTermsLink": "Nutzungsbedingungen",
     "consentHealthLink": "Gesundheitshinweis",
     "consentPrivacyLink": "Datenschutz",
@@ -73,6 +73,8 @@
     "saveConfirm": "Hast du wirklich {reps, plural, =1{{reps} Wiederholung} other{{reps} Wiederholungen}} geschafft?",
     "cancel": "Abbrechen",
     "goback": "Zurück",
+    "videoNeedsInternet": "Für dieses Video brauchst du eine Internetverbindung.",
+    "tryAgain": "Erneut versuchen",
     "startWorkout": "Training starten",
 
 

@@ -1,6 +1,6 @@
 # GetShap – Política de privacidad
 
-**Última actualización:** 29 de octubre de 2026
+**Última actualización:** 14 de noviembre de 2026
 
 Esta política de privacidad se aplica a la aplicación GetShap.
 
@@ -21,9 +21,9 @@ La aplicación no solicita, no almacena del lado del desarrollador ni transmite:
 
 Todo lo que introduces – tus respuestas al cuestionario, tu nivel de
 entrenamiento, tu racha y tu configuración – se guarda **únicamente en tu propio
-dispositivo**, en el almacenamiento de la propia aplicación. El desarrollador no
-tiene servidor ni base de datos, y no puede acceder a ello. Si eliminas la
-aplicación, estos datos se eliminan también.
+dispositivo**, en el almacenamiento de la propia aplicación. No se envía a
+ningún lado: el desarrollador no tiene base de datos y no puede acceder a ello.
+Si eliminas la aplicación, estos datos se eliminan también.
 
 Si en tu dispositivo está activada la copia de seguridad del sistema (copia de
 seguridad de iCloud o de Google), tu sistema operativo puede incluir los datos
@@ -32,8 +32,25 @@ Google y la configuración de tu dispositivo.
 
 ## Conexión a internet
 
-La aplicación funciona sin conexión. Solo se conecta a la red con un único fin:
-comprobar si hay una versión más reciente disponible.
+La aplicación solo se conecta a la red con dos fines: descargar los videos de
+los ejercicios y comprobar si hay una versión más reciente disponible.
+
+**Videos de los ejercicios.** Los videos no forman parte de la aplicación
+instalada. La aplicación descarga los videos de tu próximo entrenamiento desde
+el servidor del desarrollador (`getshap.com`) y los guarda en tu
+dispositivo, de modo que un entrenamiento cuyos videos ya están ahí funciona sin
+conexión. Una descarga es una simple solicitud de archivo: indica el nombre del
+archivo de video y, como en cualquier solicitud por internet, el servidor ve la
+dirección IP de tu dispositivo. No incluye ninguna cuenta, ningún identificador,
+ninguna cookie ni nada de lo que introdujiste en la aplicación. El servidor lo
+opera un proveedor de alojamiento en Hungría por encargo del desarrollador (como
+encargado del tratamiento). El registro de solicitudes está desactivado en ese
+servidor, por lo que el desarrollador no conserva ningún registro de las
+descargas; el proveedor de alojamiento puede tratar datos técnicos en la medida
+necesaria para operar y proteger su red. La base jurídica es la prestación del
+servicio que solicitaste (artículo 6, apartado 1, letra b, del RGPD).
+
+**Comprobación de actualizaciones.**
 
 - **iOS:** consulta el servicio público de búsqueda de apps de Apple
   (`itunes.apple.com`) usando el identificador de la aplicación. Como en

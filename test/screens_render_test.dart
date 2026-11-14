@@ -6,7 +6,7 @@
 // constraints, content that no longer fits once the type scale changed.
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show MethodCall, MethodChannel, rootBundle;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,6 +27,7 @@ import 'package:getshap/workout/next_workout_page.dart';
 import 'package:getshap/workout/workout_done_screen.dart';
 import 'package:getshap/workout/workout_feedback.dart';
 import 'package:getshap/workout/workout_place_page.dart';
+import 'package:getshap/workout/workout_screen.dart';
 
 /// A long Hungarian string with ő/ű, so wrapping is exercised on real copy.
 const String _huSample =
@@ -77,6 +78,13 @@ void main() {
         // asset cache would hand this one that test's future, and the page
         // would stay empty.
         rootBundle.clear();
+        // No folder for the exercise videos, so none can be had: the workout
+        // screen shows what it shows when a video is not downloaded and there
+        // is no network. Without this it would wait for the folder for ever.
+        tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+            const MethodChannel('plugins.flutter.io/path_provider'),
+            (MethodCall call) async => null,
+        );
         tester.view.physicalSize = const Size(1080, 2340);
         tester.view.devicePixelRatio = 3.0;
         addTearDown(tester.view.resetPhysicalSize);
@@ -138,6 +146,27 @@ void main() {
             TipManager().tipLibrary = <String>[];
             return TipLibraryScreen(type: 'Mindset', tips: TipsData.principles);
         },
+        // Without its video, in the app's language: the message and the retry
+        // button in the video's place are the texts that differ by locale.
+        'workout (video not downloaded)': () => Builder(
+            builder: (BuildContext context) {
+                final AppLocalizations loc = AppLocalizations.of(context)!;
+                return WorkoutScreen(
+                    videoPath: 'kneePush.mp4',
+                    exerciseName: loc.kneePush,
+                    reps: '15',
+                    repsLabel: loc.reps,
+                    description: loc.kneePushDesc,
+                    buttonText: loc.next,
+                    label: loc.workout,
+                    onNextPressed: () {},
+                    onPreviousPressed: () {},
+                    currentIndex: 1,
+                    totalWorkouts: 3,
+                    level: 62,
+                );
+            },
+        ),
         'rest day': () => const NextWorkoutPage(),
         'feedback': () => const WorkoutFeedback(),
         'congratulations': () => const CongratulationsScreen(),

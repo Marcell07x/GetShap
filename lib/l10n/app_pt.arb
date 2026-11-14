@@ -9,7 +9,7 @@
     "consentCheckbox": "Li e aceito os Termos de Uso e o Aviso de Saúde, e entendo que treino por minha conta e risco.",
     "consentAccept": "Aceitar e começar",
     "consentUpdatedTitle": "Nossos termos mudaram",
-    "consentUpdatedBody": "Os Termos de Uso e o Aviso de Saúde foram atualizados. Leia e aceite-os para continuar.",
+    "consentUpdatedBody": "Os Termos de Uso e a Política de Privacidade foram atualizados: agora o app baixa os vídeos dos exercícios da internet. Leia-os e aceite os termos para continuar.",
     "consentTermsLink": "Termos de Uso",
     "consentHealthLink": "Aviso de Saúde",
     "consentPrivacyLink": "Privacidade",
@@ -73,6 +73,8 @@
     "saveConfirm": "Você fez mesmo {reps, plural, =1{{reps} repetição} other{{reps} repetições}}?",
     "cancel": "Cancelar",
     "goback": "Voltar",
+    "videoNeedsInternet": "Conecte-se à internet para baixar este vídeo.",
+    "tryAgain": "Tentar de novo",
     "startWorkout": "Começar treino",
 
 

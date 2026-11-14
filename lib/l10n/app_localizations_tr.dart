@@ -42,7 +42,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get consentUpdatedBody =>
-      'Kullanım Koşulları ve Sağlık Uyarısı güncellendi. Devam etmek için lütfen bunları oku ve kabul et.';
+      'Kullanım Koşulları ve Gizlilik Politikası güncellendi: uygulama artık egzersiz videolarını internetten indiriyor. Devam etmek için lütfen bunları oku ve koşulları kabul et.';
 
   @override
   String get consentTermsLink => 'Kullanım Koşulları';
@@ -211,6 +211,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get goback => 'Geri';
+
+  @override
+  String get videoNeedsInternet => 'Bu videoyu indirmek için internete bağlan.';
+
+  @override
+  String get tryAgain => 'Tekrar dene';
 
   @override
   String get startWorkout => 'Başla';

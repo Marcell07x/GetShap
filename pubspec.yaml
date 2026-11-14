@@ -17,6 +17,7 @@ dependencies:
   intl: ^0.20.2
   shared_preferences: ^2.5.3
   video_player: ^2.10.1
+  path_provider: ^2.1.5
   permission_handler: ^12.0.1
   url_launcher: ^6.3.2
   in_app_update: ^4.2.5
@@ -41,8 +42,9 @@ flutter:
   # as a pod with every permission, notifications included, switched off.
   config:
     enable-swift-package-manager: true
+  # The exercise videos are not here: the app downloads them from the server
+  # (lib/workout/exercise_videos.dart). What is on the server is in server/.
   assets:
-    - assets/videos/
     - assets/icon/logo_mark.png
     # The legal documents, shown in the app from the same markdown the website
     # is built from (legal/build_site.dart). One line per language: an asset

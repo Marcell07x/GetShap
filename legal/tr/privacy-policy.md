@@ -1,6 +1,6 @@
 # GetShap – Gizlilik Politikası
 
-**Son güncelleme:** 29 Ekim 2026
+**Son güncelleme:** 14 Kasım 2026
 
 Bu gizlilik politikası GetShap uygulaması için geçerlidir.
 
@@ -21,8 +21,8 @@ Uygulama aşağıdakileri istemez, geliştirici tarafında saklamaz ve iletmez:
 
 Girdiğin her şey – anket yanıtların, antrenman seviyen, serin ve ayarların –
 **yalnızca kendi cihazında**, uygulamanın kendi depolama alanında saklanır.
-Geliştiricinin sunucusu ve veritabanı yoktur, bu verilere erişemez. Uygulamayı
-silmek bu verileri de siler.
+Bunlar hiçbir yere gönderilmez: geliştiricinin veritabanı yoktur ve bu verilere
+erişemez. Uygulamayı silmek bu verileri de siler.
 
 Cihazında sistem düzeyinde yedekleme (iCloud veya Google yedeklemesi) açıksa,
 işletim sistemin uygulamanın verilerini Apple'ın veya Google'ın kurallarına ve
@@ -30,8 +30,23 @@ cihaz ayarlarına göre yedeklerine dahil edebilir.
 
 ## İnternet bağlantısı
 
-Uygulama çevrimdışı çalışır. Ağa yalnızca tek bir amaçla bağlanır: daha yeni
-bir sürümün mevcut olup olmadığını kontrol etmek.
+Uygulama ağa yalnızca iki amaçla bağlanır: egzersiz videolarını indirmek ve
+daha yeni bir sürümün mevcut olup olmadığını kontrol etmek.
+
+**Egzersiz videoları.** Videolar yüklü uygulamanın bir parçası değildir.
+Uygulama, bir sonraki antrenmanının videolarını geliştiricinin sunucusundan
+(`getshap.com`) indirir ve cihazında saklar; böylece videoları zaten
+inmiş olan bir antrenman çevrimdışı da çalışır. İndirme, sıradan bir dosya
+isteğidir: video dosyasının adını içerir ve her internet isteğinde olduğu gibi
+sunucu, cihazının IP adresini görür. Hesap, kimlik, çerez ya da uygulamaya
+girdiğin herhangi bir bilgi içermez. Sunucuyu, geliştirici adına Macaristan'daki
+bir barındırma sağlayıcısı işletir (veri işleyen olarak). Bu sunucuda isteklerin
+günlüğe kaydedilmesi kapalıdır; bu nedenle geliştirici indirmelerin kaydını
+tutmaz. Barındırma sağlayıcısı, ağını işletmek ve korumak için gereken ölçüde
+teknik verileri işleyebilir. Hukuki dayanak, talep ettiğin hizmetin sunulmasıdır
+(GDPR madde 6(1)(b)).
+
+**Güncelleme kontrolü.**
 
 - **iOS:** Uygulamanın kimliğini kullanarak Apple'ın herkese açık uygulama
   arama hizmetini (`itunes.apple.com`) sorgular. Her internet isteğinde olduğu

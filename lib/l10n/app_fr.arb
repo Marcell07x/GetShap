@@ -8,8 +8,8 @@
     "consentPoint3": "Si tu as un problème de santé, parles-en d'abord à ton médecin. Et pendant l'entraînement, écoute ton corps – si quelque chose ne va pas, arrête-toi.",
     "consentCheckbox": "J'ai lu et j'accepte les Conditions d'utilisation et l'Avertissement santé, et je comprends que je m'entraîne à mes propres risques.",
     "consentAccept": "Accepter et commencer",
-    "consentUpdatedTitle": "Nos conditions ont changé",
-    "consentUpdatedBody": "Les Conditions d'utilisation et l'Avertissement santé ont été mis à jour. Lis-les et accepte-les pour continuer.",
+    "consentUpdatedTitle": "Nouvelles conditions",
+    "consentUpdatedBody": "Les Conditions d'utilisation et la Politique de confidentialité ont été mises à jour : l'app télécharge désormais les vidéos des exercices depuis Internet. Lis-les et accepte les conditions pour continuer.",
     "consentTermsLink": "Conditions d'utilisation",
     "consentHealthLink": "Avertissement santé",
     "consentPrivacyLink": "Confidentialité",
@@ -73,6 +73,8 @@
     "saveConfirm": "As-tu vraiment fait {reps, plural, one{{reps} répétition} other{{reps} répétitions}} ?",
     "cancel": "Annuler",
     "goback": "Retour",
+    "videoNeedsInternet": "Connecte-toi à Internet pour télécharger cette vidéo.",
+    "tryAgain": "Réessayer",
     "startWorkout": "Commencer",
 
 

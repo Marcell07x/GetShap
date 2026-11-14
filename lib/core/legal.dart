@@ -39,7 +39,10 @@ class Legal {
     /// link: those do not change what was agreed to, and re-prompting every
     /// user over them is noise that makes the prompt easier to dismiss
     /// unread the one time it matters.
-    static const String documentVersion = '1.0';
+    ///
+    /// 1.1: the exercise videos are downloaded from the developer's server, so
+    /// the app is no longer one that sends nothing anywhere.
+    static const String documentVersion = '1.1';
 
     static const String _keyGaveConsent = 'gaveConsent';
     static const String _keyAcceptedAt = 'consentAcceptedAt';

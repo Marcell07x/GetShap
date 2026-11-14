@@ -38,11 +38,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get consentAccept => 'Принять и начать';
 
   @override
-  String get consentUpdatedTitle => 'Наши условия изменились';
+  String get consentUpdatedTitle => 'Условия изменились';
 
   @override
   String get consentUpdatedBody =>
-      'Условия использования и Предупреждение о здоровье обновлены. Пожалуйста, прочитай и прими их, чтобы продолжить.';
+      'Условия использования и Политика конфиденциальности обновлены: теперь приложение загружает видео упражнений из интернета. Пожалуйста, прочитай их и прими условия, чтобы продолжить.';
 
   @override
   String get consentTermsLink => 'Условия использования';
@@ -227,6 +227,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get goback => 'Назад';
+
+  @override
+  String get videoNeedsInternet =>
+      'Подключись к интернету, чтобы скачать это видео.';
+
+  @override
+  String get tryAgain => 'Повторить';
 
   @override
   String get startWorkout => 'Начать';

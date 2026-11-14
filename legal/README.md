@@ -92,6 +92,26 @@ a weboldal.
 | Play → Egészség appok nyilatkozat | Ha kéri: nem egészségügyi, nem orvosi célú alkalmazás |
 | **App Store / Play leírás** | Az Apple 1.4.1 irányelve elvárja, hogy az egészséggel kapcsolatos app a **leírásában** is emlékeztessen az orvosi konzultációra – lásd a lenti szöveget |
 
+**A videóletöltés ezen nem változtat – amíg a szerveren ki van kapcsolva a
+naplózás.** Az 1.1-es verzió óta az app a gyakorlatvideókat a saját szerverről
+(`getshap.com`, a weboldal `media` mappája) tölti le, és letöltéskor a szerver
+látja a készülék IP-címét. A tárhelyen a `getshap.com` webcím naplózása
+„Nincs", így a fejlesztő semmit nem őriz meg belőle, ezért a két „nincs
+adatgyűjtés" nyilatkozat maradhat:
+
+- **Apple:** az a szerverhívással küldött IP-cím, amelyet nem őrzöl meg, nem
+  számít gyűjtésnek
+  (<https://developer.apple.com/app-store/app-privacy-details/>).
+- **Google:** az IP-címet aszerint kell megadni, mire használod (például
+  helymeghatározásra) – itt semmire; a tárhelyszolgáltató pedig „szolgáltató",
+  nem adatmegosztás
+  (<https://support.google.com/googleplay/android-developer/answer/10787469>).
+
+Ha a naplózást valaha bekapcsolod, ez megváltozik: akkor az adatvédelmi
+tájékoztatót és mindkét store-nyilatkozatot újra át kell nézni. A videók a
+weboldallal közös webcímen vannak, ezért a weboldal látogatóstatisztikája is
+ide tartozik: ahhoz naplózás kell.
+
 **Az alkalmazásleírás végére (kötelező elem, nem opcionális):**
 
 > A GetShap általános edzéstartalmat kínál, és nem minősül orvosi vagy

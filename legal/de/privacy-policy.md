@@ -1,6 +1,6 @@
 # GetShap – Datenschutzerklärung
 
-**Zuletzt aktualisiert:** 29. Oktober 2026
+**Zuletzt aktualisiert:** 14. November 2026
 
 Diese Datenschutzerklärung gilt für die App GetShap.
 
@@ -22,9 +22,9 @@ Die App fragt folgende Daten nicht ab, speichert sie nicht beim Entwickler und
 
 Alles, was du eingibst – deine Antworten im Fragebogen, dein Trainingslevel,
 deine Serie und deine Einstellungen –, wird **nur auf deinem eigenen Gerät**
-gespeichert, im eigenen Speicher der App. Der Entwickler hat keinen Server und
-keine Datenbank und hat keinen Zugriff darauf. Wenn du die App löschst, werden
-diese Daten ebenfalls gelöscht.
+gespeichert, im eigenen Speicher der App. Es wird nirgendwohin gesendet: Der
+Entwickler hat keine Datenbank und keinen Zugriff darauf. Wenn du die App
+löschst, werden diese Daten ebenfalls gelöscht.
 
 Wenn auf deinem Gerät die Datensicherung des Systems aktiviert ist (iCloud- oder
 Google-Backup), kann dein Betriebssystem die Daten der App nach den Regeln von
@@ -33,8 +33,25 @@ aufnehmen.
 
 ## Internetverbindung
 
-Die App funktioniert offline. Sie verbindet sich nur zu einem einzigen Zweck mit
-dem Netz: um zu prüfen, ob eine neuere Version verfügbar ist.
+Die App verbindet sich nur zu zwei Zwecken mit dem Netz: um die Übungsvideos
+herunterzuladen und um zu prüfen, ob eine neuere Version verfügbar ist.
+
+**Übungsvideos.** Die Videos sind nicht Teil der installierten App. Die App lädt
+die Videos deines nächsten Trainings vom Server des Entwicklers
+(`getshap.com`) herunter und speichert sie auf deinem Gerät; ein Training,
+dessen Videos schon vorhanden sind, funktioniert daher auch offline. Ein
+Download ist eine einfache Dateianfrage: Sie nennt die Videodatei, und wie bei
+jeder Internetanfrage sieht der Server die IP-Adresse deines Geräts. Sie enthält
+kein Konto, keine Kennung, kein Cookie und nichts von dem, was du in der App
+eingegeben hast. Der Server wird von einem Hosting-Anbieter in Ungarn im Auftrag
+des Entwicklers betrieben (als Auftragsverarbeiter). Die Protokollierung der
+Anfragen ist auf diesem Server ausgeschaltet, sodass der Entwickler keine
+Aufzeichnungen über die Downloads führt; der Hosting-Anbieter kann technische
+Daten verarbeiten, soweit es für den Betrieb und den Schutz seines Netzes
+erforderlich ist. Rechtsgrundlage ist die Erbringung des von dir gewünschten
+Dienstes (Art. 6 Abs. 1 Buchst. b DSGVO).
+
+**Prüfung auf Updates.**
 
 - **iOS:** Sie fragt den öffentlichen App-Suchdienst von Apple
   (`itunes.apple.com`) anhand der Kennung der App ab. Wie bei jeder

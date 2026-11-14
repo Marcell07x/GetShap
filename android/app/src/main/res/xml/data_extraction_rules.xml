@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 12 and higher. Everything is backed up to the cloud as before,
+     except the exercise videos (files/videos): they can be downloaded again.
+     A transfer straight to a new phone has no size limit, so it takes them. -->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="file" path="videos" />
+    </cloud-backup>
+</data-extraction-rules>

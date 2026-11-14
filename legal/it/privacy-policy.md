@@ -1,6 +1,6 @@
 # GetShap – Informativa sulla privacy
 
-**Ultimo aggiornamento:** 29 ottobre 2026
+**Ultimo aggiornamento:** 14 novembre 2026
 
 La presente informativa sulla privacy si applica all'applicazione GetShap.
 
@@ -21,9 +21,9 @@ L'app non richiede, non conserva presso lo sviluppatore e non trasmette:
 
 Tutto ciò che inserisci – le risposte al questionario, il tuo livello di
 allenamento, la tua serie e le tue impostazioni – viene memorizzato **solo sul
-tuo dispositivo**, nella memoria dell'app stessa. Lo sviluppatore non ha server
-né database e non può accedervi. Eliminando l'app, vengono eliminati anche
-questi dati.
+tuo dispositivo**, nella memoria dell'app stessa. Non viene inviato da nessuna
+parte: lo sviluppatore non ha un database e non può accedervi. Eliminando l'app,
+vengono eliminati anche questi dati.
 
 Se sul tuo dispositivo è attivo il backup di sistema (backup di iCloud o di
 Google), il sistema operativo può includere i dati dell'app nei propri backup,
@@ -31,8 +31,25 @@ secondo le regole di Apple o di Google e le impostazioni del tuo dispositivo.
 
 ## Connessione a Internet
 
-L'app funziona offline. Si connette alla rete per un solo scopo: verificare se
-è disponibile una versione più recente.
+L'app si connette alla rete per due soli scopi: scaricare i video degli esercizi
+e verificare se è disponibile una versione più recente.
+
+**Video degli esercizi.** I video non fanno parte dell'app installata. L'app
+scarica i video del tuo prossimo allenamento dal server dello sviluppatore
+(`getshap.com`) e li conserva sul tuo dispositivo, così un allenamento i
+cui video sono già presenti funziona offline. Un download è una semplice
+richiesta di file: indica il nome del file video e, come per qualsiasi richiesta
+su Internet, il server vede l'indirizzo IP del tuo dispositivo. Non contiene
+alcun account, identificativo o cookie, né nulla di ciò che hai inserito
+nell'app. Il server è gestito da un fornitore di hosting in Ungheria per conto
+dello sviluppatore (in qualità di responsabile del trattamento). La
+registrazione delle richieste è disattivata su questo server, quindi lo
+sviluppatore non conserva alcuna traccia dei download; il fornitore di hosting
+può trattare dati tecnici nella misura necessaria a gestire e proteggere la
+propria rete. La base giuridica è la fornitura del servizio che hai richiesto
+(articolo 6, paragrafo 1, lettera b, del GDPR).
+
+**Verifica degli aggiornamenti.**
 
 - **iOS:** interroga il servizio pubblico di ricerca app di Apple
   (`itunes.apple.com`) tramite l'identificativo dell'app. Come per qualsiasi

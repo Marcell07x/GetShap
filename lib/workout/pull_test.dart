@@ -112,6 +112,17 @@ class PullTest {
         };
     }
 
+    /// The four exercises the test is on, one per pull level. Whatever the
+    /// test puts on a pull slot in a workout is one of these, so their videos
+    /// are the ones a workout with the test in it can need.
+    List<Map<String, String>> get exercises {
+        final List<Map<String, String>> tested = <Map<String, String>>[];
+        for (int lvl = 1; lvl <= 4; lvl++) {
+            tested.add(_exercises.pull[lvl + 2]!);
+        }
+        return tested;
+    }
+
     /// The saved result of the test at [index], shown locked on the way back.
     int? repsAt(int index) {
         final int? slot = _slotAt(index);

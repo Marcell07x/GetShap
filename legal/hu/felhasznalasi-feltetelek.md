@@ -1,6 +1,6 @@
 # GetShap – Felhasználási feltételek
 
-**Hatályos:** 2026. október 29. · **Verzió:** 1.0
+**Hatályos:** 2026. november 14. · **Verzió:** 1.1
 
 Kérjük, olvasd el figyelmesen. A GetShap alkalmazás letöltésével, telepítésével
 vagy használatával elfogadod az alábbi feltételeket. Ha nem fogadod el, ne
@@ -104,6 +104,12 @@ rendelkezésre. A Szolgáltató nem szavatolja, hogy az alkalmazás hibamentes,
 folyamatosan elérhető, minden eszközön és operációsrendszer-verzión működik,
 vagy hogy a benne található információk minden esetben pontosak, teljesek és
 naprakészek.
+
+A gyakorlatvideók nem települnek az alkalmazással: az alkalmazás az internetről
+tölti le őket – a következő edzés videóit előre –, és a készülékeden tárolja. A
+letöltéshez internetkapcsolat kell, az adatforgalomért a mobilszolgáltatód díjat
+számíthat fel. Kapcsolat nélkül a még le nem töltött videó nem jeleníthető meg;
+maga az edzés ettől elérhető marad.
 
 A Szolgáltató bármikor jogosult az alkalmazás funkcióit módosítani, egyes
 funkciókat megszüntetni, vagy az alkalmazás fejlesztését és támogatását

@@ -169,7 +169,7 @@ abstract class AppLocalizations {
   /// No description provided for @consentUpdatedBody.
   ///
   /// In en, this message translates to:
-  /// **'The Terms of Use and the Health Disclaimer have been updated. Please read and accept them to continue.'**
+  /// **'The Terms of Use and the Privacy Policy have been updated: the app now downloads the exercise videos from the internet. Please read them and accept the terms to continue.'**
   String get consentUpdatedBody;
 
   /// No description provided for @consentTermsLink.
@@ -495,6 +495,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back'**
   String get goback;
+
+  /// No description provided for @videoNeedsInternet.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect to the internet to download this video.'**
+  String get videoNeedsInternet;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get tryAgain;
 
   /// No description provided for @startWorkout.
   ///

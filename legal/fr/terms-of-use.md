@@ -1,6 +1,6 @@
 # GetShap – Conditions d'utilisation
 
-**Date d'entrée en vigueur :** 29 octobre 2026 · **Version :** 1.0
+**Date d'entrée en vigueur :** 14 novembre 2026 · **Version :** 1.1
 
 Lis attentivement ces conditions. En téléchargeant, en installant ou en
 utilisant l'application GetShap, tu les acceptes. Si tu ne les acceptes pas,
@@ -110,6 +110,13 @@ L'application est fournie **« en l'état »**. Le Fournisseur ne garantit pas
 l'application est exempte d'erreurs, disponible en permanence, compatible avec
 tous les appareils et toutes les versions de système d'exploitation, ni que les
 informations qu'elle contient sont à tout moment exactes, complètes et à jour.
+
+Les vidéos des exercices ne sont pas installées avec l'application : elle les
+télécharge depuis Internet – celles du prochain entraînement à l'avance – et les
+conserve sur ton appareil. Le téléchargement nécessite une connexion à Internet,
+et ton opérateur mobile peut facturer les données. Sans connexion, une vidéo qui
+n'a pas encore été téléchargée ne peut pas être affichée ; l'entraînement
+lui-même reste disponible.
 
 Le Fournisseur peut à tout moment modifier les fonctions de l'application,
 supprimer certaines fonctions ou cesser son développement et son support, en

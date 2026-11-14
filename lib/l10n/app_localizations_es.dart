@@ -38,11 +38,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get consentAccept => 'Aceptar y empezar';
 
   @override
-  String get consentUpdatedTitle => 'Nuestros términos cambiaron';
+  String get consentUpdatedTitle => 'Términos actualizados';
 
   @override
   String get consentUpdatedBody =>
-      'Los Términos de uso y el Aviso de salud se actualizaron. Léelos y acéptalos para continuar.';
+      'Los Términos de uso y la Política de privacidad se actualizaron: ahora la app descarga los videos de los ejercicios desde internet. Léelos y acepta los términos para continuar.';
 
   @override
   String get consentTermsLink => 'Términos de uso';
@@ -217,6 +217,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get goback => 'Atrás';
+
+  @override
+  String get videoNeedsInternet =>
+      'Conéctate a internet para descargar este video.';
+
+  @override
+  String get tryAgain => 'Reintentar';
 
   @override
   String get startWorkout => 'Empezar';

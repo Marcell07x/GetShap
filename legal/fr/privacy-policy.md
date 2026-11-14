@@ -1,6 +1,6 @@
 # GetShap – Politique de confidentialité
 
-**Dernière mise à jour :** 29 octobre 2026
+**Dernière mise à jour :** 14 novembre 2026
 
 La présente politique de confidentialité s'applique à l'application GetShap.
 
@@ -22,9 +22,9 @@ transmet pas :
 
 Tout ce que tu saisis – tes réponses au questionnaire, ton niveau
 d'entraînement, ta série et tes réglages – est enregistré **uniquement sur ton
-propre appareil**, dans le stockage propre à l'application. Le développeur n'a
-ni serveur ni base de données et ne peut pas y accéder. Supprimer l'application
-supprime aussi ces données.
+propre appareil**, dans le stockage propre à l'application. Rien de tout cela
+n'est envoyé où que ce soit : le développeur n'a pas de base de données et ne
+peut pas y accéder. Supprimer l'application supprime aussi ces données.
 
 Si la sauvegarde système est activée sur ton appareil (sauvegarde iCloud ou
 Google), ton système d'exploitation peut inclure les données de l'application
@@ -33,8 +33,26 @@ ton appareil.
 
 ## Connexion à Internet
 
-L'application fonctionne hors ligne. Elle ne se connecte au réseau que dans un
-seul but : vérifier si une version plus récente est disponible.
+L'application ne se connecte au réseau que dans deux buts : télécharger les
+vidéos des exercices et vérifier si une version plus récente est disponible.
+
+**Vidéos des exercices.** Les vidéos ne font pas partie de l'application
+installée. L'application télécharge les vidéos de ton prochain entraînement
+depuis le serveur du développeur (`getshap.com`) et les conserve sur ton
+appareil ; un entraînement dont les vidéos sont déjà là fonctionne donc hors
+ligne. Un téléchargement est une simple requête de fichier : elle indique le nom
+du fichier vidéo et, comme pour toute requête sur Internet, le serveur voit
+l'adresse IP de ton appareil. Elle ne contient ni compte, ni identifiant, ni
+cookie, ni rien de ce que tu as saisi dans l'application. Le serveur est
+exploité par un hébergeur situé en Hongrie pour le compte du développeur (en
+tant que sous-traitant). La journalisation des requêtes y est désactivée, si
+bien que le développeur ne conserve aucune trace des téléchargements ;
+l'hébergeur peut traiter des données techniques dans la mesure nécessaire au
+fonctionnement et à la protection de son réseau. La base juridique est la
+fourniture du service que tu as demandé (article 6, paragraphe 1, point b, du
+RGPD).
+
+**Vérification des mises à jour.**
 
 - **iOS :** elle interroge le service public de recherche d'applications
   d'Apple (`itunes.apple.com`) à l'aide de l'identifiant de l'application.

@@ -1,6 +1,6 @@
 # GetShap – Adatvédelmi tájékoztató
 
-**Utolsó frissítés:** 2026. október 29.
+**Utolsó frissítés:** 2026. november 14.
 
 Ez a tájékoztató a GetShap alkalmazásra vonatkozik.
 
@@ -21,8 +21,9 @@ Az alkalmazás nem kér, nem tárol a fejlesztő oldalán, és nem továbbít:
 
 Minden, amit megadsz – a kérdőív válaszai, az edzésszinted, a sorozatod és a
 beállításaid – **kizárólag a saját készülékeden** tárolódik, az alkalmazás saját
-tárolójában. A fejlesztőnek nincs szervere és nincs adatbázisa, ezekhez nem fér
-hozzá. Az alkalmazás törlésével ezek az adatok is törlődnek.
+tárolójában. Ezeket az alkalmazás sehová nem küldi el: a fejlesztőnek nincs
+adatbázisa, és nem fér hozzájuk. Az alkalmazás törlésével ezek az adatok is
+törlődnek.
 
 Ha a készülékeden be van kapcsolva a rendszerszintű biztonsági mentés (iCloud
 vagy Google biztonsági mentés), az operációs rendszer az alkalmazás adatait a
@@ -30,8 +31,23 @@ saját szabályai és a készüléked beállításai szerint mentheti.
 
 ## Internetkapcsolat
 
-Az alkalmazás offline működik. Egyetlen okból lép hálózatra: ellenőrzi, hogy
-elérhető-e újabb verzió.
+Az alkalmazás két okból lép hálózatra: letölti a gyakorlatvideókat, és
+ellenőrzi, hogy elérhető-e újabb verzió.
+
+**Gyakorlatvideók.** A videók nem részei a telepített alkalmazásnak. Az
+alkalmazás a következő edzésed videóit a fejlesztő szerveréről
+(`getshap.com`) tölti le, és a készülékeden tárolja őket, így az az edzés,
+amelynek a videói már megvannak, offline is működik. A letöltés egyszerű
+fájlkérés: a videófájl nevét tartalmazza, és – mint minden internetes kérésnél –
+a szerver látja a készüléked IP-címét. Fiókot, azonosítót, sütit és az
+alkalmazásban megadott adataidat nem tartalmazza. A szervert egy magyarországi
+tárhelyszolgáltató üzemelteti a fejlesztő megbízásából (adatfeldolgozóként). A
+kérések naplózása ezen a szerveren ki van kapcsolva, így a fejlesztő nem őriz
+nyilvántartást a letöltésekről; a tárhelyszolgáltató a hálózata üzemeltetéséhez
+és védelméhez szükséges mértékben kezelhet technikai adatokat. A jogalap az
+általad kért szolgáltatás nyújtása (GDPR 6. cikk (1) bekezdés b) pont).
+
+**Frissítés ellenőrzése.**
 
 - **iOS:** lekérdezi az Apple nyilvános alkalmazás-adatbázisát
   (`itunes.apple.com`) az alkalmazás azonosítója alapján. Ilyenkor – mint minden

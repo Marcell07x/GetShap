@@ -9,6 +9,7 @@ import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_spacing.dart';
 import 'package:getshap/theme/app_theme.dart';
 import 'package:getshap/theme/app_typography.dart';
+import 'package:getshap/workout/next_workout_videos.dart';
 import 'package:getshap/workout/workout_place_page.dart';
 
 /// The reward screen after a finished workout.
@@ -23,6 +24,8 @@ class CongratulationsScreen extends StatelessWidget {
     /// home-or-park question in its place.
     Future<void> _finish(BuildContext context) async {
         final navigator = Navigator.of(context);
+        // The level and the switches have moved on: the next workout is known.
+        downloadNextWorkoutVideos();
         if (await placeQuestionDue()) {
             navigator.pushReplacement(
                 MaterialPageRoute<void>(builder: (context) => const WorkoutPlacePage()),

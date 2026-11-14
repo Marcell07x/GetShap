@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 11 and lower. Everything is backed up as before, except the
+     exercise videos (files/videos): they can be downloaded again. -->
+<full-backup-content>
+    <exclude domain="file" path="videos" />
+</full-backup-content>

@@ -1,6 +1,6 @@
 # GetShap – Kullanım Koşulları
 
-**Yürürlük tarihi:** 29 Ekim 2026 · **Sürüm:** 1.0
+**Yürürlük tarihi:** 14 Kasım 2026 · **Sürüm:** 1.1
 
 Lütfen bu koşulları dikkatle oku. GetShap uygulamasını indirerek, yükleyerek
 veya kullanarak bu koşulları kabul etmiş olursun. Kabul etmiyorsan uygulamayı
@@ -102,6 +102,12 @@ Uygulama **“olduğu gibi”** sunulur. Sağlayıcı; uygulamanın hatasız old
 kesintisiz erişilebilir olduğunu, her cihaz ve işletim sistemi sürümüyle uyumlu
 olduğunu ya da içerdiği bilgilerin her zaman doğru, eksiksiz ve güncel olduğunu
 garanti etmez.
+
+Egzersiz videoları uygulamayla birlikte yüklenmez: uygulama bunları internetten
+indirir – bir sonraki antrenmanın videolarını önceden – ve cihazında saklar.
+İndirme için internet bağlantısı gerekir ve mobil operatörün veri kullanımı için
+ücret alabilir. Bağlantı yokken, henüz indirilmemiş bir video gösterilemez;
+antrenmanın kendisi yine de kullanılabilir.
 
 Sağlayıcı, uygulamanın özelliklerini her zaman değiştirebilir, bazı özellikleri
 kaldırabilir veya geliştirmeyi ve desteği sonlandırabilir; makul ölçüde mümkün

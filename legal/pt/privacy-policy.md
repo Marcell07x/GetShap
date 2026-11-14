@@ -1,6 +1,6 @@
 # GetShap – Política de Privacidade
 
-**Última atualização:** 29 de outubro de 2026
+**Última atualização:** 14 de novembro de 2026
 
 Esta política de privacidade se aplica ao aplicativo GetShap.
 
@@ -22,9 +22,9 @@ transmite:
 
 Tudo o que você insere – suas respostas ao questionário, seu nível de treino,
 sua sequência e suas configurações – fica armazenado **somente no seu próprio
-dispositivo**, no armazenamento do próprio aplicativo. O desenvolvedor não tem
-servidor nem banco de dados e não tem acesso a esses dados. Ao excluir o
-aplicativo, esses dados também são excluídos.
+dispositivo**, no armazenamento do próprio aplicativo. Nada disso é enviado a
+lugar nenhum: o desenvolvedor não tem banco de dados e não tem acesso a esses
+dados. Ao excluir o aplicativo, esses dados também são excluídos.
 
 Se o backup do sistema estiver ativado no seu dispositivo (backup do iCloud ou
 do Google), o sistema operacional pode incluir os dados do aplicativo nos seus
@@ -33,8 +33,25 @@ seu dispositivo.
 
 ## Conexão com a internet
 
-O aplicativo funciona offline. Ele se conecta à rede com uma única finalidade:
-verificar se há uma versão mais recente disponível.
+O aplicativo se conecta à rede com apenas duas finalidades: baixar os vídeos dos
+exercícios e verificar se há uma versão mais recente disponível.
+
+**Vídeos dos exercícios.** Os vídeos não fazem parte do aplicativo instalado. O
+aplicativo baixa os vídeos do seu próximo treino do servidor do desenvolvedor
+(`getshap.com`) e os mantém no seu dispositivo, de modo que um treino
+cujos vídeos já estão lá funciona offline. Um download é uma simples solicitação
+de arquivo: ela informa o nome do arquivo de vídeo e, como em qualquer
+solicitação pela internet, o servidor vê o endereço IP do seu dispositivo. Ela
+não contém nenhuma conta, nenhum identificador, nenhum cookie nem nada do que
+você inseriu no aplicativo. O servidor é operado por um provedor de hospedagem
+na Hungria em nome do desenvolvedor (como operador de dados). O registro das
+solicitações está desativado nesse servidor, de modo que o desenvolvedor não
+mantém nenhum registro dos downloads; o provedor de hospedagem pode tratar dados
+técnicos na medida necessária para operar e proteger a sua rede. A base legal é
+a prestação do serviço que você solicitou (artigo 6, parágrafo 1, alínea b, do
+GDPR).
+
+**Verificação de atualizações.**
 
 - **iOS:** ele consulta o serviço público de busca de apps da Apple
   (`itunes.apple.com`) usando o identificador do aplicativo. Como em qualquer

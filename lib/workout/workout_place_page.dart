@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:getshap/core/workout_signal.dart';
 import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/onboarding/question_template.dart';
+import 'package:getshap/workout/next_workout_videos.dart';
 
 /// Whether the home-or-park question is due: from level 150, until it is
 /// answered.
@@ -54,6 +55,8 @@ class WorkoutPlacePage extends StatelessWidget {
                     final prefs = await SharedPreferences.getInstance();
                     await prefs.setInt('placeSwitch', value as int);
                     await prefs.setBool('placeQuestionAnswered', true);
+                    // A park workout has other pulls than one at home.
+                    downloadNextWorkoutVideos();
                     if (!ctx.mounted) return;
                     if (nextBuilder != null) {
                         Navigator.of(ctx).pushReplacement(

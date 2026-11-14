@@ -9,7 +9,7 @@
     "consentCheckbox": "Kullanım Koşulları'nı ve Sağlık Uyarısı'nı okudum ve kabul ediyorum; antrenmanları kendi sorumluluğumda yaptığımı anlıyorum.",
     "consentAccept": "Kabul et ve başla",
     "consentUpdatedTitle": "Koşullarımız değişti",
-    "consentUpdatedBody": "Kullanım Koşulları ve Sağlık Uyarısı güncellendi. Devam etmek için lütfen bunları oku ve kabul et.",
+    "consentUpdatedBody": "Kullanım Koşulları ve Gizlilik Politikası güncellendi: uygulama artık egzersiz videolarını internetten indiriyor. Devam etmek için lütfen bunları oku ve koşulları kabul et.",
     "consentTermsLink": "Kullanım Koşulları",
     "consentHealthLink": "Sağlık Uyarısı",
     "consentPrivacyLink": "Gizlilik",
@@ -73,6 +73,8 @@
     "saveConfirm": "{reps} tekrar yaptığına emin misin?",
     "cancel": "İptal",
     "goback": "Geri",
+    "videoNeedsInternet": "Bu videoyu indirmek için internete bağlan.",
+    "tryAgain": "Tekrar dene",
     "startWorkout": "Başla",
 
 

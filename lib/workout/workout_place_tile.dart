@@ -5,6 +5,7 @@ import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_spacing.dart';
 import 'package:getshap/theme/app_typography.dart';
+import 'package:getshap/workout/next_workout_videos.dart';
 
 /// The menu row for switching between home and park, with the current choice
 /// under it. It shows up once the home-or-park question is answered, or has
@@ -79,6 +80,8 @@ class _WorkoutPlaceTileState extends State<WorkoutPlaceTile> {
 
         final prefs = await SharedPreferences.getInstance();
         await prefs.setInt('placeSwitch', place);
+        // A park workout has other pulls than one at home.
+        downloadNextWorkoutVideos();
         await _load();
     }
 

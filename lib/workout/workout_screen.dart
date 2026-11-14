@@ -1,3 +1,6 @@
+import 'dart:io' show File;
+import 'dart:math' show max;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show SliverConstraints;
 import 'package:flutter/services.dart';
@@ -11,8 +14,11 @@ import 'package:getshap/l10n/app_localizations.dart';
 import 'package:getshap/theme/app_colors.dart';
 import 'package:getshap/theme/app_spacing.dart';
 import 'package:getshap/theme/app_typography.dart';
+import 'package:getshap/workout/exercise_videos.dart';
 
 class WorkoutScreen extends StatefulWidget {
+    /// The exercise's video: its file name on the server and on the device
+    /// (exercises.dart).
     final String videoPath;
     final String exerciseName;
 
@@ -65,8 +71,17 @@ class WorkoutScreen extends StatefulWidget {
 }
 
 class _WorkoutScreenState extends State<WorkoutScreen> {
-    late VideoPlayerController _controller;
+    /// Null until the video is on the device: while it is being downloaded
+    /// there is nothing to play yet.
+    VideoPlayerController? _controller;
     double _videoAspectRatio = 16 / 9;
+
+    /// The video is not on the device and could not be downloaded.
+    bool _videoMissing = false;
+
+    /// Counts the videos asked for, so that one arriving after the screen has
+    /// moved on to another exercise is dropped.
+    int _videoRequest = 0;
 
     /// Owned explicitly so the scrollbar can attach to it, and so the next
     /// exercise starts at the top of its description rather than wherever the
@@ -92,10 +107,22 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         _initializeVideo();
     }
 
-    void _initializeVideo() {
+    /// Starts the exercise's video, downloading it first if it is not on the
+    /// device yet. The spinner stays up meanwhile. If the video cannot be
+    /// downloaded, a message with a retry button takes its place.
+    Future<void> _initializeVideo() async {
+        final int request = ++_videoRequest;
+        final File? file = await ExerciseVideos.get(widget.videoPath);
+        // Another exercise came, or the screen was left, while it downloaded.
+        if (!mounted || request != _videoRequest) return;
+        if (file == null) {
+            setState(() => _videoMissing = true);
+            return;
+        }
+
         // Capture the controller locally so the initialize callback always acts
         // on this exact instance, never on one that was later replaced/disposed.
-        final controller = VideoPlayerController.asset(widget.videoPath);
+        final controller = VideoPlayerController.file(file);
         _controller = controller;
 
         controller.initialize().then((_) {
@@ -109,8 +136,15 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         });
     }
 
+    /// Asks for the video again, from the message shown in its place.
+    void _retryVideo() {
+        setState(() => _videoMissing = false);
+        _initializeVideo();
+    }
+
     void _disposeController() {
-        _controller.dispose();
+        _controller?.dispose();
+        _controller = null;
     }
 
     @override
@@ -118,6 +152,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
         super.didUpdateWidget(oldWidget);
         if (oldWidget.videoPath != widget.videoPath) {
             _disposeController();
+            _videoMissing = false;
             _initializeVideo();
         }
         if (oldWidget.description != widget.description &&
@@ -183,12 +218,22 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                         // until it has a number.
                         child: ValueListenableBuilder<TextEditingValue>(
                             valueListenable: _testReps,
-                            builder: (context, value, _) => AppButton(
-                                label: _isEntering ? loc.save : widget.buttonText,
-                                size: AppButtonSize.md,
-                                trailingIcon: Icons.arrow_forward_rounded,
-                                onPressed: _isEntering && value.text.isEmpty ? null : _next,
-                            ),
+                            builder: (context, value, _) {
+                                String label = widget.buttonText;
+                                if (_isEntering) {
+                                    label = loc.save;
+                                }
+                                VoidCallback? onPressed = _next;
+                                if (_isEntering && value.text.isEmpty) {
+                                    onPressed = null;
+                                }
+                                return AppButton(
+                                    label: label,
+                                    size: AppButtonSize.md,
+                                    trailingIcon: Icons.arrow_forward_rounded,
+                                    onPressed: onPressed,
+                                );
+                            },
                         ),
                     ),
                 ],
@@ -222,36 +267,38 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                                 widget.description,
                                 style: AppText.bodyMedium.copyWith(color: AppColors.n600),
                             );
+                            // With no room left at all, the description follows
+                            // in full and the whole page scrolls.
+                            Widget body = description;
+                            if (left >= 0) {
+                                // Plain text on the page rather than the old
+                                // filled panel, which made the instructions
+                                // outweigh the video — the wrong way round for
+                                // something you glance at between reps.
+                                //
+                                // The scrollbar stays, because a description
+                                // that runs past the fold with no mark on it
+                                // looks finished. `thumbVisibility` keeps it up
+                                // the whole time instead of fading after a
+                                // scroll, and Flutter paints nothing at all when
+                                // the text already fits — so it appears exactly
+                                // when it means something.
+                                body = SizedBox(
+                                    height: left,
+                                    child: Scrollbar(
+                                        controller: _descriptionScroll,
+                                        thumbVisibility: true,
+                                        child: SingleChildScrollView(
+                                            controller: _descriptionScroll,
+                                            padding: const EdgeInsets.only(right: AppSpacing.md),
+                                            child: description,
+                                        ),
+                                    ),
+                                );
+                            }
                             return SliverPadding(
                                 padding: const EdgeInsets.only(bottom: AppSpacing.md),
-                                sliver: SliverToBoxAdapter(
-                                    child: left < 0
-                                        ? description
-                                        // Plain text on the page rather than the old
-                                        // filled panel, which made the instructions
-                                        // outweigh the video — the wrong way round
-                                        // for something you glance at between reps.
-                                        //
-                                        // The scrollbar stays, because a description
-                                        // that runs past the fold with no mark on it
-                                        // looks finished. `thumbVisibility` keeps it
-                                        // up the whole time instead of fading after a
-                                        // scroll, and Flutter paints nothing at all
-                                        // when the text already fits — so it appears
-                                        // exactly when it means something.
-                                        : SizedBox(
-                                            height: left,
-                                            child: Scrollbar(
-                                                controller: _descriptionScroll,
-                                                thumbVisibility: true,
-                                                child: SingleChildScrollView(
-                                                    controller: _descriptionScroll,
-                                                    padding: const EdgeInsets.only(right: AppSpacing.md),
-                                                    child: description,
-                                                ),
-                                            ),
-                                        ),
-                                ),
+                                sliver: SliverToBoxAdapter(child: body),
                             );
                         },
                     ),
@@ -317,6 +364,11 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     /// The label moves under the field when a large system font leaves no
     /// room beside it.
     Widget _buildTestReps(AppLocalizations loc) {
+        Color numberColor = AppColors.n400;
+        if (_isEntering) {
+            numberColor = AppColors.brand500;
+        }
+
         return Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
@@ -344,7 +396,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                                 ],
                                 textAlign: TextAlign.center,
                                 style: AppText.numeral(AppText.displaySmall).copyWith(
-                                    color: _isEntering ? AppColors.brand500 : AppColors.n400,
+                                    color: numberColor,
                                 ),
                                 decoration: const InputDecoration(isDense: true),
                             ),
@@ -375,9 +427,71 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                     ),
                     child: ClipRRect(
                         borderRadius: AppRadius.all(AppRadius.md),
-                        child: _controller.value.isInitialized
-                            ? VideoPlayer(_controller)
-                            : const Center(child: CircularProgressIndicator()),
+                        child: _buildVideoContent(context),
+                    ),
+                ),
+            ),
+        );
+    }
+
+    /// What the video's box holds: the video once it plays, a spinner while
+    /// it is being downloaded or started, and a message when it is not on the
+    /// device and cannot be downloaded.
+    Widget _buildVideoContent(BuildContext context) {
+        final VideoPlayerController? controller = _controller;
+        if (controller != null && controller.value.isInitialized) {
+            return VideoPlayer(controller);
+        }
+        if (_videoMissing) {
+            return _buildVideoMissing(context);
+        }
+        return const Center(child: CircularProgressIndicator());
+    }
+
+    /// In the video's place when it could not be downloaded: why, and a
+    /// button to try again. The workout goes on without it: the exercise's
+    /// name, its reps and its description are all still on the page.
+    ///
+    /// The box does not grow with its text, so the text grows with the system
+    /// font only as far as the box has room for it in every language: 1.3
+    /// times. Past that the button's label would wrap and lose its second
+    /// line. Should it still not fit (a very small box), the message and the
+    /// button shrink together, and are never laid out narrower than 240,
+    /// which would squeeze the button.
+    Widget _buildVideoMissing(BuildContext context) {
+        final AppLocalizations loc = AppLocalizations.of(context)!;
+        return MediaQuery.withClampedTextScaling(
+            maxScaleFactor: 1.3,
+            child: Padding(
+                padding: const EdgeInsets.all(AppSpacing.md),
+                child: LayoutBuilder(
+                    builder: (BuildContext context, BoxConstraints box) => FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: SizedBox(
+                            width: max(box.maxWidth, 240.0),
+                            child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                    Text(
+                                        loc.videoNeedsInternet,
+                                        textAlign: TextAlign.center,
+                                        style: AppText.bodyMedium.copyWith(color: AppColors.onBrand),
+                                    ),
+                                    const SizedBox(height: AppSpacing.md),
+                                    // As wide as its label, not as the box.
+                                    IntrinsicWidth(
+                                        child: AppButton(
+                                            label: loc.tryAgain,
+                                            variant: AppButtonVariant.secondary,
+                                            size: AppButtonSize.md,
+                                            leadingIcon: Icons.refresh_rounded,
+                                            expand: false,
+                                            onPressed: _retryVideo,
+                                        ),
+                                    ),
+                                ],
+                            ),
+                        ),
                     ),
                 ),
             ),

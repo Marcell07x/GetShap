@@ -9,7 +9,7 @@
     "consentCheckbox": "I have read and accept the Terms of Use and the Health Disclaimer, and I understand that I train at my own risk.",
     "consentAccept": "Accept and start",
     "consentUpdatedTitle": "Our terms have changed",
-    "consentUpdatedBody": "The Terms of Use and the Health Disclaimer have been updated. Please read and accept them to continue.",
+    "consentUpdatedBody": "The Terms of Use and the Privacy Policy have been updated: the app now downloads the exercise videos from the internet. Please read them and accept the terms to continue.",
     "consentTermsLink": "Terms of Use",
     "consentHealthLink": "Health Disclaimer",
     "consentPrivacyLink": "Privacy",
@@ -83,6 +83,8 @@
     },
     "cancel": "Cancel",
     "goback": "Back",
+    "videoNeedsInternet": "Connect to the internet to download this video.",
+    "tryAgain": "Try again",
     "startWorkout": "Start Workout",
 
 

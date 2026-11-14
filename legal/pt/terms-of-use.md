@@ -1,6 +1,6 @@
 # GetShap – Termos de Uso
 
-**Em vigor desde:** 29 de outubro de 2026 · **Versão:** 1.0
+**Em vigor desde:** 14 de novembro de 2026 · **Versão:** 1.1
 
 Leia estes termos com atenção. Ao baixar, instalar ou usar o aplicativo
 GetShap, você os aceita. Se não os aceitar, não use o aplicativo.
@@ -104,6 +104,12 @@ O aplicativo é fornecido **“no estado em que se encontra”**. O Fornecedor n
 garante que o aplicativo esteja livre de erros, disponível de forma contínua e
 compatível com todos os dispositivos e versões de sistema operacional, nem que
 as informações que ele contém estejam sempre corretas, completas e atualizadas.
+
+Os vídeos dos exercícios não são instalados com o aplicativo: ele os baixa da
+internet – os do próximo treino com antecedência – e os mantém no seu
+dispositivo. O download precisa de conexão com a internet, e a sua operadora
+pode cobrar pelo uso de dados. Sem conexão, um vídeo que ainda não foi baixado
+não pode ser exibido; o treino em si continua disponível.
 
 O Fornecedor pode modificar os recursos do aplicativo, descontinuar recursos
 específicos ou encerrar o desenvolvimento e o suporte a qualquer momento,

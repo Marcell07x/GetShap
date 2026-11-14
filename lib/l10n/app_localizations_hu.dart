@@ -42,7 +42,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get consentUpdatedBody =>
-      'Módosultak a Felhasználási feltételek és az Egészségügyi tájékoztató. Kérjük, olvasd el és fogadd el őket a folytatáshoz.';
+      'Módosultak a Felhasználási feltételek és az Adatvédelmi tájékoztató: az alkalmazás mostantól az internetről tölti le a gyakorlatvideókat. Kérjük, olvasd el őket, és fogadd el a feltételeket a folytatáshoz.';
 
   @override
   String get consentTermsLink => 'Felhasználási feltételek';
@@ -211,6 +211,13 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get goback => 'Előző';
+
+  @override
+  String get videoNeedsInternet =>
+      'A videó letöltéséhez internetkapcsolat kell.';
+
+  @override
+  String get tryAgain => 'Újra';
 
   @override
   String get startWorkout => 'Edzés Kezdése';

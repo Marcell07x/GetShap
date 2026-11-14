@@ -1,6 +1,6 @@
 # GetShap Privacy Policy
 
-**Last updated:** 29 October 2026
+**Last updated:** 14 November 2026
 
 This privacy policy applies to the GetShap application.
 
@@ -20,9 +20,9 @@ The app does not request, store on our side, or transmit:
 - or any other form of personal data.
 
 Everything you enter – your questionnaire answers, training level, streak and
-settings – is stored **on your own device only**, in the app's own storage. The
-developer has no server and no database, and cannot access it. Deleting the app
-deletes this data.
+settings – is stored **on your own device only**, in the app's own storage. It
+is never sent anywhere: the developer has no database and cannot access it.
+Deleting the app deletes this data.
 
 If system-level backup is enabled on your device (iCloud or Google backup), your
 operating system may include the app's data in its backups, under Apple's or
@@ -30,8 +30,22 @@ Google's rules and your device settings.
 
 ## Internet connection
 
-The app works offline. It connects to the network for one purpose only: to check
-whether a newer version is available.
+The app connects to the network for two purposes only: to download the exercise
+videos, and to check whether a newer version is available.
+
+**Exercise videos.** The videos are not part of the installed app. The app
+downloads the videos of your next workout from the developer's server
+(`getshap.com`) and keeps them on your device, so a workout whose videos
+are already there works offline. A download is a plain file request: it names
+the video file and, as with any internet request, the server sees your device's
+IP address. It carries no account, no identifier, no cookie, and nothing you
+entered in the app. The server is run by a hosting provider in Hungary on the
+developer's behalf (as a data processor). Request logging is switched off on it,
+so the developer keeps no record of the downloads; the hosting provider may
+handle technical data as far as running and protecting its network requires. The
+legal basis is providing the service you asked for (GDPR Article 6(1)(b)).
+
+**Update check.**
 
 - **iOS:** it queries Apple's public app lookup service (`itunes.apple.com`)
   using the app's identifier. As with any internet request, Apple sees your

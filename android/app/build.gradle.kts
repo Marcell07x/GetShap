@@ -34,7 +34,12 @@ android {
         applicationId = "app.bodnarm.getshap"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        //
+        // 25, one above Flutter's own minimum: the exercise videos come from a
+        // server whose certificate Android 7.0 (24) does not trust, so there
+        // the app would have no videos at all. Those phones stay on the last
+        // version that had the videos built in.
+        minSdk = 25
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName

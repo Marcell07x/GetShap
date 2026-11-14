@@ -42,7 +42,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get consentUpdatedBody =>
-      'Die Nutzungsbedingungen und der Gesundheitshinweis wurden aktualisiert. Bitte lies sie und akzeptiere sie, um fortzufahren.';
+      'Die Nutzungsbedingungen und die Datenschutzerklärung wurden aktualisiert: Die App lädt die Übungsvideos jetzt aus dem Internet herunter. Bitte lies sie und akzeptiere die Bedingungen, um fortzufahren.';
 
   @override
   String get consentTermsLink => 'Nutzungsbedingungen';
@@ -217,6 +217,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get goback => 'Zurück';
+
+  @override
+  String get videoNeedsInternet =>
+      'Für dieses Video brauchst du eine Internetverbindung.';
+
+  @override
+  String get tryAgain => 'Erneut versuchen';
 
   @override
   String get startWorkout => 'Training starten';

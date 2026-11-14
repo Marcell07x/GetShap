@@ -1,15 +1,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
+    <!-- For downloading the exercise videos (lib/workout/exercise_videos.dart).
+         The debug manifest has its own copy for the Flutter tool, so without
+         this one the downloads would work in debug and fail in release. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
+    <!-- The two backup rules keep the downloaded exercise videos out of the
+         cloud backup, which stops altogether above 25 MB: the user's level and
+         streak would no longer be backed up either. Android 11 and lower read
+         fullBackupContent, Android 12 and higher dataExtractionRules. -->
     <application
         android:label="GetShap"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon"
-        android:localeConfig="@xml/locales_config">
+        android:localeConfig="@xml/locales_config"
+        android:fullBackupContent="@xml/backup_rules"
+        android:dataExtractionRules="@xml/data_extraction_rules">
         <activity
             android:name=".MainActivity"
             android:exported="true"

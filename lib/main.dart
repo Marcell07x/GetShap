@@ -30,6 +30,7 @@ import 'package:getshap/notifications/schedule_noti.dart';
 import 'package:getshap/core/checkdata.dart';
 import 'package:getshap/core/prefs_migration.dart';
 import 'package:getshap/workout/next_workout_page.dart';
+import 'package:getshap/workout/next_workout_videos.dart';
 import 'package:getshap/tips/tip_detail_screen.dart';
 import 'package:getshap/tips/cut_tip_text.dart';
 import 'package:getshap/common/side_menu.dart';
@@ -172,6 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
         _checkWorkout();
         WorkoutSignal.onSignalChanged = _checkWorkout;
         _initTipManager();
+        downloadNextWorkoutVideos();
         // After the first frame (so a Scaffold/ScaffoldMessenger exists), check
         // for a newer version: a background Play update on Android, or an App
         // Store prompt on iOS.
