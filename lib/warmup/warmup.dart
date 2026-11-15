@@ -3,6 +3,7 @@ import 'package:getshap/core/level.dart';
 import "package:shared_preferences/shared_preferences.dart";
 import 'package:getshap/workout/legswitch.dart';
 import 'package:getshap/workout/pullprogression.dart';
+import 'package:getshap/warmup/warmup_park.dart';
 
 class Warmup {
     late int _levelE;
@@ -62,5 +63,16 @@ class Warmup {
         } else if (_levelE >= 150) {
             warmup_parts = [{..._pushex}, {..._lightpullex}, {..._legsex}];
         }
+
+        for (final Map<String, String> part in warmup_parts) {
+            if (part['nameKey'] == 'runInPlace') {
+                // seconds
+                part['reps'] = '20';
+            } else {
+                part['reps'] = '12';
+            }
+        }
+
+        await WarmupPark.parkify(warmup_parts);
     }
 }

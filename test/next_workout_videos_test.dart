@@ -113,7 +113,7 @@ void main() {
         }
     });
 
-    test('a park workout brings the videos of its own pulls', () async {
+    test('a park workout brings the videos of its own pulls, its warm-up\'s too', () async {
         // All along the park ladder, and well past its last stage.
         for (int parkLevel = 0; parkLevel <= 480; parkLevel += 40) {
             user(200, <String, Object>{
@@ -130,6 +130,14 @@ void main() {
                     reason: 'park level $parkLevel, $nameKey',
                 );
             }
+
+            final Warmup warmup = Warmup();
+            await warmup.setWarmup();
+            expect(
+                videos,
+                containsAll(videosOf(warmup.warmup_parts)),
+                reason: 'park level $parkLevel, warm-up',
+            );
         }
     });
 
