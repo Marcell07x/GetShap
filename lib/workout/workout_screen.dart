@@ -191,15 +191,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
             title: '${widget.label} (${widget.currentIndex + 1}/${widget.totalWorkouts})',
             leading: IconButton(
                 icon: const Icon(Icons.close),
-                // Pop back to the live home page rather than building a second
-                // one. Both exits from a workout now take the same route (the
-                // congratulations screen already does this), and the existing
-                // home keeps its WorkoutSignal.onSignalChanged registration — a
-                // fresh MyHomePage would claim that single static slot in
-                // initState only for the old page's dispose to null it again
-                // immediately afterwards, silently killing the home screen's
-                // streak/flame refresh for the rest of the session. The workout
-                // route is removed either way, so back still cannot return to it.
                 onPressed: () =>
                     Navigator.of(context).popUntil((route) => route.isFirst),
             ),
@@ -238,10 +229,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                     ),
                 ],
             ),
-            // The description takes what the top of the page leaves, and
-            // scrolls there on its own. When the top does not fit at all (a
-            // large system font, or the keyboard up on a test), the whole page
-            // scrolls instead, with the description after it in full.
+
             body: CustomScrollView(
                 controller: _pageScroll,
                 slivers: <Widget>[
@@ -271,18 +259,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                             // in full and the whole page scrolls.
                             Widget body = description;
                             if (left >= 0) {
-                                // Plain text on the page rather than the old
-                                // filled panel, which made the instructions
-                                // outweigh the video — the wrong way round for
-                                // something you glance at between reps.
-                                //
-                                // The scrollbar stays, because a description
-                                // that runs past the fold with no mark on it
-                                // looks finished. `thumbVisibility` keeps it up
-                                // the whole time instead of fading after a
-                                // scroll, and Flutter paints nothing at all when
-                                // the text already fits — so it appears exactly
-                                // when it means something.
                                 body = SizedBox(
                                     height: left,
                                     child: Scrollbar(
@@ -311,12 +287,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     /// right, then hands it over: once saved, it cannot change.
     Future<void> _next() async {
         if (_isEntering) {
-            // The field itself lets go of the focus. Unfocusing the page's
-            // scope instead left the field as the page's last focus, and
-            // closing the window handed it back: the keyboard came up again,
-            // and on Yes went straight back down as the next exercise came,
-            // which on Android can leave the keyboard's height behind as an
-            // empty band.
             FocusManager.instance.primaryFocus?.unfocus();
             final int reps = int.parse(_testReps.text);
             final AppLocalizations loc = AppLocalizations.of(context)!;
